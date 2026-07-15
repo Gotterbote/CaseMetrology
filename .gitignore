@@ -23,3 +23,17 @@ models/*
 
 logs/*
 !logs/.gitkeep
+
+# Research data and generated outputs
+raw_images/*
+!raw_images/.gitkeep
+processed_images/*
+!processed_images/.gitkeep
+datasets/*
+!datasets/.gitkeep
+measurements/*
+!measurements/.gitkeep
+models/*
+!models/.gitkeep
+logs/*
+!logs/.gitkeep
