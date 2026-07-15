@@ -1,0 +1,79 @@
+CaseMetrology System Baseline
+Recorded: 2026-07-14T19:46:34-05:00
+
+=== Operating System ===
+Linux timmy-nano 6.8.12-1021-tegra #1 SMP PREEMPT Mon Jun  1 13:25:46 PDT 2026 aarch64 aarch64 aarch64 GNU/Linux
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+
+=== NVIDIA Jetson Release ===
+# R39 (release), REVISION: 2.0, GCID: 45755727, BOARD: generic, EABI: aarch64, DATE: Mon Jun  1 09:28:48 PM UTC 2026
+# KERNEL_VARIANT: oot
+TARGET_USERSPACE_LIB_DIR=nvidia
+TARGET_USERSPACE_LIB_DIR_PATH=usr/lib/aarch64-linux-gnu/nvidia
+
+=== Development Tools ===
+Python 3.12.3
+git version 2.43.0
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+cmake version 3.28.3
+1.11.1
+
+=== Python Libraries ===
+OpenCV: 4.6.0
+NumPy: 1.26.4
+SciPy: 1.11.4
+Pandas: 2.1.4
+Matplotlib: 3.6.3
+scikit-image: 0.22.0
+
+=== Storage ===
+NAME         MODEL                 SIZE FSTYPE   MOUNTPOINTS
+loop0                             61.9M squashfs /snap/core24/1644
+loop1                                4K squashfs /snap/bare/5
+loop2                            240.2M squashfs /snap/firefox/8593
+loop3                            552.9M squashfs /snap/gnome-46-2404/154
+loop4                             91.7M squashfs /snap/gtk-common-themes/1535
+loop5                             43.4M squashfs /snap/snapd/27407
+loop6                            174.6M squashfs /snap/mesa-2404/1166
+loop7                            203.6M squashfs /snap/thunderbird/1169
+loop8                               16M vfat     
+loop9                            188.2M squashfs /snap/mesa-2404/1836
+loop10                             8.4M squashfs /snap/snap-tpmctl/99
+nvme0n1      WD_BLACK SN7100 2TB   1.8T          
+├─nvme0n1p1                        1.8T ext4     /
+├─nvme0n1p2                        128M          
+├─nvme0n1p3                        768K          
+├─nvme0n1p4                       31.6M          
+├─nvme0n1p5                        128M          
+├─nvme0n1p6                        768K          
+├─nvme0n1p7                       31.6M          
+├─nvme0n1p8                        100M          
+├─nvme0n1p9                        512K          
+├─nvme0n1p10                        64M vfat     /boot/efi
+├─nvme0n1p11                       100M          
+├─nvme0n1p12                       512K          
+├─nvme0n1p13                        64M          
+├─nvme0n1p14                       400M          
+└─nvme0n1p15                     479.5M          
+
+=== Camera Devices ===
+NVIDIA Tegra Video Input Device (platform:tegra-capture-vi):
+	/dev/media0
+
+Arducam B0499 (USB3 1.58MP) (usb-3610000.usb-1.2):
+	/dev/video0
+	/dev/video1
+	/dev/media1
+
