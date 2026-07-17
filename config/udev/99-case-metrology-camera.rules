@@ -1,0 +1,1 @@
+SUBSYSTEM=="video4linux", KERNEL=="video*", ATTRS{idVendor}=="04b4", ATTRS{idProduct}=="0499", ATTRS{serial}=="Arducam_20231211_0001", ENV{ID_V4L_CAPABILITIES}==":capture:", SYMLINK+="case-metrology-camera", SYMLINK+="arducam-usb3"
