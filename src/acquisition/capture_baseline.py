@@ -4,7 +4,7 @@ from pathlib import Path
 import cv2
 
 
-DEVICE = "/dev/video0"
+DEVICE = "/dev/case-metrology-camera"
 WIDTH = 1456
 HEIGHT = 1088
 FPS = 44
