@@ -1,0 +1,28 @@
+Arducam B0499 Startup Enumeration Issue
+Date documented: 2026-07-18
+
+Hardware:
+- NVIDIA Jetson Orin Nano Super Developer Kit
+- Arducam B0499 USB3 1.58 MP camera
+- USB ID: 04b4:0499
+- Serial: Arducam_20231211_0001
+
+Observed behavior:
+- Camera does not enumerate automatically following a warm reboot.
+- Camera does not enumerate automatically following a full shutdown and cold boot.
+- The behavior was reproduced using two physical USB 3 ports.
+- No Arducam entry appears in lsusb or the kernel boot log during the failed startup state.
+- Physically unplugging and reconnecting the camera restores normal USB 3 and UVC detection.
+- Persistent aliases then appear correctly:
+  /dev/case-metrology-camera
+  /dev/arducam-usb3
+
+Recovery testing:
+- uhubctl identified the camera on USB 3 hub 2-1, port 1.
+- Software port cycling works when the camera has already enumerated.
+- Software port cycling did not reliably recover the camera after it failed to enumerate during startup.
+- The experimental systemd recovery service was disabled.
+
+Interim operating procedure:
+After Jetson startup, physically reconnect the Arducam and verify that
+/dev/case-metrology-camera exists before beginning image acquisition.
