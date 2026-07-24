@@ -1,0 +1,52 @@
+CaseMetrology Calibration Reference Standard
+Certificate Number: T26A06624
+Certificate information transcribed from the supplied Certificate of Inspection
+
+=== INSTRUMENT ===
+Instrument: Gauge Block
+Manufacturer: Mitutoyo
+Grade: 0 (ASME)
+Identification number: 253568
+Inspection date: 2026-01-21
+Material: Steel
+
+=== CERTIFIED DIMENSION ===
+Nominal length: 1.0000000 in
+Central deviation: +2.4 microinches
+Certified central length: 1.0000024 in
+Maximum deviation: +2.4 microinches
+Minimum deviation: +0.4 microinches
+Surface variation: 2.0 microinches
+
+=== INSPECTION CONDITIONS ===
+Environment:
+  68 +/- 1.8 degrees F
+  20 +/- 1.0 degrees C
+
+Basis of test: ASME B89.1.9-2002
+Inspection method: Comparator
+
+Coefficient of thermal expansion:
+  (6.0 +/- 0.3) x 10^-6 / degree F
+  (10.8 +/- 0.5) x 10^-6 / K
+
+=== UNCERTAINTY ===
+Expanded uncertainty for central deviation:
+  Up to 4 in: 2.4 microinches
+  Up to 20 in: (1.6 + 0.43L) microinches
+  L = nominal length in inches
+
+=== TRACEABILITY ===
+The certificate states that the inspection reference standard is traceable
+to NMIJ AIST through JCSS and is equivalent to NIST and PTB traceability
+through the CIPM Mutual Recognition Arrangement.
+
+Certificate signed by: K. Yoshida
+
+=== CASEMETROLOGY USE ===
+Certified calibration dimension at the certificate reference temperature:
+  1.0000024 in
+
+The gauge block will be used as the dimensional reference for pixel-to-length
+calibration. Ambient temperature must be recorded during controlled calibration
+and measurement sessions.
