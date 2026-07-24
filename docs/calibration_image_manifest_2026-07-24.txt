@@ -1,5 +1,5 @@
 CaseMetrology Calibration Image Manifest
-Generated: 2026-07-24T11:42:12-05:00
+Generated: 2026-07-24T12:51:47-05:00
 Source directory: raw_images/baseline
 
 Raw images are intentionally excluded from Git.
@@ -20,6 +20,11 @@ Resolution: 1456 x 1088
 Size bytes: 2042523
 SHA-256: cc3e73e1ac35a8d882fc755d2e5d0358a16c5836f1ec7d9a7d55ce37589351ec
 
+Filename: gauge_block_1in_locked_controls_centered_refocused_20260724_123200.png
+Resolution: 1456 x 1088
+Size bytes: 1043875
+SHA-256: d4269874de46bd749727aee2237f8b6f95f6e83628783889e3eeca98fb566887
+
 Filename: gauge_block_1in_locked_controls_full_frame_20260724_112530.png
 Resolution: 1456 x 1088
 Size bytes: 1016688
@@ -34,3 +39,28 @@ Filename: gauge_block_1in_locked_controls_left_clipped_20260724_104600.png
 Resolution: 1456 x 1088
 Size bytes: 1077999
 SHA-256: bd7d2cc7af7851a60432ca4d92fa7fdd8f0d001e7a3405a282e3d6cbc8ce7dd4
+
+Filename: gauge_block_repeatability_01_20260724_123706.png
+Resolution: 1456 x 1088
+Size bytes: 1044703
+SHA-256: a20f9ae11901928c60f0fac5f2b0b74e6d74bb328e5f76a714e4b35896772974
+
+Filename: gauge_block_repeatability_02_20260724_123709.png
+Resolution: 1456 x 1088
+Size bytes: 1043124
+SHA-256: 5da44e4c51dd425594f4255f96b84200191c2cf9c3ac087ad6bc8d045825101e
+
+Filename: gauge_block_repeatability_03_20260724_123712.png
+Resolution: 1456 x 1088
+Size bytes: 1044109
+SHA-256: b8377d0c0107bfae92dd7446a5fa22907d4b1d1364b866f9e69f8ca21565f97e
+
+Filename: gauge_block_repeatability_04_20260724_123715.png
+Resolution: 1456 x 1088
+Size bytes: 1044332
+SHA-256: 1a255ea8fd3596f1fb9f73130b7c6f52cdc4df214fb0a6a7f7769fdd888f4816
+
+Filename: gauge_block_repeatability_05_20260724_123718.png
+Resolution: 1456 x 1088
+Size bytes: 1044760
+SHA-256: 8131381fd165ce5e9f4d7603b03b8b4485a1da1e1253967b5ab012ab80f7a369
