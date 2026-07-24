@@ -1,0 +1,20 @@
+CaseMetrology Fixed-Setup Acquisition Repeatability
+Generated: 2026-07-24T12:43:41-05:00
+Images evaluated: 5
+Certified gauge-block length: 1.0000024 in
+
+=== BETWEEN-IMAGE RESULTS ===
+Overall mean span: 522.579310 px
+Between-image standard deviation: 0.015227 px
+Peak-to-peak variation: 0.041379 px
+Calculated inches per pixel: 0.001913590 in/px
+Between-image standard deviation: 0.000029139 in
+Peak-to-peak variation: 0.000079183 in
+
+Interpretation:
+  This evaluates repeated image acquisition with the gauge block,
+  camera, lens, lighting, and fixture left undisturbed.
+  It does not evaluate removal-and-replacement repeatability,
+  dimensional accuracy, temperature effects, or final uncertainty.
+
+Detailed CSV: docs/fixed_setup_repeatability_2026-07-24.csv
