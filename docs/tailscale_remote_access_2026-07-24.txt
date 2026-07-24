@@ -1,0 +1,54 @@
+CaseMetrology Remote Access Configuration
+Captured: 2026-07-24
+
+=== TAILSCALE DEVICES ===
+Jetson:
+  Hostname: timmy-nano
+  Tailscale IP: 100.89.229.28
+  Platform: Linux
+
+Windows workstation:
+  Hostname: timsdesk
+  Tailscale IP: 100.71.13.87
+  Platform: Windows
+
+Connection status:
+  Direct peer-to-peer connection confirmed.
+  Passwordless SSH and VS Code Remote-SSH confirmed operational.
+
+=== TAILSCALE VERSION ===
+Version: 1.98.9
+Long version: 1.98.9-t4fb758c39-g200941d74
+
+=== SSH CONFIGURATION ===
+Host alias: timmy-nano
+HostName: 100.89.229.28
+User: timmy
+Identity file: C:/Users/Tim/.ssh/id_ed25519
+
+=== SERVICE CONFIGURATION ===
+Service: tailscaled
+Startup: enabled
+UDP port: 41641
+Configuration file: /etc/default/tailscaled
+Firewall mode: default selection (iptables)
+
+=== KNOWN HEALTH WARNING ===
+Tailscale reports that it cannot install its connmark-based rp_filter
+workaround because the Jetson kernel/iptables environment does not support
+the requested CONNMARK --nfmask/--ctmask operation.
+
+Observed effect:
+  The warning does not prevent direct Tailscale connectivity, SSH access,
+  Git operations, or VS Code Remote-SSH access in the current configuration.
+
+Troubleshooting performed:
+  Native nftables mode was tested using TS_DEBUG_FIREWALL_MODE=nftables.
+  The nftables mode activated successfully but produced a corresponding
+  connmark/netlink error.
+  The experimental setting was removed and the original configuration restored.
+
+Operational decision:
+  Retain the default Tailscale configuration.
+  Do not configure this Jetson as a subnet router or exit node without
+  revisiting the connmark limitation.
