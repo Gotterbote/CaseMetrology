@@ -1,0 +1,65 @@
+CaseMetrology Gauge-Block Repositioning Repeatability Protocol
+Date: 2026-07-24
+
+Purpose:
+  Evaluate measurement variation caused by removing and replacing the
+  certified gauge block while leaving the camera, lens, lighting, fixture,
+  and image-processing settings unchanged.
+
+Reference standard:
+  Mitutoyo Grade 0 gauge block
+  Certificate number: T26A06624
+  Identification number: 253568
+  Certified vertical length: 1.0000024 in
+
+Locator fixture:
+  A clear Lexan locator plate will fit snugly between the side rails of the
+  measurement surface.
+
+  The Lexan plate will contain a notched locating area formed by two
+  perpendicular datum faces. A small clearance relief will be provided at
+  the inside corner so the gauge-block corner cannot bottom against a cut
+  radius. The gauge block must contact both straight datum faces
+  simultaneously during seating.
+
+  The gauge block will rest flat on the measurement surface so its
+  front-to-back depth plane remains consistent.
+
+  The locator will position the block without clamping, squeezing, lifting,
+  or tilting it.
+
+Controlled conditions:
+  Camera position remains fixed.
+  Lens position and focus remain fixed.
+  Camera controls remain locked.
+  Backlight position and output remain fixed.
+  Lexan locator position remains fixed between the side rails.
+  Gauge-block certified dimension remains vertical.
+  Gauge-block broad face remains parallel to the camera sensor plane.
+
+Positioning method:
+  1. Place the Lexan locator snugly between the measurement-surface rails.
+  2. Place the gauge block into the notched locating area.
+  3. Gently seat the block against both surfaces of the 90-degree corner.
+  4. Confirm that the block rests flat on the measurement surface.
+  5. Apply no clamping force that could tilt or distort the block position.
+
+Validation before testing:
+  Capture and compare backlight images with and without the Lexan locator.
+  Confirm that the Lexan does not create edge glare, reflections, shadows,
+  or localized illumination changes near the gauge-block measurement edges.
+
+Repositioning sequence:
+  1. Remove the gauge block completely from the locator.
+  2. Replace it and gently seat it against both locating surfaces.
+  3. Confirm that it rests flat without visible tilt.
+  4. Capture one image.
+  5. Repeat for 10 independent removal-and-replacement cycles.
+
+Interpretation limits:
+  This test evaluates the combined repeatability of the Lexan locator,
+  gauge-block seating process, image acquisition, and measurement algorithm.
+
+  It does not by itself establish dimensional accuracy, temperature
+  compensation, reproducibility between operators, or total measurement
+  uncertainty.
