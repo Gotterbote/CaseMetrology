@@ -1,0 +1,43 @@
+]633;E;echo "CaseMetrology Jetson Software Environment";09116929-decd-484f-9379-92d271dc7e4e]633;CCaseMetrology Jetson Software Environment
+Captured: 2026-07-24T09:59:57-05:00
+Git commit: 5c902e6586f27ba2164c145dbcf3950e60dee54b
+
+=== OPERATING SYSTEM ===
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+VERSION_ID="24.04"
+Kernel: 6.8.12-1021-tegra
+Architecture: aarch64
+
+=== NVIDIA JETSON RELEASE ===
+# R39 (release), REVISION: 2.0, GCID: 45755727, BOARD: generic, EABI: aarch64, DATE: Mon Jun  1 09:28:48 PM UTC 2026
+# KERNEL_VARIANT: oot
+TARGET_USERSPACE_LIB_DIR=nvidia
+TARGET_USERSPACE_LIB_DIR_PATH=usr/lib/aarch64-linux-gnu/nvidia
+
+=== POWER CONFIGURATION ===
+NV Power Mode: 15W
+0
+< POWER_MODEL ID=0 NAME=15W >
+< POWER_MODEL ID=1 NAME=7W >
+
+=== DEVELOPMENT TOOLS ===
+Python 3.12.3
+git version 2.43.0
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+cmake version 3.28.3
+1.11.1
+
+=== OPENCV CONFIGURATION ===
+OpenCV version: 4.6.0
+CUDA-enabled device count: 0
+GStreamer:                   YES (1.24.1)
+
+=== NVIDIA COMPUTE PACKAGES ===
+nvidia-l4t-cuda	39.2.0-20260601141651
+nvidia-l4t-cuda-nvgpu	39.2.0-20260601141651
+nvidia-l4t-cuda-openrm	39.2.0-20260601141651
+nvidia-l4t-cuda-utils	39.2.0-20260601141651
+
+=== PYTHON PACKAGE MANIFEST ===
+Full pip manifest: docs/python_environment_manifest_2026-07-24.txt
+Recorded packages: 147
