@@ -1,0 +1,36 @@
+CaseMetrology Calibration Image Manifest
+Generated: 2026-07-24T11:42:12-05:00
+Source directory: raw_images/baseline
+
+Raw images are intentionally excluded from Git.
+SHA-256 hashes uniquely identify the files used during calibration development.
+
+Filename: baseline_no_backlight.png
+Resolution: 1456 x 1088
+Size bytes: 2351645
+SHA-256: 92e0143bb6487f3d700588eabd2fa619c03fb78402a25709a78ccec294174e9c
+
+Filename: baseline_with_backlight.png
+Resolution: 1456 x 1088
+Size bytes: 2174322
+SHA-256: ba664be49177a3654c3be2f6c2e19cf3fdc38ca9c133d24812bed0ffc7332365
+
+Filename: gauge_block_1in_auto_controls_left_clipped_20260724_103551.png
+Resolution: 1456 x 1088
+Size bytes: 2042523
+SHA-256: cc3e73e1ac35a8d882fc755d2e5d0358a16c5836f1ec7d9a7d55ce37589351ec
+
+Filename: gauge_block_1in_locked_controls_full_frame_20260724_112530.png
+Resolution: 1456 x 1088
+Size bytes: 1016688
+SHA-256: df79895a5fe7c83ef463ec8a6af4f8f15adbfa7430f913ff42edc09be9ca3643
+
+Filename: gauge_block_1in_locked_controls_full_frame_initial_20260724_105236.png
+Resolution: 1456 x 1088
+Size bytes: 1015453
+SHA-256: ed9779316d4ae8754d71d7b01af024504b424e62d82139d614c2fc57f06054ac
+
+Filename: gauge_block_1in_locked_controls_left_clipped_20260724_104600.png
+Resolution: 1456 x 1088
+Size bytes: 1077999
+SHA-256: bd7d2cc7af7851a60432ca4d92fa7fdd8f0d001e7a3405a282e3d6cbc8ce7dd4
