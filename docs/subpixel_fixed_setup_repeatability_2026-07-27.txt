@@ -1,0 +1,24 @@
+CaseMetrology Subpixel Fixed-Setup Acquisition Repeatability
+Generated: 2026-07-27T17:36:38-05:00
+Images evaluated: 5
+Certified gauge-block length: 1.0000024 in
+
+=== BETWEEN-IMAGE RESULTS ===
+Overall mean fitted span: 523.276849 px
+Between-image standard deviation: 0.009954 px
+Peak-to-peak variation: 0.027090 px
+Calculated inches per pixel: 0.001911039 in/px
+Between-image standard deviation: 0.000019022 in
+Peak-to-peak variation: 0.000051770 in
+
+Method:
+  Top and bottom measuring faces were located using local grayscale
+  midpoint crossings and fitted across the central gauge-block region.
+
+Interpretation:
+  This evaluates repeated subpixel image measurement with the gauge
+  block, camera, lens, lighting, and fixture left undisturbed.
+  It does not establish removal-and-replacement repeatability,
+  dimensional accuracy, temperature compensation, or final uncertainty.
+
+Detailed CSV: docs/subpixel_fixed_setup_repeatability_2026-07-27.csv
