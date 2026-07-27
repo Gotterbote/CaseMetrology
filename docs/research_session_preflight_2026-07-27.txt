@@ -1,0 +1,76 @@
+CaseMetrology Research Session Preflight
+Timestamp: 2026-07-27T18:31:47-05:00
+Hostname: timmy-nano
+Project root: /home/timmy/Projects/CaseMetrology
+
+=== BASE SYSTEM PREFLIGHT ===
+CaseMetrology System Preflight
+Timestamp: 2026-07-27T18:31:47-05:00
+Hostname: timmy-nano
+Git commit: f6c52e4
+
+=== TIME SYNCHRONIZATION ===
+PASS: System clock synchronized
+               Local time: Mon 2026-07-27 18:31:47 CDT
+           Universal time: Mon 2026-07-27 23:31:47 UTC
+                 RTC time: Mon 2026-07-27 23:31:47
+                Time zone: America/Chicago (CDT, -0500)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
+
+=== POWER MODE ===
+NV Power Mode: 15W
+0
+
+=== STORAGE ===
+Filesystem     Type  Size  Used Avail Use% Mounted on
+/dev/nvme0n1p1 ext4  1.8T   17G  1.7T   1% /
+PASS: At least 100 GB storage available
+
+=== CAMERA ===
+PASS: Arducam detected on USB bus
+PASS: Persistent camera alias exists
+lrwxrwxrwx 1 root root 6 Jul 27 17:05 /dev/case-metrology-camera -> video0
+PASS: Camera capture interface responds
+
+=== PYTHON ENVIRONMENT ===
+PASS: Project Python interpreter exists
+Python 3.12.3
+PASS: Required Python packages import successfully
+
+=== REPOSITORY ===
+## main...origin/main
+
+PREFLIGHT RESULT: PASS
+
+Preflight log saved to: /home/timmy/Projects/CaseMetrology/logs/preflight/preflight_20260727_183147.txt
+PASS: Base system preflight completed successfully
+
+=== LOCKED CAMERA CONTROLS ===
+Locked research camera controls applied and verified
+Device: /dev/case-metrology-camera
+auto_exposure: 1
+white_balance_automatic: 0
+exposure_time_absolute: 5
+gain: 100
+white_balance_temperature: 2498
+brightness: 0
+contrast: 10
+saturation: 0
+Status: PASS
+PASS: Locked camera controls applied and verified
+
+=== RESEARCH SOFTWARE ===
+PASS: src/acquisition/capture_research.py
+PASS: src/acquisition/apply_locked_controls.py
+PASS: src/calibration/analyze_gauge_block.py
+PASS: src/calibration/analyze_subpixel_gauge_block.py
+PASS: src/calibration/analyze_subpixel_batch.py
+PASS: src/calibration/compare_illumination.py
+
+=== REPOSITORY STATE ===
+Git commit: f6c52e45a3e6f16c563c58d9ea243e87f32e523e
+PASS: Git working tree is clean
+
+RESEARCH SESSION PREFLIGHT RESULT: PASS
