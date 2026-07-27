@@ -64,6 +64,15 @@ def parse_args() -> argparse.Namespace:
         help="Number of independent repositioning cycles (default: 10).",
     )
     parser.add_argument(
+        "--mode",
+        choices=["workflow_validation", "removal_and_replacement"],
+        default="removal_and_replacement",
+        help=(
+            "Session purpose recorded in metadata "
+            "(default: removal_and_replacement)."
+        ),
+    )
+    parser.add_argument(
         "--output-root",
         type=Path,
         default=Path("raw_images/repositioning"),
@@ -287,7 +296,7 @@ def main() -> None:
         "schema_version": 1,
         "session_id": session_id,
         "test_name": test_name,
-        "test_mode": "removal_and_replacement",
+        "test_mode": args.mode,
         "started_at": started_at.isoformat(timespec="seconds"),
         "completed_at": datetime.now().astimezone().isoformat(timespec="seconds"),
         "hostname": socket.gethostname(),
