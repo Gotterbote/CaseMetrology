@@ -1,0 +1,19 @@
+CaseMetrology Threshold-Sensitivity Analysis
+Generated: 2026-07-27T17:19:40-05:00
+Image: raw_images/baseline/gauge_block_1in_locked_controls_centered_refocused_20260724_123200.png
+Certified gauge-block length: 1.0000024 in
+Otsu-selected threshold: 100.0
+Threshold range tested: 70 to 130 in steps of 5
+
+=== SUMMARY ===
+Minimum mean span: 520.955172 px
+Maximum mean span: 524.127148 px
+Mean-span range: 3.171975 px
+Equivalent dimensional range: 0.006070386 in
+
+Interpretation:
+  This evaluates sensitivity of the integer-pixel measurement
+  result to the selected binary threshold.
+  It does not establish final accuracy or uncertainty.
+
+Detailed CSV: docs/threshold_sensitivity_2026-07-27.csv
