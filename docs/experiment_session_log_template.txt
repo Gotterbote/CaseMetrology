@@ -1,0 +1,63 @@
+CaseMetrology Experimental Session Log
+
+=== SESSION IDENTIFICATION ===
+Session date:
+Session start time:
+Session end time:
+Operator:
+Test name:
+Git commit:
+Research preflight log:
+
+=== ENVIRONMENT ===
+Room temperature:
+Temperature unit:
+Temperature instrument:
+Instrument identification:
+Temperature measurement location:
+Temperature recorded at:
+Additional environmental observations:
+
+Note:
+  The gauge-block certificate reference temperature is 68 degrees F
+  (20 degrees C).
+
+=== EQUIPMENT STATE ===
+Camera alias:
+Camera serial:
+Camera controls verified:
+Lens position unchanged:
+Focus unchanged:
+Camera mount unchanged:
+Backlight position unchanged:
+Backlight output unchanged:
+Measurement surface unchanged:
+
+=== FIXTURE STATE ===
+Lexan locator installed:
+Locator fits between rails without bowing:
+Internal-corner relief verified:
+Both datum-face contacts verified:
+Gauge block rests flat:
+Certified dimension oriented vertically:
+
+=== DATA COLLECTION ===
+Acquisition session ID:
+Image directory:
+Metadata file:
+Cycles requested:
+Cycles completed:
+Analysis report:
+Detailed CSV:
+
+=== DEVIATIONS OR INTERRUPTIONS ===
+Record any camera reconnection, refocusing, fixture movement, lighting
+change, software error, interrupted cycle, repeated capture, or other
+departure from the planned procedure:
+
+None / Details:
+
+=== SESSION DISPOSITION ===
+Data accepted for analysis:
+Reason accepted or rejected:
+Follow-up actions:
