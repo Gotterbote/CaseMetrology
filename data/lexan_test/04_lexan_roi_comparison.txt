@@ -1,0 +1,24 @@
+Lexan Optical Comparison — Fixed ROI Analysis
+
+Image dimensions: 1456 x 1088
+ROI coordinates: x=500:1300, y=350:900
+ROI dimensions: 800 x 550
+
+WITHOUT LEXAN
+Mean grayscale: 225.1456
+Standard deviation: 8.2595
+Minimum: 189
+Maximum: 237
+
+WITH LEXAN
+Mean grayscale: 225.0625
+Standard deviation: 8.3692
+Minimum: 187
+Maximum: 237
+
+COMPARISON
+Mean grayscale change: -0.0831
+Mean percent change: -0.0369%
+Mean absolute pixel difference: 0.8864
+RMSE: 1.2830
+95th-percentile absolute difference: 3.0000

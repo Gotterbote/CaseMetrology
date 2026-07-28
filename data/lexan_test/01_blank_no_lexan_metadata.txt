@@ -1,0 +1,11 @@
+test=lexan_optical_comparison
+condition=blank_backlight_no_lexan
+timestamp=2026-07-28T17:55:08.555788-05:00
+camera=/dev/case-metrology-camera
+resolution=1456x1088
+mean_grayscale=208.7956
+standard_deviation_grayscale=19.8919
+minimum_grayscale=118
+maximum_grayscale=237
+image_file=data/lexan_test/01_blank_no_lexan.png
+sha256=6b8e5f24893d26510558a2c673787bbc01f6c70991bf6b0943789929bc872ee2

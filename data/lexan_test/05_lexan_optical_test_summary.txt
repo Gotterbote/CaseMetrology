@@ -1,0 +1,47 @@
+Lexan Optical Comparison — Preliminary Research Interpretation
+
+Test date: 2026-07-28
+
+Purpose:
+Evaluate whether installing the Lexan fixture surface materially changes
+illumination within the intended unobstructed measurement region.
+
+Controlled acquisition conditions:
+- Camera: Arducam B0499 USB3 global-shutter camera
+- Resolution: 1456 x 1088
+- Pixel format: YUYV
+- Frame rate: 44 fps
+- Exposure mode: Manual
+- Exposure value: 5
+- Gain: 100
+- Automatic white balance: Disabled
+- Camera settings verified unchanged before and after capture
+
+Fixed ROI:
+- x = 500:1300
+- y = 350:900
+- ROI size = 800 x 550 pixels
+
+Results:
+- Mean grayscale without Lexan: 225.1456
+- Mean grayscale with Lexan: 225.0625
+- Mean grayscale change: -0.0831
+- Mean percent change: -0.0369%
+- Mean absolute pixel difference: 0.8864
+- RMSE: 1.2830
+- 95th-percentile absolute difference: 3.0000
+
+Preliminary interpretation:
+The Lexan did not produce a practically meaningful change in mean
+illumination within the selected unobstructed ROI. The central measurement
+region remained optically stable under the tested conditions.
+
+Limitations:
+This result is based on one paired capture and does not independently
+establish repeatability. The visible Lexan or fixture boundary must remain
+outside the dimensional measurement ROI because it may create false edges.
+
+Conclusion:
+The Lexan is provisionally suitable for continued fixture testing within
+the defined central ROI. Removal-and-replacement repeatability testing is
+still required.
