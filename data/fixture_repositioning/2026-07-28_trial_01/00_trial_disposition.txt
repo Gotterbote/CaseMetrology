@@ -1,0 +1,53 @@
+CaseMetrology Trial Disposition Record
+
+Trial designation:
+Trial 01 — Orientation-Error Exploratory Repositioning Dataset
+
+Acquisition date:
+2026-07-28
+
+Original session:
+lexan_gauge_block_repositioning_trial_01_20260728_182212
+
+Acquisition result:
+- 10 of 10 removal-and-replacement cycles completed.
+- All ten images passed file-integrity validation.
+- Camera controls remained unchanged before, during, and after acquisition.
+- The repository was clean at acquisition commit
+  3c119936d9f6c500fe921481fd292f6c62bad715.
+
+Disposition reason:
+The gauge block was installed approximately 90 degrees from the orientation
+specified in the approved repositioning protocol.
+
+The protocol requires the certified 1.0000024-inch dimension to be vertical.
+During this trial, the longer approximately 1.375-inch dimension was oriented
+vertically and the certified dimension was oriented horizontally.
+
+Permitted use:
+This dataset may be retained as exploratory evidence concerning:
+- Gauge-block removal and replacement
+- Mechanical locator seating behavior
+- Operator seating consistency
+- Image-acquisition stability
+- Pixel-level positional and edge repeatability
+
+Prohibited use:
+This dataset must not be used as:
+- The official certified gauge-block repositioning trial
+- A certified 1.0000024-inch dimensional calibration
+- Evidence of absolute dimensional accuracy
+- Final acceptance evidence for the Lexan locator
+- A source of inch-based results using the one-inch vertical calibration
+
+Required corrective action:
+Repeat the full 10-cycle experiment with:
+- The certified 1.0000024-inch dimension vertical
+- The approximately 1.375-inch dimension horizontal
+- The gauge block appearing wider than it is tall
+- Camera, lens, backlight, and Lexan locator unchanged
+
+Evidence-preservation instruction:
+Do not alter, rename, overwrite, or delete the original images or session
+metadata. This disposition record supplements the original acquisition
+record and does not replace it.
