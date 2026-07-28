@@ -1,0 +1,173 @@
+CaseMetrology Development Session Summary
+Generated: 2026-07-27T19:05:35-05:00
+Git commit at summary creation: 119ac859384607d4f2d768ce35bd0cfce6fa3777
+
+=== SESSION PURPOSE ===
+Prepare the CaseMetrology system for controlled calibration and
+gauge-block repositioning experiments while the Lexan locator fixture
+was unavailable.
+
+=== RESEARCH ACQUISITION DEVELOPMENT ===
+Created and validated:
+  src/acquisition/capture_research.py
+
+Capabilities:
+  Meaningful session and image names
+  Multiple-image capture
+  Precise timestamps
+  SHA-256 image hashes
+  Camera settings recorded before and after capture
+  Camera resolution and frame-rate documentation
+  Git commit and working-tree-state documentation
+  JSON session metadata
+
+Validation result:
+  Successful capture at 1456 x 1088 and 44 fps
+  Locked camera controls remained unchanged
+  Clean committed Git state recorded successfully
+
+=== CAMERA CONTROL RECOVERY ===
+Created and validated:
+  src/acquisition/apply_locked_controls.py
+
+Operational finding:
+  USB reconnection resets saturation, automatic white balance, and
+  exposure controls to camera defaults.
+
+Validated locked state:
+  brightness: 0
+  contrast: 10
+  saturation: 0
+  white_balance_automatic: 0
+  gain: 100
+  white_balance_temperature: 2498
+  auto_exposure: 1
+  exposure_time_absolute: 5
+
+The utility successfully restored the locked state from simulated
+camera-reset values.
+
+=== THRESHOLD-SENSITIVITY ANALYSIS ===
+Created and validated:
+  src/calibration/analyze_threshold_sensitivity.py
+
+Tested thresholds:
+  70 through 130 in increments of 5
+
+Result:
+  Minimum mean span: 520.955172 px
+  Maximum mean span: 524.127148 px
+  Mean-span range: 3.171975 px
+  Equivalent dimensional range: 0.006070386 in
+
+Interpretation:
+  Integer-pixel binary thresholding is highly repeatable under fixed
+  settings but is too sensitive to threshold selection to serve as
+  the final dimensional edge-location method.
+
+=== SUBPIXEL EDGE ANALYSIS ===
+Created and validated:
+  src/calibration/analyze_subpixel_gauge_block.py
+  src/calibration/analyze_subpixel_batch.py
+
+Method:
+  Local grayscale midpoint crossings identify the top and bottom
+  measuring faces at subpixel positions.
+  Linear fits are applied across the central gauge-block region.
+
+Five-image fixed-setup result:
+  Mean fitted span: 523.276849 px
+  Between-image standard deviation: 0.009954 px
+  Peak-to-peak variation: 0.027090 px
+  Between-image standard deviation: 0.000019022 in
+  Peak-to-peak variation: 0.000051770 in
+
+Interpretation:
+  The subpixel method produced excellent fixed-setup acquisition and
+  algorithm repeatability.
+
+  This result does not yet establish absolute dimensional accuracy,
+  removal-and-replacement repeatability, operator reproducibility,
+  temperature compensation, or total measurement uncertainty.
+
+=== FIXTURE ILLUMINATION ANALYSIS ===
+Created and validated:
+  src/calibration/compare_illumination.py
+
+Validation:
+  Identical-image comparison returned zero for every difference metric.
+  Backlight-on versus backlight-off comparison produced clearly nonzero
+  metrics and a visible difference image.
+
+Planned use:
+  Compare empty-backlight images captured with and without the clear
+  Lexan locator installed.
+
+=== RESEARCH SESSION CONTROL ===
+Created and validated:
+  scripts/run_research_session_preflight.sh
+
+Checks include:
+  Base Jetson system preflight
+  Camera detection and persistent device alias
+  Locked camera-control restoration and verification
+  Required research software
+  Clean Git working tree
+  Exact Git commit
+
+A complete committed-state preflight returned PASS.
+
+=== GUIDED REPOSITIONING ACQUISITION ===
+Created and validated:
+  src/acquisition/capture_repositioning_sequence.py
+
+Capabilities:
+  Guided independent placement cycles
+  Per-cycle camera-control verification
+  Fresh-frame capture
+  Meaningful filenames
+  Image hashes
+  Per-cycle timestamps and metadata
+  Clean Git-state requirement
+  Explicit workflow-validation or removal-and-replacement mode
+
+Two-cycle workflow validation completed successfully.
+The validation captures were not treated as repositioning experimental data.
+
+=== EXPERIMENTAL DOCUMENTATION ===
+Created:
+  docs/lexan_fixture_validation_runbook_2026-07-28.txt
+  docs/experiment_session_log_template.txt
+
+The runbook defines:
+  Research preflight
+  Ambient-temperature recording
+  Empty-backlight reference without Lexan
+  Empty-backlight capture with Lexan
+  Illumination comparison
+  Mechanical locator inspection
+  Ten independent removal-and-replacement cycles
+  Subpixel batch analysis
+  Interpretation limits
+
+=== NEXT EXPERIMENTAL STEPS ===
+1. Fabricate the clear Lexan locator.
+2. Verify snug rail fit without bowing.
+3. Verify internal-corner relief and two-datum-face contact.
+4. Run the research-session preflight.
+5. Record ambient temperature.
+6. Capture empty backlight without Lexan.
+7. Capture empty backlight with Lexan.
+8. Run and inspect the illumination comparison.
+9. Complete 10 independent gauge-block repositioning cycles.
+10. Run the subpixel batch analyzer.
+11. Preserve the session log, metadata, CSV, report, and image hashes.
+
+=== CURRENT RESEARCH STATUS ===
+The software environment, acquisition controls, subpixel measurement
+method, experiment workflow, and traceability structure are ready.
+
+The principal remaining uncertainty is the combined repeatability of the
+Lexan locator, gauge-block seating, and operator repositioning process.
+Absolute dimensional accuracy must be evaluated separately after the
+fixture-validation phase.
