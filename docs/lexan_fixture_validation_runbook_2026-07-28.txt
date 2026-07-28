@@ -1,0 +1,94 @@
+CaseMetrology Lexan Locator Validation Runbook
+Planned date: 2026-07-28
+
+Purpose:
+  Validate that the clear Lexan locator does not adversely alter the
+  backlight field, then evaluate gauge-block removal-and-replacement
+  repeatability using the validated subpixel measurement method.
+
+=== PHASE 1: PRE-SESSION CHECKS ===
+1. Physically reconnect the Arducam if the camera alias is missing.
+2. Run:
+     ./scripts/run_research_session_preflight.sh
+3. Do not proceed unless the final result is PASS.
+4. Record ambient temperature near the fixture.
+5. Confirm the camera, lens, focus, backlight, and measurement surface
+   have not been moved.
+
+=== PHASE 2: NO-LEXAN ILLUMINATION REFERENCE ===
+1. Remove the gauge block and Lexan locator from the measurement area.
+2. Ensure the backlight field is unobstructed.
+3. Capture one controlled image:
+     python src/acquisition/capture_research.py \
+       --label empty_backlight_without_lexan \
+       --count 1
+4. Record the image and metadata paths.
+
+=== PHASE 3: LEXAN ILLUMINATION VALIDATION ===
+1. Install the unoccupied Lexan locator between the side rails.
+2. Do not move the camera, lens, backlight, or measurement surface.
+3. Capture one controlled image:
+     python src/acquisition/capture_research.py \
+       --label empty_backlight_with_lexan \
+       --count 1
+4. Compare the no-Lexan and with-Lexan images using:
+     python src/calibration/compare_illumination.py \
+       <without_lexan_image> \
+       <with_lexan_image>
+5. Inspect both the numerical report and the difference image.
+6. Do not proceed if the Lexan creates visible glare, shadows, edge glow,
+   or localized intensity changes near the measurement area.
+
+=== PHASE 4: LOCATOR MECHANICAL CHECK ===
+1. Confirm the Lexan fits snugly between the side rails without bowing.
+2. Confirm the internal-corner relief prevents the gauge-block corner
+   from contacting a cut radius.
+3. Confirm the gauge block contacts both straight datum faces.
+4. Confirm the block rests flat without clamping, lifting, or tilting.
+5. Confirm the certified 1.0000024-inch dimension is vertical.
+
+=== PHASE 5: TEN-CYCLE REPOSITIONING TEST ===
+1. Run:
+     python src/acquisition/capture_repositioning_sequence.py \
+       --test-name lexan_gauge_block_repositioning \
+       --cycles 10 \
+       --mode removal_and_replacement
+2. For every prompted cycle:
+   a. Remove the gauge block completely.
+   b. Replace it in the Lexan locator.
+   c. Gently seat it against both datum faces.
+   d. Confirm it rests flat.
+   e. Press Enter to capture.
+3. Do not move the camera, lens, backlight, or Lexan locator during
+   the sequence.
+
+=== PHASE 6: SUBPIXEL BATCH ANALYSIS ===
+Analyze the 10 captured images using:
+
+  python src/calibration/analyze_subpixel_batch.py \
+    <session_image_directory>/*.png \
+    --test-name lexan_gauge_block_repositioning \
+    --mode repositioning
+
+Review:
+  Between-image standard deviation
+  Peak-to-peak variation
+  Minimum and maximum fitted spans
+  Top- and bottom-edge angles
+  Edge-angle difference
+  Individual-image hashes and deviations
+
+=== INTERPRETATION LIMITS ===
+This experiment evaluates the combined repeatability of:
+  Lexan locator seating
+  Gauge-block removal and replacement
+  Operator seating technique
+  Image acquisition
+  Subpixel edge measurement
+
+It does not by itself establish:
+  Absolute dimensional accuracy
+  Temperature compensation
+  Reproducibility between operators
+  Cartridge-case measurement accuracy
+  Total measurement uncertainty
