@@ -1,0 +1,46 @@
+CaseMetrology Repositioning Session Integrity Verification
+
+Verification timestamp: 2026-07-28T21:04:20-05:00
+Metadata file: measurements/repositioning/lexan_gauge_block_repositioning_trial_02_20260728_201449.json
+Session ID: lexan_gauge_block_repositioning_trial_02_20260728_201449
+Test mode: removal_and_replacement
+Acquisition Git commit: 289547147415e2205835974b8b10c9b999964290
+Verification-method Git commit: 0faff446fe26f402194552dcdfe6b6e705ee5457
+
+AUTOMATED CHECKS
+PASS | Required metadata fields | all required fields present
+PASS | Metadata schema version | recorded=1
+PASS | Verification method traceability | tracked and unchanged at 0faff446fe26f402194552dcdfe6b6e705ee5457
+PASS | Clean acquisition working tree | recorded=False
+PASS | Approved camera configuration | approved camera state
+PASS | Expected controls record | matches locked controls
+PASS | Controls before acquisition | matches locked controls
+PASS | Controls after acquisition | matches locked controls
+PASS | Acquisition completeness | requested=10, completed=10, records=10
+PASS | Sequential unique cycle numbers | cycles=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+PASS | Unique image records | paths and filenames are unique and non-null
+PASS | Controls for every capture | all capture controls match
+PASS | Image file integrity | passed=10 of 10
+
+IMAGE RECORDS
+PASS | Cycle 1 | path=raw_images/repositioning/lexan_gauge_block_repositioning_trial_02_20260728_201449/lexan_gauge_block_repositioning_trial_02_cycle_01_20260728_201509_038728.png | exists=True | readable=True | dimensions_ok=True | size_ok=True | sha256_ok=True | filename_ok=True
+PASS | Cycle 2 | path=raw_images/repositioning/lexan_gauge_block_repositioning_trial_02_20260728_201449/lexan_gauge_block_repositioning_trial_02_cycle_02_20260728_201519_842058.png | exists=True | readable=True | dimensions_ok=True | size_ok=True | sha256_ok=True | filename_ok=True
+PASS | Cycle 3 | path=raw_images/repositioning/lexan_gauge_block_repositioning_trial_02_20260728_201449/lexan_gauge_block_repositioning_trial_02_cycle_03_20260728_201526_648855.png | exists=True | readable=True | dimensions_ok=True | size_ok=True | sha256_ok=True | filename_ok=True
+PASS | Cycle 4 | path=raw_images/repositioning/lexan_gauge_block_repositioning_trial_02_20260728_201449/lexan_gauge_block_repositioning_trial_02_cycle_04_20260728_201532_859124.png | exists=True | readable=True | dimensions_ok=True | size_ok=True | sha256_ok=True | filename_ok=True
+PASS | Cycle 5 | path=raw_images/repositioning/lexan_gauge_block_repositioning_trial_02_20260728_201449/lexan_gauge_block_repositioning_trial_02_cycle_05_20260728_201538_971039.png | exists=True | readable=True | dimensions_ok=True | size_ok=True | sha256_ok=True | filename_ok=True
+PASS | Cycle 6 | path=raw_images/repositioning/lexan_gauge_block_repositioning_trial_02_20260728_201449/lexan_gauge_block_repositioning_trial_02_cycle_06_20260728_201545_744715.png | exists=True | readable=True | dimensions_ok=True | size_ok=True | sha256_ok=True | filename_ok=True
+PASS | Cycle 7 | path=raw_images/repositioning/lexan_gauge_block_repositioning_trial_02_20260728_201449/lexan_gauge_block_repositioning_trial_02_cycle_07_20260728_201554_300348.png | exists=True | readable=True | dimensions_ok=True | size_ok=True | sha256_ok=True | filename_ok=True
+PASS | Cycle 8 | path=raw_images/repositioning/lexan_gauge_block_repositioning_trial_02_20260728_201449/lexan_gauge_block_repositioning_trial_02_cycle_08_20260728_201559_819186.png | exists=True | readable=True | dimensions_ok=True | size_ok=True | sha256_ok=True | filename_ok=True
+PASS | Cycle 9 | path=raw_images/repositioning/lexan_gauge_block_repositioning_trial_02_20260728_201449/lexan_gauge_block_repositioning_trial_02_cycle_09_20260728_201606_193837.png | exists=True | readable=True | dimensions_ok=True | size_ok=True | sha256_ok=True | filename_ok=True
+PASS | Cycle 10 | path=raw_images/repositioning/lexan_gauge_block_repositioning_trial_02_20260728_201449/lexan_gauge_block_repositioning_trial_02_cycle_10_20260728_201613_761458.png | exists=True | readable=True | dimensions_ok=True | size_ok=True | sha256_ok=True | filename_ok=True
+
+MANUAL REVIEWS NOT ESTABLISHED BY THIS SCRIPT
+- Gauge-block orientation
+- Physical seating against both datum faces
+- Unchanged camera, lens, focus, backlight, and Lexan locator
+- Environmental measurement classification
+- Diagnostic confirmation of correct measurement-edge fitting
+
+OVERALL AUTOMATED RESULT: PASS
+
+A PASS establishes acquisition-record integrity and traceability only. It does not establish dimensional accuracy, repeatability, uncertainty, or overall experimental acceptance.
