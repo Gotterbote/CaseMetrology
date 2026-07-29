@@ -1,0 +1,54 @@
+CaseMetrology Trial 02 — Corrected Orientation Verification
+
+Date:
+2026-07-28
+
+Research preflight:
+PASS
+
+Preflight log:
+logs/research_preflight/research_preflight_20260728_185615.txt
+
+Environmental observation:
+Approximate ambient temperature: 73.2 degrees Fahrenheit
+
+Temperature-data classification:
+The temperature reading was obtained from a non-calibrated or approximate
+instrument. It is retained as a supporting environmental observation and
+must not be represented as traceable temperature-metrology evidence.
+
+Gauge-block orientation:
+- Certified vertical dimension: 1.0000024 inches
+- Longer dimension: approximately 1.375 inches horizontal
+- Block appears wider than tall
+- Corrected orientation was verified using a research acquisition image
+
+Orientation-verification session:
+trial_02_corrected_orientation_verification_20260728_200026
+
+Source repository state:
+- Git commit: edac00426a59833aa1f434816e57bc0524f1f529
+- Working tree was clean during acquisition
+
+Subpixel verification results:
+- Otsu threshold: 99.0
+- Detected bounding box: x=379, y=255, w=725, h=528
+- Mean fitted vertical span: 523.068111 pixels
+- Median fitted vertical span: 523.005495 pixels
+- Valid columns: 289
+- Preliminary scale: 523.066855 pixels per inch
+- Preliminary resolution: 0.001911802 inches per pixel
+- Top fitted angle: 0.324833 degrees
+- Bottom fitted angle: 0.485038 degrees
+
+Diagnostic review:
+The detected bounding box follows the gauge-block silhouette. The fitted
+upper and lower edge segments follow the gauge block's measuring surfaces
+within the central analysis region. The visible Lexan locator boundaries
+do not appear to control the fitted measurement edges.
+
+Disposition:
+The corrected physical orientation and image-processing response are
+accepted for beginning the official Trial 02 removal-and-replacement
+sequence. These values remain preliminary and do not independently
+establish repositioning repeatability or absolute dimensional accuracy.
