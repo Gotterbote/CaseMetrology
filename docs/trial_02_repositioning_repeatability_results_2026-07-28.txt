@@ -1,0 +1,131 @@
+CaseMetrology Trial 02 — Gauge-Block Repositioning Repeatability Results
+
+Date:
+2026-07-28
+
+Test designation:
+Lexan Gauge-Block Repositioning Trial 02
+
+Session ID:
+lexan_gauge_block_repositioning_trial_02_20260728_201449
+
+Purpose:
+Evaluate the combined repeatability associated with complete gauge-block
+removal, replacement, seating in the Lexan locator, image acquisition,
+and subpixel dimensional measurement.
+
+Experimental configuration:
+- Camera: Arducam B0499 USB3 global-shutter camera
+- Resolution: 1456 x 1088 pixels
+- Pixel format: YUYV
+- Frame rate: 44 frames per second
+- Warmup frames: 20
+- Exposure mode: Manual
+- Exposure value: 5
+- Gain: 100
+- Automatic white balance: Disabled
+- Certified gauge-block vertical dimension: 1.0000024 inches
+- Longer approximately 1.375-inch dimension oriented horizontally
+- Number of independent removal-and-replacement cycles: 10
+
+Environmental observation:
+Approximate ambient temperature: 73.2 degrees Fahrenheit.
+
+The temperature was obtained using a non-calibrated or approximate
+instrument. It is retained as a supporting session observation and shall
+not be represented as traceable temperature-metrology evidence.
+
+Repository traceability:
+- Trial 02 orientation-verification commit: 2895471
+- Verification-method commit: 0faff44
+- Verified acquisition dataset commit: 5584f1e
+
+Pre-analysis integrity verification:
+PASS
+
+The automated verifier confirmed:
+- 10 cycles requested and 10 completed
+- Sequential and unique cycle records
+- Camera configuration matched the approved state
+- Camera controls remained unchanged before, during, and after acquisition
+- All images were readable
+- All images were 1456 x 1088 pixels
+- Recorded and actual file sizes matched
+- Recalculated SHA-256 hashes matched acquisition metadata
+- Verification method was version-controlled and unchanged
+
+Subpixel repeatability results:
+- Mean fitted span: 523.056377 pixels
+- Median fitted span: 523.056308 pixels
+- Minimum fitted span: 523.009429 pixels
+- Maximum fitted span: 523.098684 pixels
+- Between-image standard deviation: 0.031861 pixels
+- Pixel peak-to-peak variation: 0.089255 pixels
+- Calculated scale: 0.001911844 inches per pixel
+- Between-image standard deviation: 0.000060913 inches
+- Dimensional peak-to-peak variation: 0.000170642 inches
+
+Alignment results:
+- Mean top-edge angle: 0.343583 degrees
+- Mean bottom-edge angle: 0.496957 degrees
+- Mean edge-angle difference: 0.153375 degrees
+
+Visual diagnostic review:
+All ten diagnostic overlays were reviewed as a montage.
+
+The green detected-component boundaries consistently enclosed the gauge
+block. The blue fitted segments followed the upper and lower gauge-block
+measurement edges, and the red vertical measurement lines spanned the
+intended certified dimension.
+
+No cycle displayed:
+- Incorrect block orientation
+- Gross component-selection failure
+- Obvious false-edge selection from the Lexan locator
+- Missing measurement edges
+- A visually apparent seating or measurement outlier
+
+Interpretation:
+The observed between-image standard deviation of 0.000060913 inches and
+peak-to-peak variation of 0.000170642 inches are both below the project's
+0.001-inch repeatability objective.
+
+The results indicate that, under the tested conditions, the combined
+process of gauge-block removal, replacement, fixture seating, image
+capture, and subpixel measurement was repeatable for this operator and
+session.
+
+Acceptance:
+Trial 02 is accepted as evidence of single-operator, single-session
+fixture repositioning repeatability under the documented configuration.
+
+Limitations:
+This trial does not independently establish:
+- Absolute dimensional accuracy
+- Calibration uncertainty
+- Temperature compensation
+- Total measurement uncertainty
+- Between-day reproducibility
+- Between-operator reproducibility
+- Long-term fixture wear or drift
+- Cartridge-case measurement performance
+- Production-machine-cycle performance
+
+Research evidence paths:
+- Acquisition metadata:
+  measurements/repositioning/lexan_gauge_block_repositioning_trial_02_20260728_201449.json
+
+- Integrity report:
+  measurements/repositioning/lexan_gauge_block_repositioning_trial_02_20260728_201449_integrity_verification.txt
+
+- Evidence manifest:
+  measurements/repositioning/lexan_gauge_block_repositioning_trial_02_20260728_201449_evidence_manifest.sha256
+
+- Detailed analysis CSV:
+  measurements/repositioning/trial_02_analysis/lexan_gauge_block_repositioning_trial_02_20260728_210944.csv
+
+- Analysis report:
+  measurements/repositioning/trial_02_analysis/lexan_gauge_block_repositioning_trial_02_20260728_210944.txt
+
+- Diagnostic montage:
+  processed_images/repositioning/trial_02_analysis/trial_02_diagnostic_montage.png
