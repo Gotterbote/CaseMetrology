@@ -181,8 +181,11 @@ def main() -> int:
         if mask is None:
             raise RuntimeError(f"Could not read mask: {mask_path}")
 
-        baseline = measure_topdown_oal(mask)
-        geometry = measure_topdown_oal_geometry(mask)
+        # These are previously accepted analysis masks. Disable the fixture-width
+        # validation gate so this run isolates only the endpoint estimator.
+        estimator_kwargs = {"minimum_fixture_width_ratio": 0.0}
+        baseline = measure_topdown_oal(mask, **estimator_kwargs)
+        geometry = measure_topdown_oal_geometry(mask, **estimator_kwargs)
         difference = None
         if baseline.length_pixels is not None and geometry.length_pixels is not None:
             difference = geometry.length_pixels - baseline.length_pixels
@@ -277,6 +280,8 @@ def main() -> int:
         f"git_status_short_before_analysis = {source_status}",
         f"source_mask_count = {len(rows)}",
         "source_masks_reused_without_resegmentation = true",
+        "fixture_width_validation_gate_disabled = true",
+        "comparison_scope = endpoint estimator only on previously accepted masks",
         "baseline_estimator = PCA axis plus extreme mask pixels",
         "candidate_estimator = robust sidewalls plus fitted end faces",
         "",
@@ -321,26 +326,73 @@ def main() -> int:
             for row in group_rows
             if row["geometry_length_pixels"]
         ]
-        baseline_median = statistics.median(baseline_group)
-        geometry_median = statistics.median(geometry_group)
-        baseline_medians.append(baseline_median)
-        geometry_medians.append(geometry_median)
+
+        baseline_median = statistics.median(baseline_group) if baseline_group else None
+        geometry_median = statistics.median(geometry_group) if geometry_group else None
+
+        if baseline_median is not None:
+            baseline_medians.append(baseline_median)
+        if geometry_median is not None:
+            geometry_medians.append(geometry_median)
+
+        baseline_text = (
+            f"{baseline_median:.9f}" if baseline_median is not None else "NA"
+        )
+        geometry_text = (
+            f"{geometry_median:.9f}" if geometry_median is not None else "NA"
+        )
+        delta_text = (
+            f"{geometry_median - baseline_median:.9f}"
+            if baseline_median is not None and geometry_median is not None
+            else "NA"
+        )
         lines.append(
-            f"  {group}: baseline={baseline_median:.9f}, "
-            f"geometry={geometry_median:.9f}, "
-            f"delta={geometry_median - baseline_median:.9f}"
+            f"  {group}: captures={len(group_rows)}, "
+            f"baseline_passed={len(baseline_group)}, "
+            f"geometry_passed={len(geometry_group)}, "
+            f"baseline={baseline_text}, geometry={geometry_text}, "
+            f"delta={delta_text}"
         )
 
+        if not baseline_group or not geometry_group:
+            for row in group_rows:
+                if (
+                    not row["baseline_length_pixels"]
+                    or not row["geometry_length_pixels"]
+                ):
+                    baseline_reason = row["baseline_failure_reason"] or "none"
+                    geometry_reason = row["geometry_failure_reason"] or "none"
+                    lines.append(
+                        f"    failure {row['capture']}: "
+                        f"baseline={baseline_reason}; geometry={geometry_reason}"
+                    )
+
+    baseline_range = (
+        f"{max(baseline_medians) - min(baseline_medians):.9f}"
+        if len(baseline_medians) >= 2
+        else "not_available"
+    )
+    geometry_range = (
+        f"{max(geometry_medians) - min(geometry_medians):.9f}"
+        if len(geometry_medians) >= 2
+        else "not_available"
+    )
     lines.extend(
         [
             "",
             "trial_05_range_among_orientation_group_medians",
-            f"  baseline_pixels = {max(baseline_medians) - min(baseline_medians):.9f}",
-            f"  geometry_pixels = {max(geometry_medians) - min(geometry_medians):.9f}",
+            f"  baseline_groups_with_passing_values = {len(baseline_medians)}",
+            f"  geometry_groups_with_passing_values = {len(geometry_medians)}",
+            f"  baseline_pixels = {baseline_range}",
+            f"  geometry_pixels = {geometry_range}",
         ]
     )
 
-    ninety_rows = [row for row in trial_05_rows if "090" in row["orientation_group"]]
+    ninety_rows = [
+        row
+        for row in trial_05_rows
+        if "090" in row["orientation_group"] and row["baseline_length_pixels"]
+    ]
     if len(ninety_rows) > 2:
         ninety_baseline = [float(row["baseline_length_pixels"]) for row in ninety_rows]
         ninety_median = statistics.median(ninety_baseline)
