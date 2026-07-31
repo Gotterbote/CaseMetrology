@@ -1,0 +1,122 @@
+Fixtureless OAL Mask-Anchored Subpixel Version 2 Development Comparison
+
+git_commit = 3b1a49f8cb0fd22a27d8885759819f3b18da6b57
+git_status_short_before_analysis = clean
+source_pair_count = 27
+dataset_role = development
+independent_validation = false
+accepted_masks_reused_without_resegmentation = true
+original_grayscale_source_images_used = true
+fixture_width_validation_gate_disabled = true
+normalized_crossing = 0.5
+minimum_local_contrast = 30.0
+profile_half_length_pixels = 6.0
+
+trial_03_static
+baseline:
+  count = 10
+  mean_pixels = 523.620541427
+  median_pixels = 523.634306987
+  sd_pixels = 0.050349452
+  min_pixels = 523.544326752
+  max_pixels = 523.710908228
+  range_pixels = 0.166581476
+binary_geometry:
+  count = 10
+  mean_pixels = 521.484317165
+  median_pixels = 521.486601736
+  sd_pixels = 0.025909506
+  min_pixels = 521.437588000
+  max_pixels = 521.516658832
+  range_pixels = 0.079070832
+subpixel_v1:
+  count = 10
+  mean_pixels = 524.368289779
+  median_pixels = 524.361210078
+  sd_pixels = 0.048944639
+  min_pixels = 524.299318132
+  max_pixels = 524.466992650
+  range_pixels = 0.167674518
+subpixel_v2:
+  count = 3
+  mean_pixels = 523.120424789
+  median_pixels = 523.132248890
+  sd_pixels = 0.024597101
+  min_pixels = 523.092148473
+  max_pixels = 523.136877004
+  range_pixels = 0.044728531
+
+trial_05_controlled_orientation
+baseline:
+  count = 17
+  mean_pixels = 522.829559788
+  median_pixels = 522.847915488
+  sd_pixels = 0.641592996
+  min_pixels = 521.603056677
+  max_pixels = 523.786876024
+  range_pixels = 2.183819347
+binary_geometry:
+  count = 17
+  mean_pixels = 520.684302365
+  median_pixels = 520.597564662
+  sd_pixels = 0.779168884
+  min_pixels = 519.357425432
+  max_pixels = 521.631007600
+  range_pixels = 2.273582168
+subpixel_v1:
+  count = 17
+  mean_pixels = 523.047813948
+  median_pixels = 522.697188013
+  sd_pixels = 1.087746685
+  min_pixels = 521.665761183
+  max_pixels = 524.649095311
+  range_pixels = 2.983334128
+subpixel_v2:
+  count = 17
+  mean_pixels = 522.185782391
+  median_pixels = 522.100803032
+  sd_pixels = 0.844780103
+  min_pixels = 520.753945397
+  max_pixels = 523.236822121
+  range_pixels = 2.482876724
+
+trial_05_orientation_group_medians
+  angle_000_controlled: captures=3, baseline=523.069153912, binary_geometry=520.811661820, subpixel_v1=522.820548002, subpixel_v2=522.247705585
+  angle_020_controlled: captures=3, baseline=522.776434595, binary_geometry=520.585730039, subpixel_v1=522.460664933, subpixel_v2=521.972390623
+  angle_040_controlled: captures=3, baseline=522.782483310, binary_geometry=520.443237463, subpixel_v1=522.695701897, subpixel_v2=522.073003813
+  angle_070_controlled: captures=3, baseline=521.612035008, binary_geometry=519.358508326, subpixel_v1=521.703440701, subpixel_v2=520.760128828
+  angle_090_controlled_retake: captures=5, baseline=523.364755478, binary_geometry=521.608280708, subpixel_v1=524.591006550, subpixel_v2=523.198006109
+
+trial_05_range_among_orientation_group_medians
+  baseline_groups_with_passing_values = 5
+  baseline_pixels = 1.752720470
+  binary_geometry_groups_with_passing_values = 5
+  binary_geometry_pixels = 2.249772382
+  subpixel_v1_groups_with_passing_values = 5
+  subpixel_v1_pixels = 2.887565849
+  subpixel_v2_groups_with_passing_values = 5
+  subpixel_v2_pixels = 2.437877281
+
+predefined_quantitative_candidate_criteria
+  pca_static_sd_benchmark_pixels = 0.050349452
+  pca_orientation_range_benchmark_pixels = 1.752720470
+  version_2_target_orientation_range_pixels = 1.402176376
+  orientation_range_at_least_20_percent_better_than_pca = fail
+  static_sd_no_worse_than_pca = pass
+  at_least_26_of_27_valid = fail
+  minimum_valid_count_per_orientation_group = pass
+  no_orientation_group_median_over_1px_from_pooled_median = fail
+  diagnostics_not_identical_unresolved_warning_on_all_captures = pass
+  clean_committed_source_before_analysis = pass
+
+subpixel_v2_valid_capture_count = 20
+subpixel_v2_failed_capture_count = 7
+subpixel_v2_flagged_capture_count = 20
+subpixel_v2_distinct_flag_patterns = 4
+quantitative_candidate_criteria_all_pass = false
+visual_review_status = pending
+final_candidate_acceptance = pending_visual_review
+
+Interpretation restriction:
+These 27 captures are development data and cannot independently validate Version 2.
+No method may be accepted from numerical range alone.

@@ -1,0 +1,21 @@
+{
+  "end_face_transverse_fraction": 0.3,
+  "end_sample_count": 41,
+  "exterior_plateau_limit_pixels": [
+    2.0,
+    6.0
+  ],
+  "interior_plateau_limit_pixels": [
+    -6.0,
+    -2.0
+  ],
+  "maximum_anchor_distance_pixels": 3.0,
+  "maximum_crossing_distance_pixels": 3.0,
+  "minimum_end_profile_count": 12,
+  "minimum_local_contrast": 30.0,
+  "minimum_sidewall_profile_count": 25,
+  "normalized_crossing": 0.5,
+  "profile_half_length_pixels": 6.0,
+  "profile_step_pixels": 0.25,
+  "sidewall_sample_count": 72
+}

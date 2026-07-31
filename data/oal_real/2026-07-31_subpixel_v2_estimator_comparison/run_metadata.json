@@ -1,0 +1,11 @@
+{
+  "development_dataset": true,
+  "execution_time_local": "2026-07-31T18:11:46.817293-05:00",
+  "git_commit": "3b1a49f8cb0fd22a27d8885759819f3b18da6b57",
+  "git_status_short_before_analysis": "clean",
+  "independent_validation": false,
+  "numpy_version": "1.26.4",
+  "opencv_version": "4.6.0",
+  "python_version": "3.12.3",
+  "source_pair_count": 27
+}
