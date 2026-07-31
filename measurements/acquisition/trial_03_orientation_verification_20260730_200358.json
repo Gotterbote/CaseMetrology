@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "session_id": "trial_03_orientation_verification_20260730_200358",
+  "label": "trial_03_orientation_verification",
+  "started_at": "2026-07-30T20:03:58-05:00",
+  "completed_at": "2026-07-30T20:04:01-05:00",
+  "hostname": "timmy-nano",
+  "platform": "Linux-6.8.12-1021-tegra-aarch64-with-glibc2.39",
+  "python_version": "3.12.3",
+  "git_commit": "b1f38adaec46c214f22f485bf115f5ddd505e294",
+  "git_working_tree_dirty": false,
+  "camera": {
+    "device": "/dev/case-metrology-camera",
+    "requested_width": 1456,
+    "requested_height": 1088,
+    "requested_fps": 44,
+    "actual_width": 1456,
+    "actual_height": 1088,
+    "actual_fps": 44.0,
+    "warmup_frames": 20,
+    "pixel_format": "YUYV"
+  },
+  "camera_controls_before": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "camera_controls_after": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "expected_camera_controls": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "control_mismatches": [],
+  "capture_count": 1,
+  "requested_interval_seconds": 1.0,
+  "images": [
+    {
+      "sequence": 1,
+      "filename": "trial_03_orientation_verification_20260730_200401_183580_01.png",
+      "relative_path": "raw_images/acquisition/trial_03_orientation_verification_20260730_200358/trial_03_orientation_verification_20260730_200401_183580_01.png",
+      "captured_at": "2026-07-30T20:04:01.183580-05:00",
+      "size_bytes": 1110783,
+      "sha256": "3ffd6cb292272c1b97d9db00795f3c9866db5793d1801eefda1b159e1841b883"
+    }
+  ]
+}

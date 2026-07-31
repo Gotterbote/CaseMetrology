@@ -43,7 +43,7 @@ Template — complete at the Jetson before Trial 03.
 - Power: 36 W rated
 - Position relative to measurement plane: Backlight adhered to the inside surface of the 0.250-inch black-plastic bottom panel within an 80/20 aluminum enclosure. External enclosure dimensions, measured from the outer edges of the 80/20 frame (L × W × H): 16.500 in × 7.000 in × 7.625 in.
 - Warm-up duration: Backlight had remained continuously energized for multiple weeks before this session; exact energization start time was not recorded
-- Visible contamination or damage: No damage or visible contamination observed within the camera field of view
+- Visible contamination or damage: Visible surface or locator marks are present in the field of view outside the central fitted edge region; no damage or obstruction of the accepted fitted edges was observed
 - Photograph path:
 
 ## Lexan working surface
@@ -105,21 +105,21 @@ Template — complete at the Jetson before Trial 03.
 
 ## Visual acceptance
 
-- Full gauge block visible:
-- Correct orientation:
-- Focus acceptable:
-- No clipped edges:
-- No obvious backlight artifact in measurement region:
-- Lexan boundaries excluded from fitted region:
-- Orientation-verification diagnostic accepted:
+- Full gauge block visible: Yes
+- Correct orientation: Yes; the block is visibly wider than tall and the certified dimension is vertical
+- Focus acceptable: Yes; the upper and lower block edges support stable subpixel fitting
+- No clipped edges: Yes
+- No obvious backlight artifact in measurement region: Yes; no artifact obstructs the central fitted edge segments
+- Lexan boundaries excluded from fitted region: Yes
+- Orientation-verification diagnostic accepted: Yes; manually reviewed and accepted on 2026-07-30
 
 ## Deviations or limitations
 
--
+- Visible surface or locator marks are present outside the central fitted edge region; they did not intersect the accepted upper or lower fit segments in the orientation diagnostic.
 
 ## Final disposition
 
-- [ ] Accepted for Trial 03
+- [x] Accepted for Trial 03
 - [ ] Accepted with limitation
 - [ ] Not accepted; correction required
 
@@ -127,6 +127,6 @@ Template — complete at the Jetson before Trial 03.
 
 - Physical setup photograph:
 - Lens witness-mark photograph:
-- Representative raw image:
-- Orientation diagnostic:
+- Representative raw image: `raw_images/acquisition/trial_03_orientation_verification_20260730_200358/trial_03_orientation_verification_20260730_200401_183580_01.png`
+- Orientation diagnostic: `processed_images/calibration/trial_03_orientation_verification/trial_03_orientation_verification_20260730_200401_183580_01_subpixel_diagnostic.png`
 - Preflight log: `logs/research_preflight/research_preflight_20260730_183641.txt`
