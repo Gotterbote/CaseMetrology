@@ -1,0 +1,35 @@
+CaseMetrology Subpixel Batch Repeatability Analysis
+Generated: 2026-07-30T20:39:52-05:00
+Test name: lexan_gauge_block_repositioning_trial_03
+Test mode: repositioning
+Images evaluated: 10
+Certified gauge-block length: 1.0000024 in
+Git commit: b0c0f3c254adef1ad0017ddfa15aff8bed319449
+Git working tree dirty: False
+
+=== BETWEEN-IMAGE RESULTS ===
+Mean fitted span: 523.078242 px
+Median fitted span: 523.068739 px
+Minimum fitted span: 523.036171 px
+Maximum fitted span: 523.165257 px
+Between-image standard deviation: 0.040645 px
+Peak-to-peak variation: 0.129086 px
+Calculated inches per pixel: 0.001911764 in/px
+Between-image standard deviation: 0.000077703 in
+Peak-to-peak variation: 0.000246782 in
+
+=== ALIGNMENT RESULTS ===
+Mean top-edge angle: 0.375774 degrees
+Mean bottom-edge angle: 0.525595 degrees
+Mean edge-angle difference: 0.149821 degrees
+
+Interpretation:
+  This evaluates combined gauge-block removal, replacement,
+  fixture seating, image acquisition, and subpixel measurement
+  repeatability.
+
+  These results do not by themselves establish dimensional
+  accuracy, temperature compensation, operator reproducibility,
+  or total measurement uncertainty.
+
+Detailed CSV: measurements/repositioning/trial_03_analysis/lexan_gauge_block_repositioning_trial_03_20260730_203952.csv
