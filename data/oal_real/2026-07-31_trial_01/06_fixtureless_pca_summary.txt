@@ -1,0 +1,7 @@
+Fixtureless OAL Trial 01 - Exploratory PCA Measurement
+Largest component pixels: 92796
+PCA projected length: 523.802576 px
+Minimum-area rectangle long side: 523.795593 px
+Detected axis angle: -47.305051 degrees
+Endpoint 1: (576.657, 785.296)
+Endpoint 2: (931.845, 400.315)

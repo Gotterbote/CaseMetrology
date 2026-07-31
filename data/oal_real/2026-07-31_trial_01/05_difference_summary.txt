@@ -1,0 +1,10 @@
+Real OAL Trial 01 - Preliminary Difference Analysis
+Image dimensions: 1456 x 1088
+Otsu threshold: 107.000
+Darkening mean: 13.367506
+Darkening maximum: 237
+Detected foreground pixels: 92796
+Connected components excluding background: 1
+
+Largest components: area, x, y, width, height
+92796, 519, 345, 470, 493
