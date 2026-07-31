@@ -162,4 +162,4 @@ session were evaluated.
 
 - Acquisition commit: `0803f242bb0267faabc0468000cf355b9634d6ab`
 - Analysis commit: `8b23e289f7575a0d643fa49b66151bcdb3062072`
-- Acceptance commit: Pending completion and commit of this comparison record
+- Acceptance commit: `aa083c323b47c65572122d726ea451c5ed6e343f`
