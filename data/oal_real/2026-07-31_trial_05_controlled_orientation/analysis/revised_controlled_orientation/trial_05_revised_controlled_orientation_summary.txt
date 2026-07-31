@@ -1,0 +1,21 @@
+Fixtureless OAL Trial 05 - Revised Controlled Orientation Analysis
+Accepted-placement captures analyzed: 17
+Centroid-tolerance passes: 17/17
+Diagnostic segmentation threshold: 0.251745 px (5 x Trial 03 static standard deviation)
+Diagnostic segmentation flags: 1
+
+Original angle_090_controlled group retained separately and excluded because all 3 captures failed the centroid acceptance requirement.
+
+Group results:
+angle_000_controlled: captures=3, mean angle=3.467319 deg, mean all=523.070423 px, median=523.069154 px, sample stdev all=0.032855 px, range all=0.065674 px, flagged=0, mean unflagged=523.070423 px (n=3)
+angle_020_controlled: captures=3, mean angle=15.650805 deg, mean all=522.778558 px, median=522.776435 px, sample stdev all=0.004222 px, range all=0.007601 px, flagged=0, mean unflagged=522.778558 px (n=3)
+angle_040_controlled: captures=3, mean angle=32.617937 deg, mean all=522.802673 px, median=522.782483 px, sample stdev all=0.039256 px, range all=0.070294 px, flagged=0, mean unflagged=522.802673 px (n=3)
+angle_070_controlled: captures=3, mean angle=57.823983 deg, mean all=521.629784 px, median=521.612035 px, sample stdev all=0.038778 px, range all=0.071202 px, flagged=0, mean unflagged=521.629784 px (n=3)
+angle_090_controlled_retake: captures=5, mean angle=89.128907 deg, mean all=523.451640 px, median=523.364755 px, sample stdev all=0.187519 px, range all=0.423245 px, flagged=1, mean unflagged=523.367832 px (n=4)
+
+Primary robust orientation comparison:
+Range of orientation-group medians: 1.752720 px
+Minimum orientation-group median: 521.612035 px
+Maximum orientation-group median: 523.364755 px
+
+All raw captures and the flagged segmentation result are retained.

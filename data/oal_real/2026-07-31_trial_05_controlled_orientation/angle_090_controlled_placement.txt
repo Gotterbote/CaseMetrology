@@ -1,0 +1,9 @@
+Trial 05 controlled placement
+Orientation group: angle_090_controlled
+Target centroid: (757.444, 648.175) px
+Acceptance tolerance: +/- 5.000 px in X and Y
+Accepted centroid: (759.317, 649.871) px
+Delta X: +1.873 px
+Delta Y: +1.696 px
+Placement status: PASS
+Measurement captures: 3
