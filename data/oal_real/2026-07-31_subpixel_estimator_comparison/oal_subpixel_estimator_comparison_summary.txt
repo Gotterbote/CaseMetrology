@@ -1,0 +1,86 @@
+Fixtureless OAL Grayscale Subpixel Estimator Comparison
+
+git_commit = 4dca7b1e39c5ed67c008eef430d9bc64eb2a4f50
+git_status_short_before_analysis = clean
+source_pair_count = 27
+accepted_masks_reused_without_resegmentation = true
+original_grayscale_source_images_used = true
+fixture_width_validation_gate_disabled = true
+comparison_scope = endpoint estimator on previously accepted objects
+baseline_estimator = PCA axis plus extreme binary-mask pixels
+binary_geometry_estimator = robust lines fitted to binary-mask boundaries
+candidate_estimator = robust lines fitted to subpixel grayscale edges
+
+trial_03_static
+baseline:
+  count = 10
+  mean_pixels = 523.620541427
+  median_pixels = 523.634306987
+  sd_pixels = 0.050349452
+  min_pixels = 523.544326752
+  max_pixels = 523.710908228
+  range_pixels = 0.166581476
+binary_geometry:
+  count = 10
+  mean_pixels = 521.484317165
+  median_pixels = 521.486601736
+  sd_pixels = 0.025909506
+  min_pixels = 521.437588000
+  max_pixels = 521.516658832
+  range_pixels = 0.079070832
+subpixel:
+  count = 10
+  mean_pixels = 524.368289779
+  median_pixels = 524.361210078
+  sd_pixels = 0.048944639
+  min_pixels = 524.299318132
+  max_pixels = 524.466992650
+  range_pixels = 0.167674518
+
+trial_05_controlled_orientation
+baseline:
+  count = 17
+  mean_pixels = 522.829559788
+  median_pixels = 522.847915488
+  sd_pixels = 0.641592996
+  min_pixels = 521.603056677
+  max_pixels = 523.786876024
+  range_pixels = 2.183819347
+binary_geometry:
+  count = 17
+  mean_pixels = 520.684302365
+  median_pixels = 520.597564662
+  sd_pixels = 0.779168884
+  min_pixels = 519.357425432
+  max_pixels = 521.631007600
+  range_pixels = 2.273582168
+subpixel:
+  count = 17
+  mean_pixels = 523.047813948
+  median_pixels = 522.697188013
+  sd_pixels = 1.087746685
+  min_pixels = 521.665761183
+  max_pixels = 524.649095311
+  range_pixels = 2.983334128
+
+trial_05_orientation_group_medians
+  angle_000_controlled: captures=3, baseline=523.069153912, binary_geometry=520.811661820, subpixel=522.820548002
+  angle_020_controlled: captures=3, baseline=522.776434595, binary_geometry=520.585730039, subpixel=522.460664933
+  angle_040_controlled: captures=3, baseline=522.782483310, binary_geometry=520.443237463, subpixel=522.695701897
+  angle_070_controlled: captures=3, baseline=521.612035008, binary_geometry=519.358508326, subpixel=521.703440701
+  angle_090_controlled_retake: captures=5, baseline=523.364755478, binary_geometry=521.608280708, subpixel=524.591006550
+
+trial_05_range_among_orientation_group_medians
+  baseline_groups_with_passing_values = 5
+  baseline_pixels = 1.752720470
+  binary_geometry_groups_with_passing_values = 5
+  binary_geometry_pixels = 2.249772382
+  subpixel_groups_with_passing_values = 5
+  subpixel_pixels = 2.887565849
+
+failed_triplet_count = 0
+subpixel_flagged_capture_count = 27
+
+Interpretation rule:
+Do not accept the subpixel estimator from numerical range alone.
+Review every generated overlay and all edge-fit diagnostics.
