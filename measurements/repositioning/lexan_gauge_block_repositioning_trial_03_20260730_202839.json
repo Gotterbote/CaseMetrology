@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "session_id": "lexan_gauge_block_repositioning_trial_03_20260730_202839",
+  "test_name": "lexan_gauge_block_repositioning_trial_03",
+  "test_mode": "removal_and_replacement",
+  "started_at": "2026-07-30T20:28:39-05:00",
+  "completed_at": "2026-07-30T20:29:54-05:00",
+  "hostname": "timmy-nano",
+  "platform": "Linux-6.8.12-1021-tegra-aarch64-with-glibc2.39",
+  "python_version": "3.12.3",
+  "git_commit": "0803f242bb0267faabc0468000cf355b9634d6ab",
+  "git_working_tree_dirty": false,
+  "camera": {
+    "device": "/dev/case-metrology-camera",
+    "width": 1456,
+    "height": 1088,
+    "fps": 44.0,
+    "pixel_format": "YUYV",
+    "warmup_frames": 20
+  },
+  "expected_camera_controls": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "camera_controls_before": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "camera_controls_after": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "cycles_requested": 10,
+  "cycles_completed": 10,
+  "captures": [
+    {
+      "cycle": 1,
+      "filename": "lexan_gauge_block_repositioning_trial_03_cycle_01_20260730_202857_637594.png",
+      "relative_path": "raw_images/repositioning/lexan_gauge_block_repositioning_trial_03_20260730_202839/lexan_gauge_block_repositioning_trial_03_cycle_01_20260730_202857_637594.png",
+      "captured_at": "2026-07-30T20:28:57.637594-05:00",
+      "size_bytes": 1089401,
+      "sha256": "55b5a740a19502b19b325605eeac4e26b29d62e338c8001b463a0061991a3e90",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 2,
+      "filename": "lexan_gauge_block_repositioning_trial_03_cycle_02_20260730_202905_037429.png",
+      "relative_path": "raw_images/repositioning/lexan_gauge_block_repositioning_trial_03_20260730_202839/lexan_gauge_block_repositioning_trial_03_cycle_02_20260730_202905_037429.png",
+      "captured_at": "2026-07-30T20:29:05.037429-05:00",
+      "size_bytes": 1089055,
+      "sha256": "2fd796eda571e9ac899e37250597aae8932f32c4cc09cea137f3d2bc424ed921",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 3,
+      "filename": "lexan_gauge_block_repositioning_trial_03_cycle_03_20260730_202918_980474.png",
+      "relative_path": "raw_images/repositioning/lexan_gauge_block_repositioning_trial_03_20260730_202839/lexan_gauge_block_repositioning_trial_03_cycle_03_20260730_202918_980474.png",
+      "captured_at": "2026-07-30T20:29:18.980474-05:00",
+      "size_bytes": 1091300,
+      "sha256": "7347365273e679f70c6a2d902e2c67638a6a8e0ae2e127a7b325cbc25f87b67a",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 4,
+      "filename": "lexan_gauge_block_repositioning_trial_03_cycle_04_20260730_202923_703536.png",
+      "relative_path": "raw_images/repositioning/lexan_gauge_block_repositioning_trial_03_20260730_202839/lexan_gauge_block_repositioning_trial_03_cycle_04_20260730_202923_703536.png",
+      "captured_at": "2026-07-30T20:29:23.703536-05:00",
+      "size_bytes": 1093824,
+      "sha256": "c4f909563966c654ff525ec043fa1ac0081732c01a14718dc4a1d7bb71d472e2",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 5,
+      "filename": "lexan_gauge_block_repositioning_trial_03_cycle_05_20260730_202929_386546.png",
+      "relative_path": "raw_images/repositioning/lexan_gauge_block_repositioning_trial_03_20260730_202839/lexan_gauge_block_repositioning_trial_03_cycle_05_20260730_202929_386546.png",
+      "captured_at": "2026-07-30T20:29:29.386546-05:00",
+      "size_bytes": 1092635,
+      "sha256": "71d3f1c1c6b0ecadeb078d0d0586a72a403749d76c87ee87b92b3ebf32c7741a",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 6,
+      "filename": "lexan_gauge_block_repositioning_trial_03_cycle_06_20260730_202934_112004.png",
+      "relative_path": "raw_images/repositioning/lexan_gauge_block_repositioning_trial_03_20260730_202839/lexan_gauge_block_repositioning_trial_03_cycle_06_20260730_202934_112004.png",
+      "captured_at": "2026-07-30T20:29:34.112004-05:00",
+      "size_bytes": 1090671,
+      "sha256": "230ceac6a0ce073ba99dac5e3a6af385439a34e3bc9dfe7b31241630205cf74e",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 7,
+      "filename": "lexan_gauge_block_repositioning_trial_03_cycle_07_20260730_202939_363856.png",
+      "relative_path": "raw_images/repositioning/lexan_gauge_block_repositioning_trial_03_20260730_202839/lexan_gauge_block_repositioning_trial_03_cycle_07_20260730_202939_363856.png",
+      "captured_at": "2026-07-30T20:29:39.363856-05:00",
+      "size_bytes": 1092223,
+      "sha256": "44d6a5c240da7cf0a6b115991504cc0527f0cda3d5cdc89775b15a3a191a48e4",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 8,
+      "filename": "lexan_gauge_block_repositioning_trial_03_cycle_08_20260730_202943_197080.png",
+      "relative_path": "raw_images/repositioning/lexan_gauge_block_repositioning_trial_03_20260730_202839/lexan_gauge_block_repositioning_trial_03_cycle_08_20260730_202943_197080.png",
+      "captured_at": "2026-07-30T20:29:43.197080-05:00",
+      "size_bytes": 1087219,
+      "sha256": "435be7849d4685089ce6ab56e5b8045530bb1408381d1cb2a061eaf938208399",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 9,
+      "filename": "lexan_gauge_block_repositioning_trial_03_cycle_09_20260730_202947_721728.png",
+      "relative_path": "raw_images/repositioning/lexan_gauge_block_repositioning_trial_03_20260730_202839/lexan_gauge_block_repositioning_trial_03_cycle_09_20260730_202947_721728.png",
+      "captured_at": "2026-07-30T20:29:47.721728-05:00",
+      "size_bytes": 1093053,
+      "sha256": "7d6480c5b86484699957ed05d6f89a5c9b3f4724138ea66aa9f1e27c40d67564",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 10,
+      "filename": "lexan_gauge_block_repositioning_trial_03_cycle_10_20260730_202954_528978.png",
+      "relative_path": "raw_images/repositioning/lexan_gauge_block_repositioning_trial_03_20260730_202839/lexan_gauge_block_repositioning_trial_03_cycle_10_20260730_202954_528978.png",
+      "captured_at": "2026-07-30T20:29:54.528978-05:00",
+      "size_bytes": 1091592,
+      "sha256": "a7a93f14fb148002a2f16fa1b5a7cc76ce2a3812a3f5c479a6a5298b695c5b4d",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    }
+  ]
+}
