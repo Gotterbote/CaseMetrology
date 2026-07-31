@@ -1,0 +1,12 @@
+Fixtureless OAL Trial 03 - Static 10-Capture Analysis
+Cycles analyzed: 10
+Mean PCA length: 523.620541 px
+Sample standard deviation: 0.050349 px
+Minimum PCA length: 523.544327 px
+Maximum PCA length: 523.710908 px
+Range: 0.166581 px
+Coefficient of variation: 0.009616%
+Mean Otsu threshold: 107.400000
+Otsu threshold range: 1.000000
+Mean component area: 89906.300 px
+Component-area range: 184 px
