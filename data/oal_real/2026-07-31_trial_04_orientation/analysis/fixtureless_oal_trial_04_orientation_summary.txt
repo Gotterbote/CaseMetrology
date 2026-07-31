@@ -1,0 +1,22 @@
+Fixtureless OAL Trial 04 - Controlled Orientation Analysis
+Captures analyzed: 15
+Orientation groups: 5
+Successful measurements: 15
+Border-contact failures: 0
+
+Within-orientation results:
+angle_000: mean angle=0.788980 deg, mean length=523.010104 px, sample stdev=0.015802 px, range=0.027559 px
+angle_030_nominal: mean angle=39.398820 deg, mean length=523.852839 px, sample stdev=0.051278 px, range=0.102309 px
+angle_045_nominal: mean angle=68.977472 deg, mean length=523.577018 px, sample stdev=0.040232 px, range=0.069925 px
+angle_060_nominal: mean angle=60.665440 deg, mean length=523.005468 px, sample stdev=0.033027 px, range=0.062439 px
+angle_090_nominal: mean angle=87.928074 deg, mean length=523.356092 px, sample stdev=0.043419 px, range=0.077899 px
+
+Across-orientation results:
+Overall mean length: 523.360304 px
+Overall sample standard deviation: 0.341145 px
+Overall minimum length: 522.980470 px
+Overall maximum length: 523.906047 px
+Overall range: 0.925577 px
+Range of orientation-group means: 0.847371 px
+Mean PCA/rectangle absolute difference: 0.089691 px
+Maximum PCA/rectangle absolute difference: 0.213563 px
