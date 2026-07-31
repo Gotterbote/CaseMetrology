@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "session_id": "fixtureless_case_repositioning_trial_02_20260731_122256",
+  "test_name": "fixtureless_case_repositioning_trial_02",
+  "test_mode": "removal_and_replacement",
+  "started_at": "2026-07-31T12:22:56-05:00",
+  "completed_at": "2026-07-31T12:24:19-05:00",
+  "hostname": "timmy-nano",
+  "platform": "Linux-6.8.12-1021-tegra-aarch64-with-glibc2.39",
+  "python_version": "3.12.3",
+  "git_commit": "7baa031c231df0bf49e318924d8c0802486c77f6",
+  "git_working_tree_dirty": false,
+  "camera": {
+    "device": "/dev/case-metrology-camera",
+    "width": 1456,
+    "height": 1088,
+    "fps": 44.0,
+    "pixel_format": "YUYV",
+    "warmup_frames": 20
+  },
+  "expected_camera_controls": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "camera_controls_before": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "camera_controls_after": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "cycles_requested": 10,
+  "cycles_completed": 10,
+  "captures": [
+    {
+      "cycle": 1,
+      "filename": "fixtureless_case_repositioning_trial_02_cycle_01_20260731_122306_878708.png",
+      "relative_path": "data/oal_real/2026-07-31_trial_02/images/fixtureless_case_repositioning_trial_02_20260731_122256/fixtureless_case_repositioning_trial_02_cycle_01_20260731_122306_878708.png",
+      "captured_at": "2026-07-31T12:23:06.878708-05:00",
+      "size_bytes": 1327136,
+      "sha256": "c78b783473305f58592bb0d9a1420b65751819f8b8d9788ad9ea2d8ae0f1c0c6",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 2,
+      "filename": "fixtureless_case_repositioning_trial_02_cycle_02_20260731_122318_111477.png",
+      "relative_path": "data/oal_real/2026-07-31_trial_02/images/fixtureless_case_repositioning_trial_02_20260731_122256/fixtureless_case_repositioning_trial_02_cycle_02_20260731_122318_111477.png",
+      "captured_at": "2026-07-31T12:23:18.111477-05:00",
+      "size_bytes": 1359340,
+      "sha256": "f333e0b45b2576bbc5c1b6dc0d17b4c45cbb95d4b9cb2ec9eb759238d8ee22b0",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 3,
+      "filename": "fixtureless_case_repositioning_trial_02_cycle_03_20260731_122324_126041.png",
+      "relative_path": "data/oal_real/2026-07-31_trial_02/images/fixtureless_case_repositioning_trial_02_20260731_122256/fixtureless_case_repositioning_trial_02_cycle_03_20260731_122324_126041.png",
+      "captured_at": "2026-07-31T12:23:24.126041-05:00",
+      "size_bytes": 1343774,
+      "sha256": "7acbb66304bf0b862dc2244b23aabb262036eaba6b15796b373546ae60373fac",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 4,
+      "filename": "fixtureless_case_repositioning_trial_02_cycle_04_20260731_122330_005876.png",
+      "relative_path": "data/oal_real/2026-07-31_trial_02/images/fixtureless_case_repositioning_trial_02_20260731_122256/fixtureless_case_repositioning_trial_02_cycle_04_20260731_122330_005876.png",
+      "captured_at": "2026-07-31T12:23:30.005876-05:00",
+      "size_bytes": 1338724,
+      "sha256": "6578fcd44d61f13de8eb75e24e00963dd442b48c9ada5fe72ac920847dce008d",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 5,
+      "filename": "fixtureless_case_repositioning_trial_02_cycle_05_20260731_122334_861709.png",
+      "relative_path": "data/oal_real/2026-07-31_trial_02/images/fixtureless_case_repositioning_trial_02_20260731_122256/fixtureless_case_repositioning_trial_02_cycle_05_20260731_122334_861709.png",
+      "captured_at": "2026-07-31T12:23:34.861709-05:00",
+      "size_bytes": 1342697,
+      "sha256": "a9afdf002199c660e84049cec0af9fd640cdb8841e36d27a67837c86851b8c08",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 6,
+      "filename": "fixtureless_case_repositioning_trial_02_cycle_06_20260731_122343_553062.png",
+      "relative_path": "data/oal_real/2026-07-31_trial_02/images/fixtureless_case_repositioning_trial_02_20260731_122256/fixtureless_case_repositioning_trial_02_cycle_06_20260731_122343_553062.png",
+      "captured_at": "2026-07-31T12:23:43.553062-05:00",
+      "size_bytes": 1324743,
+      "sha256": "453ad034339ad755d23c5de1c18acc21f9f41520ca0c9d8b62155348d5f6d87f",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 7,
+      "filename": "fixtureless_case_repositioning_trial_02_cycle_07_20260731_122349_927593.png",
+      "relative_path": "data/oal_real/2026-07-31_trial_02/images/fixtureless_case_repositioning_trial_02_20260731_122256/fixtureless_case_repositioning_trial_02_cycle_07_20260731_122349_927593.png",
+      "captured_at": "2026-07-31T12:23:49.927593-05:00",
+      "size_bytes": 1323092,
+      "sha256": "3fc64c547e7e2e271a2c6acd0d9bd4967ace6343fc0be4e22d92c12005cf4125",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 8,
+      "filename": "fixtureless_case_repositioning_trial_02_cycle_08_20260731_122358_519587.png",
+      "relative_path": "data/oal_real/2026-07-31_trial_02/images/fixtureless_case_repositioning_trial_02_20260731_122256/fixtureless_case_repositioning_trial_02_cycle_08_20260731_122358_519587.png",
+      "captured_at": "2026-07-31T12:23:58.519587-05:00",
+      "size_bytes": 1346578,
+      "sha256": "0210384669c66312d5dbb4b7395ba9e9a724a7ca9efa43af892bb400a7f5273c",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 9,
+      "filename": "fixtureless_case_repositioning_trial_02_cycle_09_20260731_122408_891586.png",
+      "relative_path": "data/oal_real/2026-07-31_trial_02/images/fixtureless_case_repositioning_trial_02_20260731_122256/fixtureless_case_repositioning_trial_02_cycle_09_20260731_122408_891586.png",
+      "captured_at": "2026-07-31T12:24:08.891586-05:00",
+      "size_bytes": 1341565,
+      "sha256": "10f35af4b2476473dda55e249b7777e8946132dba4d28d36260bcdc1ab62bf4a",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    },
+    {
+      "cycle": 10,
+      "filename": "fixtureless_case_repositioning_trial_02_cycle_10_20260731_122419_795515.png",
+      "relative_path": "data/oal_real/2026-07-31_trial_02/images/fixtureless_case_repositioning_trial_02_20260731_122256/fixtureless_case_repositioning_trial_02_cycle_10_20260731_122419_795515.png",
+      "captured_at": "2026-07-31T12:24:19.795515-05:00",
+      "size_bytes": 1346995,
+      "sha256": "dac0316472482a89e0f84e6f3d01355f74baa00ff784bb61cdd66f386bfe4703",
+      "camera_controls": {
+        "brightness": 0,
+        "contrast": 10,
+        "saturation": 0,
+        "white_balance_automatic": 0,
+        "gain": 100,
+        "white_balance_temperature": 2498,
+        "auto_exposure": 1,
+        "exposure_time_absolute": 5
+      }
+    }
+  ]
+}

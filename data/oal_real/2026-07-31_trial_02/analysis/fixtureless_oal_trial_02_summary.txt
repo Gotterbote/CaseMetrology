@@ -1,0 +1,13 @@
+Fixtureless OAL Trial 02 - Exploratory 10-Cycle Analysis
+Cycles analyzed: 10
+Successful measurements: 10
+Mean PCA length: 522.745150 px
+Sample standard deviation: 1.339887 px
+Minimum PCA length: 520.283151 px
+Maximum PCA length: 524.234310 px
+Range: 3.951159 px
+Coefficient of variation: 0.256317%
+Mean minimum-area-rectangle length: 522.599188 px
+Mean absolute PCA/rectangle difference: 0.212080 px
+Maximum absolute PCA/rectangle difference: 0.541964 px
+Border-contact failures: 0
