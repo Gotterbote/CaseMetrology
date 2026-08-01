@@ -1,0 +1,24 @@
+{
+  "document_status": "planned",
+  "measurement_characteristic": "overall_length",
+  "candidate_estimator": "pca_extreme_mask_projection",
+  "total_tolerance_in": 0.02,
+  "nominal_in": null,
+  "lsl_in": null,
+  "usl_in": null,
+  "preliminary_pixels_per_inch": 523.066855,
+  "preliminary_scale_status": "screening_only_not_final_validation",
+  "minimum_parts": 30,
+  "static_repeats_per_selected_part": 10,
+  "repositioned_captures_per_part": 3,
+  "orientation_degrees": [
+    0,
+    20,
+    40,
+    70,
+    90
+  ],
+  "orientation_placements_per_part": 3,
+  "validation_data_must_be_new": true,
+  "existing_trial_03_trial_05_role": "development_only"
+}

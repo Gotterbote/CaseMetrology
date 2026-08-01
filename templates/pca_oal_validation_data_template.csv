@@ -1,0 +1,1 @@
+part_id,reference_reading_1_in,reference_reading_2_in,reference_reading_3_in,reference_mean_in,reference_sd_in,nominal_in,lsl_in,usl_in,ground_truth_class,orientation_deg,placement_number,capture_id,source_image_path,mask_path,cv_length_pixels,pixels_per_inch,cv_length_in,error_in,cv_class,classification_result,failure_reason,operator,timestamp,git_commit,notes
