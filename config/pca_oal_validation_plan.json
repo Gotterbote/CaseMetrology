@@ -36,5 +36,16 @@
     "intended_role_after_successful_calibration": "physical validation reference for current OAL phase"
   },
   "official_validation_authorized": false,
-  "official_validation_hold_reason": "Reference caliper scheduled for calibration testing."
+  "official_validation_hold_reason": "Reference caliper scheduled for calibration testing.",
+  "sample_pool": {
+    "total_available_cases": 235,
+    "case_condition": "mixed lengths",
+    "identification_method": "pre-existing laser-etched unique identifiers",
+    "screening_strategy": "measure all cases once after reference instrument calibration",
+    "validation_selection_strategy": "select a stratified sample from the observed OAL distribution, including shortest, near LSL, near nominal, near USL, and longest cases",
+    "minimum_validation_sample": 30,
+    "preferred_validation_sample": 40,
+    "selection_before_official_cv_validation": true,
+    "artificial_length_groups_required": false
+  }
 }
