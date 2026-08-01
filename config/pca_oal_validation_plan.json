@@ -3,9 +3,9 @@
   "measurement_characteristic": "overall_length",
   "candidate_estimator": "pca_extreme_mask_projection",
   "total_tolerance_in": 0.02,
-  "nominal_in": null,
-  "lsl_in": null,
-  "usl_in": null,
+  "nominal_in": 1.0,
+  "lsl_in": 0.99,
+  "usl_in": 1.01,
   "preliminary_pixels_per_inch": 523.066855,
   "preliminary_scale_status": "screening_only_not_final_validation",
   "minimum_parts": 30,
@@ -20,5 +20,21 @@
   ],
   "orientation_placements_per_part": 3,
   "validation_data_must_be_new": true,
-  "existing_trial_03_trial_05_role": "development_only"
+  "existing_trial_03_trial_05_role": "development_only",
+  "reference_instrument": {
+    "manufacturer": "Mitutoyo",
+    "instrument_type": "Digimatic Caliper",
+    "model": "CD-8\"ASX",
+    "code_number": "500-197-30",
+    "serial_number": "B23090910",
+    "range": "0-8 in / 0-200 mm",
+    "resolution_in": 0.0005,
+    "current_status": "pending calibration",
+    "manufacturer_inspection_certificate_available": true,
+    "current_calibration_certificate_available": false,
+    "intended_role_before_calibration": "development comparison reference",
+    "intended_role_after_successful_calibration": "physical validation reference for current OAL phase"
+  },
+  "official_validation_authorized": false,
+  "official_validation_hold_reason": "Reference caliper scheduled for calibration testing."
 }
