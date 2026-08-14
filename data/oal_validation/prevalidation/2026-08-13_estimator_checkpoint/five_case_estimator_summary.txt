@@ -1,0 +1,45 @@
+=== FIVE-CASE PREVALIDATION ESTIMATOR CHECKPOINT ===
+
+NOTE: Exploratory/prevalidation comparison only; not formal validation data.
+
+Case 187: manual=1.0000000, geometry=0.9939729 (error -0.0060271), PCA=0.9985455 (error -0.0014545)
+  geometry angle=86.100821 deg, PCA angle=86.081255 deg
+  geometry PPI=523.961072, PCA PPI=523.961072
+  PCA - geometry=2.395885 px
+  geometry flags=minimum_sidewall_high_residual
+Case 121: manual=0.9995000, geometry=0.9969621 (error -0.0025379), PCA=1.0005071 (error +0.0010071)
+  geometry angle=-86.702018 deg, PCA angle=-86.681254 deg
+  geometry PPI=523.970764, PCA PPI=523.970760
+  PCA - geometry=1.857480 px
+  geometry flags=maximum_sidewall_high_residual
+Case 178: manual=0.9956667, geometry=0.9947495 (error -0.0009171), PCA=0.9987302 (error +0.0030635)
+  geometry angle=88.466437 deg, PCA angle=88.466451 deg
+  geometry PPI=523.343416, PCA PPI=523.343416
+  PCA - geometry=2.083244 px
+  geometry flags=minimum_sidewall_high_residual
+Case 146: manual=0.9915000, geometry=0.9863684 (error -0.0051316), PCA=0.9897943 (error -0.0017057)
+  geometry angle=89.734821 deg, PCA angle=89.777815 deg
+  geometry PPI=523.329312, PCA PPI=523.329316
+  PCA - geometry=1.792878 px
+  geometry flags=minimum_sidewall_high_residual
+Case 197: manual=0.9988333, geometry=0.9954267 (error -0.0034067), PCA=0.9992847 (error +0.0004514)
+  geometry angle=-86.449997 deg, PCA angle=-86.441597 deg
+  geometry PPI=523.291956, PCA PPI=523.291950
+  PCA - geometry=2.018886 px
+  geometry flags=maximum_sidewall_high_residual
+
+=== SUMMARY ===
+Mean PCA-minus-geometry length: 2.029675 px
+
+Geometry mean bias: -0.0036041 in
+Geometry MAE: 0.0036041 in
+Geometry RMSE: 0.0040385 in
+Geometry maximum absolute error: 0.0060271 in
+
+PCA mean bias: +0.0002724 in
+PCA MAE: 0.0015365 in
+PCA RMSE: 0.0017680 in
+PCA maximum absolute error: 0.0030635 in
+
+Geometry closer: 1/5
+PCA closer: 4/5
