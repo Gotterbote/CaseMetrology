@@ -5,6 +5,8 @@ from __future__ import annotations
 import hashlib
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
+import logging
+from logging.handlers import RotatingFileHandler
 import os
 from pathlib import Path
 import shutil
@@ -31,6 +33,38 @@ PORT = int(
 
 ROOT = RECEIVER_ROOT / "received"
 MAX_BODY_BYTES = 25 * 1024 * 1024
+LOG_PATH = RECEIVER_ROOT / "receiver.log"
+
+
+def configure_logging() -> logging.Logger:
+    RECEIVER_ROOT.mkdir(parents=True, exist_ok=True)
+
+    logger = logging.getLogger("casemetrology.receiver")
+    logger.setLevel(logging.INFO)
+
+    if logger.handlers:
+        return logger
+
+    formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
+
+    file_handler = RotatingFileHandler(
+        LOG_PATH,
+        maxBytes=5 * 1024 * 1024,
+        backupCount=5,
+        encoding="utf-8",
+    )
+    file_handler.setFormatter(formatter)
+
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+
+    return logger
+
+
+LOGGER = configure_logging()
 
 
 def sha256_bytes(data: bytes) -> str:
@@ -38,6 +72,17 @@ def sha256_bytes(data: bytes) -> str:
 
 
 class ReceiverHandler(BaseHTTPRequestHandler):
+    def log_message(
+        self,
+        format: str,
+        *args: object,
+    ) -> None:
+        LOGGER.info(
+            "%s - %s",
+            self.client_address[0],
+            format % args,
+        )
+
     def _reply(
         self,
         status: int,
@@ -311,8 +356,22 @@ if __name__ == "__main__":
         ReceiverHandler,
     )
 
-    print("CaseMetrology receiver listening on " f"http://{HOST}:{PORT}")
-    print(f"Storage root: {ROOT}")
-    print("SQLite indexing: ENABLED")
+    LOGGER.info(
+        "CaseMetrology receiver listening on http://%s:%s",
+        HOST,
+        PORT,
+    )
+    LOGGER.info("Storage root: %s", ROOT)
+    LOGGER.info("SQLite indexing: ENABLED")
+    LOGGER.info(
+        "Database: %s",
+        RECEIVER_ROOT / "casemetrology.sqlite3",
+    )
 
-    server.serve_forever()
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        LOGGER.info("Receiver shutdown requested")
+    finally:
+        server.server_close()
+        LOGGER.info("Receiver stopped")
