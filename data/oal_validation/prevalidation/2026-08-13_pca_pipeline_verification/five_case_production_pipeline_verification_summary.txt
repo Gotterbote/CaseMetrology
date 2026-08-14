@@ -1,0 +1,28 @@
+=== PCA PRODUCTION PIPELINE VERIFICATION ===
+
+Repository commit:
+5e904cf3b7e27bd15c94eddca110807a59efd7ae
+
+Cases evaluated:
+187, 121, 178, 146, 197
+
+Cases passing:
+5/5
+
+Maximum absolute difference from independently calculated corrected result:
+0.000000041 in
+
+Result:
+PASS
+
+Frozen PCA SHA-256:
+d00e7b872f45505658ffef6cb2d75cdae4d443940e7ef121c431f1df843805b3
+
+Frozen segmentation SHA-256:
+41a9578a44cecdcb036f53ac253d7d00fc6fd4b214866a1f9f5eea39f30c3f37
+
+Spatial calibration SHA-256:
+677376b0d89434e5e1c627f32a65365d02981260ab08d3e1b00d6b16c475ec4b
+
+Production pipeline SHA-256:
+06aa9effde9b1945c2c20c83de807a801cbd1a4d7547dcdadf8a9dc5f1e034a4
