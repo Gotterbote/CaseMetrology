@@ -159,3 +159,29 @@ The receiver has been verified for:
 - research records containing `part_id`; and
 - production-style records with `part_id = NULL`.
 
+
+## Automatic Startup
+
+The receiver can be registered with Windows Task Scheduler using:
+
+    powershell -ExecutionPolicy Bypass -File install_task.ps1
+
+The installer:
+
+- uses the currently logged-in Windows account;
+- discovers the active Python executable unless one is supplied;
+- starts the receiver at user logon;
+- prevents duplicate receiver instances;
+- retries the task after unexpected termination; and
+- removes the normal Task Scheduler execution-time limit.
+
+Optional parameters include:
+
+    -ReceiverRoot
+    -TaskName
+    -PythonPath
+
+Example:
+
+    powershell -ExecutionPolicy Bypass -File install_task.ps1 `
+        -ReceiverRoot "C:\CaseMetrologyReceiver"
