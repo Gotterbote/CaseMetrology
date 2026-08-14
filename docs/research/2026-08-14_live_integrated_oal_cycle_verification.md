@@ -108,3 +108,52 @@ this single live cycle.
 The complete live CaseMetrology OAL production-style workflow operated
 successfully from controlled camera acquisition through verified remote
 storage without modifying the frozen PCA measurement result.
+
+## One-Command Live Operator Workflow Verification
+
+A subsequent live test verified the operator-facing command:
+
+`python scripts/run_live_oal_cycle.py`
+
+The command successfully performed controlled acquisition, OAL measurement,
+local artifact persistence, durable queueing, and verified remote delivery
+without requiring separate manual measurement or transport commands.
+
+### Test Specimen
+
+Part ID: `146`
+
+Acquisition session:
+
+`oal_live_case_146_20260814_171405`
+
+Git commit at acquisition:
+
+`6afd8ad2de27d9eada189ab0ae0210eae06380e9`
+
+Git working tree dirty: `False`
+
+### Result
+
+- Measurement passed: True
+- OAL: `0.991511837 in`
+- OAL pixels: `518.833890793 px`
+- Effective scale: `523.275539100 px/in`
+- Outbox status: `delivered`
+- Delivery attempts: `1`
+- Delivery success: `True`
+- Receiver status: `stored`
+- Delivery error: `None`
+
+The immediately preceding independent live acquisition of the same specimen
+measured `0.991440910 in`, giving an observed difference of approximately
+`0.000070927 in`. This observation is exploratory only and is not treated as
+a formal repeatability result.
+
+### Conclusion
+
+**PASS**
+
+The CaseMetrology system successfully demonstrated a one-command,
+operator-facing live OAL workflow from controlled camera acquisition through
+verified remote storage.
