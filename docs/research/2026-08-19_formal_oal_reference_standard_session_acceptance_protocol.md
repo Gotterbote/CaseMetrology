@@ -6,6 +6,11 @@
 **Designated operator:** Timmy D. Bell
 **Status:** Prospective protocol; formal validation measurements have not begun
 
+> **Controlling amendment:** The instrument replacement, completed certificate
+> review, certified-value treatment, and frozen numerical acceptance limits in
+> `2026-09-03_formal_oal_reference_system_amendment_and_limit_freeze.md`
+> supersede conflicting pending provisions in this protocol.
+
 ## 1. Purpose
 
 This protocol defines the measurement-assurance procedure used to determine whether a formal manual-reference session is suitable for specimen measurement and subsequent use in the CaseMetrology validation study.
@@ -14,9 +19,9 @@ This protocol defines the measurement-assurance procedure used to determine whet
 
 The formal manual-reference instrument is:
 
-- Mitutoyo CD-8"ASX
-- Code 500-197-30
-- Serial B23090910
+- Mitutoyo CD-6"ASX
+- Code 500-196-30
+- Serial B24254849
 - Resolution 0.0005 in / 0.01 mm
 
 Formal validation shall not begin until the accredited calibration certificate has been reviewed and accepted.
@@ -57,7 +62,7 @@ A passing check-standard result shall not be interpreted as a new calibration of
 A formal manual session is a continuous group of formal specimen measurements performed:
 
 - by Timmy D. Bell;
-- using Mitutoyo B23090910;
+- using Mitutoyo B24254849;
 - under the applicable environmental protocol;
 - under one `session_id`; and
 - between required pre-session and post-session check-standard measurements.
