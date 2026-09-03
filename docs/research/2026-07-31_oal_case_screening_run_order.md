@@ -5,7 +5,7 @@
 **Screening population:** 235 laser-etched cases  
 **Part identifiers:** Sequential integers 1 through 235  
 **Randomization seed:** `20260731`  
-**Reference caliper serial number:** `B23090910`
+**Reference caliper serial number:** `B24254849`
 
 ## Purpose
 

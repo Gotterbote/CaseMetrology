@@ -9,7 +9,7 @@ import statistics
 from collections import Counter
 from pathlib import Path
 
-EXPECTED_CALIPER_SERIAL = "B23090910"
+EXPECTED_CALIPER_SERIAL = "B24254849"
 EXPECTED_REFERENCE_IN = 1.0000024
 ARITHMETIC_TOLERANCE_IN = 0.0000005
 
