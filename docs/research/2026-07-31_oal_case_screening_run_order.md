@@ -1,7 +1,7 @@
 # OAL Case Screening Randomization Record
 
 **Date:** 2026-07-31  
-**Status:** Prospective screening-order record  
+**Status:** Unused seeded-order plan; screening follows the any-order procedure in the 2026-08-09 screening protocol.
 **Screening population:** 235 laser-etched cases  
 **Part identifiers:** Sequential integers 1 through 235  
 **Randomization seed:** `20260731`  
