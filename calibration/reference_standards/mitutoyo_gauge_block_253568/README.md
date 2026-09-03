@@ -13,9 +13,12 @@
 
 - `2026-01-21_calibration_certificate_T26A06624.png` — complete one-page
   Certificate of Inspection for gauge block 253568.
+- `2026-09-02_gauge_block_identity_253568.jpg` — physical gauge-block view
+  showing the Mitutoyo marking, 1 IN nominal-size marking, and identification
+  number 253568.
 
-The PNG is preserved byte-for-byte from the uploaded original. Its SHA-256
-value is recorded in `SHA256SUMS.txt`.
+The image files are preserved byte-for-byte from the uploaded originals. Their
+SHA-256 values are recorded in `SHA256SUMS.txt`.
 
 ## Certificate observations
 
@@ -33,6 +36,6 @@ value is recorded in `SHA256SUMS.txt`.
 - The original certificate agrees with the existing repository transcription
   at `docs/calibration_gauge_block_certificate_2026-01-21.txt`.
 
-Physical identity confirmation remains separate from certificate-content
-verification and requires evidence that the block or its case is marked with
-identification number 253568.
+The physical gauge-block photograph displays identification number 253568,
+which matches certificate T26A06624. The physical-identity link between the
+reference standard and its certificate is therefore confirmed.
