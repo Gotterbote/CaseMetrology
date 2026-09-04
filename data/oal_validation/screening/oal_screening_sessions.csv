@@ -1,1 +1,11 @@
 session_id,session_date,session_start_time,session_end_time,operator,caliper_serial_number,reference_standard_in,pre_1_in,pre_2_in,pre_3_in,pre_4_in,pre_5_in,pre_mean_in,pre_range_in,post_1_in,post_2_in,post_3_in,post_4_in,post_5_in,post_mean_in,post_range_in,session_status,notes
+1,2026-09-03,17:21,19:38,Timmy D. Bell,B24254849,1.0000024,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000000,0.0000000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000000,0.0000000,PASS,"Before case screening, after pre-check: room 73.7 F at 2026-09-03T17:27:24-05:00; gauge-block surface 74.4 F at 2026-09-03T17:28:58-05:00.         Post-session:
+Room temperature: 74.4 F at 2026-09-03T19:36:29-05:00
+Gauge-block surface temperature: 74.7 F at 2026-09-03T19:38:16-05:00
+Temperature readings settled: yes
+Caliper closed-jaw zero: 0.0000 in
+Equipment/environmental abnormalities: none
+Measurement issues or interruptions: none
+Final session disposition: pending review
+Export note: blank source session_status represented as PENDING_REVIEW in this CSV; this is not acceptance. Date/time fields normalized to YYYY-MM-DD and HH:MM; source times have minute precision. Trailing note whitespace trimmed. Source workbook preserved unchanged.
+Review recorded 2026-09-03T20:06:14-05:00: screening session PASS; reference limits satisfied, no abnormalities reported, and Nano audit reported zero issues."
