@@ -1,0 +1,11 @@
+part_id,laser_etched_id_verified,screening_reading_in,screening_class,selection_stratum,reserve_priority,selection_seed,selection_script_commit,notes
+7,yes,0.9810,below_lsl,below_lsl,1,2026090301,49ba45efa0802437b5de2fb168a4de09297b6ff1,replacement reserve only; not a routine measurement
+205,yes,0.9830,below_lsl,below_lsl,2,2026090301,49ba45efa0802437b5de2fb168a4de09297b6ff1,replacement reserve only; not a routine measurement
+96,yes,0.9910,in_spec,near_lsl_in_spec,1,2026090301,49ba45efa0802437b5de2fb168a4de09297b6ff1,replacement reserve only; not a routine measurement
+138,yes,0.9910,in_spec,near_lsl_in_spec,2,2026090301,49ba45efa0802437b5de2fb168a4de09297b6ff1,replacement reserve only; not a routine measurement
+87,yes,0.9995,in_spec,central_nominal,1,2026090301,49ba45efa0802437b5de2fb168a4de09297b6ff1,replacement reserve only; not a routine measurement
+68,yes,0.9990,in_spec,central_nominal,2,2026090301,49ba45efa0802437b5de2fb168a4de09297b6ff1,replacement reserve only; not a routine measurement
+101,yes,1.0085,in_spec,near_usl_in_spec,1,2026090301,49ba45efa0802437b5de2fb168a4de09297b6ff1,replacement reserve only; not a routine measurement
+217,yes,1.0090,in_spec,near_usl_in_spec,2,2026090301,49ba45efa0802437b5de2fb168a4de09297b6ff1,replacement reserve only; not a routine measurement
+54,yes,1.0250,above_usl,above_usl,1,2026090301,49ba45efa0802437b5de2fb168a4de09297b6ff1,replacement reserve only; not a routine measurement
+156,yes,1.0270,above_usl,above_usl,2,2026090301,49ba45efa0802437b5de2fb168a4de09297b6ff1,replacement reserve only; not a routine measurement
