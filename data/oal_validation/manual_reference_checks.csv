@@ -1,0 +1,11 @@
+reference_check_id,session_id,check_position,repeat_number,check_standard_id,certified_value_in,observed_value_in,check_timestamp,operator,valid,notes
+MAN-S001-PRE-01,MAN-S001,PRE,1,253568,1.0000024,1.0000,,Timmy D. Bell,YES,Individual timestamp not recorded contemporaneously; see DEV-20260905-001.
+MAN-S001-PRE-02,MAN-S001,PRE,2,253568,1.0000024,1.0000,,Timmy D. Bell,YES,Individual timestamp not recorded contemporaneously; see DEV-20260905-001.
+MAN-S001-PRE-03,MAN-S001,PRE,3,253568,1.0000024,1.0000,,Timmy D. Bell,YES,Individual timestamp not recorded contemporaneously; see DEV-20260905-001.
+MAN-S001-PRE-04,MAN-S001,PRE,4,253568,1.0000024,1.0000,,Timmy D. Bell,YES,Individual timestamp not recorded contemporaneously; see DEV-20260905-001.
+MAN-S001-PRE-05,MAN-S001,PRE,5,253568,1.0000024,1.0000,,Timmy D. Bell,YES,Individual timestamp not recorded contemporaneously; see DEV-20260905-001.
+MAN-S001-POST-01,MAN-S001,POST,1,253568,1.0000024,1.0000,,Timmy D. Bell,YES,Individual timestamp not recorded contemporaneously; see DEV-20260905-001.
+MAN-S001-POST-02,MAN-S001,POST,2,253568,1.0000024,1.0000,,Timmy D. Bell,YES,Individual timestamp not recorded contemporaneously; see DEV-20260905-001.
+MAN-S001-POST-03,MAN-S001,POST,3,253568,1.0000024,1.0000,,Timmy D. Bell,YES,Individual timestamp not recorded contemporaneously; see DEV-20260905-001.
+MAN-S001-POST-04,MAN-S001,POST,4,253568,1.0000024,1.0000,,Timmy D. Bell,YES,Individual timestamp not recorded contemporaneously; see DEV-20260905-001.
+MAN-S001-POST-05,MAN-S001,POST,5,253568,1.0000024,1.0000,,Timmy D. Bell,YES,Individual timestamp not recorded contemporaneously; see DEV-20260905-001.
