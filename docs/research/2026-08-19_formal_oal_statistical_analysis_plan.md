@@ -495,6 +495,6 @@ Certificate evidence has been received and the calibration-correction policy has
 
 ## 41. Protocol Lock
 
-Once certificate-dependent items are resolved, this SAP shall be frozen.
+Once the remaining reference-uncertainty model and near-specification decision-rule items are resolved, this SAP shall be frozen.
 
 Any later supplemental analysis shall be labeled exploratory and shall not replace the prospectively defined primary analysis.

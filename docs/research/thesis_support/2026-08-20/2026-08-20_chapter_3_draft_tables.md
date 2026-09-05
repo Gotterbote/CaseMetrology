@@ -102,7 +102,7 @@
 | RMSE | ≤ 0.002 in | Specimen-level agreement | Frozen |
 | Absolute specimen error, empirical P95 | ≤ 0.003 in | Specimen-level agreement | Frozen |
 | Maximum absolute specimen error | ≤ 0.004 in | Specimen-level agreement | Frozen |
-| False-pass outcome | Zero desired; any confirmed false pass is material to validation disposition | Classification | Frozen principle; near-limit decision rule certificate-dependent |
+| False-pass outcome | Zero desired; any confirmed false pass is material to validation disposition | Classification | Frozen principle; final near-limit decision rule remains prospectively pending |
 | Material protocol deviations | No unresolved material deviations for unconditional validation | Study level | Frozen |
 
 **Availability interpretation for 180 planned CV opportunities:**

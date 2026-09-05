@@ -72,7 +72,7 @@
 
 `[REPO]` Screening sessions include pre- and post-session reference checks against the certified gauge block under the formal measurement-assurance procedure.
 
-`[CERTIFICATE-PENDING]` Final numerical acceptance limits governing screening-session reference checks remain dependent on review of the calibrated manual-reference instrument certificate.
+`[RESOLVED]` Numerical reference-check limits are frozen at `E_limit = 0.0005 in`, `R_limit = 0.0005 in`, and `D_limit = 0.0005 in`.
 
 `[FORMAL-DATA-PENDING]` The completed screening distribution, counts within dimensional regions, and any resulting final stratum boundaries cannot be reported until screening is actually performed.
 
@@ -123,9 +123,9 @@
 
 `[GUARDRAIL]` Manufacturer catalog accuracy specifications describe the product model and must not be substituted for the actual calibration status, error, or uncertainty of serial B24254849 during this study.
 
-`[CERTIFICATE-PENDING]` Formal use of serial B24254849 as the reference instrument remains conditional on review and acceptance of its calibration certificate.
+`[RESOLVED]` Calibration certificate DDJ25P23P for serial B24254849 has been reviewed; the instrument disposition is `ACCEPT_WITH_LIMITATION` subject to the frozen reference-system checks.
 
-`[CERTIFICATE-PENDING]` The certificate review must establish, as applicable, the calibration laboratory and traceability information, certificate number, calibration date, as-found/as-left condition, reported error or correction near the approximately 1-in measurement region, and reported uncertainty.
+`[RESOLVED]` Certificate review established the calibration laboratory and traceability information, certificate identity and date, as-found/as-left condition, 1-in indication error, and reported calibration uncertainty.
 
 `[STANDARD]` Metrological traceability should be described according to the VIM as a property of a measurement result related to a reference through a documented unbroken calibration chain in which each calibration contributes to measurement uncertainty.
 **Source:** JCGM 200:2012, VIM 2.41.
@@ -136,7 +136,7 @@
 
 `[REPO]` Session acceptance is determined prospectively from reference-check error, within-check range/repeatability, and pre-to-post drift criteria defined by the formal measurement-assurance protocol.
 
-`[CERTIFICATE-PENDING]` The final numerical values of `E_limit`, `R_limit`, and `D_limit` cannot be finalized until the manual-reference calibration certificate has been reviewed and its uncertainty/performance information incorporated into the session-assurance rationale.
+`[RESOLVED]` The inclusive session-assurance limits are frozen at `E_limit = 0.0005 in`, `R_limit = 0.0005 in`, and `D_limit = 0.0005 in`.
 
 `[REPO]` For each selected validation specimen, three formal manual reference readings are obtained.
 
@@ -159,7 +159,7 @@
 `[STANDARD]` Measurement uncertainty is a property of the measurement result and must be considered when interpreting the reference measurement and any conformity decision near a specification limit.
 **Recommended sources:** JCGM 100:2008 and JCGM 106:2012.
 
-`[CERTIFICATE-PENDING]` The final treatment of any calibration correction, reference uncertainty, or near-specification guard band remains prospective and certificate-dependent.
+`[CERTIFICATE-RESOLVED / STATISTICAL-DECISION-PENDING]` Certificate review established that no calibration correction is applied at 1 in and froze the reference-system session-control limits. The remaining prospective decision concerns the final reference-uncertainty model and treatment near the specification limits.
 
 `[REPO]` Formal manual observations are preserved as raw replicate readings; any specimen-level reference mean is derived from those preserved readings rather than replacing them.
 
@@ -167,7 +167,7 @@
 
 **Supported now:** instrument identity, planned three replicates, full repositioning, manual run-order seed, five pre/post standard checks, single-operator design.
 **Manufacturer support:** model range and display resolution.
-**Certificate pending:** actual calibrated performance, traceability-chain details, error/correction, uncertainty, and final session limits.
+**Certificate resolved:** calibrated performance, traceability, 1-in indication error, calibration uncertainty, no-correction treatment, and session-control limits are documented. **Remaining prospective item:** final reference-uncertainty model and near-specification decision rule.
 **Standards support:** VIM/GUM/JCGM 106.
 **Critical guardrail:** do not call the manual reference an error-free truth.
 
@@ -211,17 +211,17 @@ The selection process will preserve the screened population input, eligibility r
 
 ## 3.10 Manual Reference Measurement Method
 
-Formal manual reference measurements are planned using a Mitutoyo digital caliper, model 500-196-30 / CD-6"ASX, serial number B24254849. Mitutoyo manufacturer documentation identifies this model as having a 0–6 in (0–150 mm) measuring range and 0.0005-in (0.01-mm) resolution [MITUTOYO SOURCE]. Manufacturer specifications are used only to describe the instrument model; the calibrated performance of the actual study instrument will be established from its calibration certificate.
+Formal manual reference measurements are planned using a Mitutoyo digital caliper, model 500-196-30 / CD-6"ASX, serial number B24254849. Mitutoyo manufacturer documentation identifies this model as having a 0–6 in (0–150 mm) measuring range and 0.0005-in (0.01-mm) resolution [MITUTOYO SOURCE]. Manufacturer specifications are used only to describe the instrument model; calibrated performance of the actual study instrument is established by calibration certificate DDJ25P23P.
 
-Formal use of serial B24254849 as the reference instrument is conditional on review and acceptance of that certificate. The review will document the calibration laboratory and traceability information, certificate identification, applicable calibration date and condition, reported error or correction near the study's measurement region, and reported measurement uncertainty. Metrological traceability is treated in accordance with the International Vocabulary of Metrology, which relates a measurement result to a reference through a documented unbroken calibration chain in which the calibrations contribute to measurement uncertainty [JCGM 200:2012].
+Calibration certificate DDJ25P23P for serial B24254849 has been reviewed and the instrument disposition is `ACCEPT_WITH_LIMITATION` for prospective formal manual-reference use subject to the frozen pre-use and per-session reference checks. The review documents the calibration laboratory and traceability information, certificate identification, calibration date and condition, reported 1-in indication error, and reported measurement uncertainty. Metrological traceability is treated in accordance with the International Vocabulary of Metrology, which relates a measurement result to a reference through a documented unbroken calibration chain in which the calibrations contribute to measurement uncertainty [JCGM 200:2012].
 
-Before and after each formal manual measurement session, five readings of the certified gauge block are obtained with full removal and repositioning between readings. The gauge block has a certified central length of 1.0000024 in under certificate T26A06624. Session acceptance is prospectively based on reference error, within-check spread, and pre-to-post drift criteria. Final numerical limits for these checks will be established only after the manual-reference calibration certificate has been reviewed.
+Before and after each formal manual measurement session, five readings of the certified gauge block are obtained with full removal and repositioning between readings. The gauge block has a certified central length of 1.0000024 in under certificate T26A06624. Session acceptance is prospectively based on reference error, within-check spread, and pre-to-post drift criteria. The frozen inclusive limits are `E_limit = 0.0005 in`, `R_limit = 0.0005 in`, and `D_limit = 0.0005 in`.
 
 Each selected validation specimen is measured manually three times. The specimen is fully removed and repositioned between replicate readings so that the repeated-measurement series includes positioning variation inherent in the stated manual procedure. Formal manual run order is randomized independently of computer-vision acquisition order using the preserved manual randomization seed `2026081901`. Randomization and replication are established experimental-design principles used to control run-order effects and characterize repeated-observation behavior [NIST/SEMATECH DOE SOURCE].
 
 The formal manual study is conducted by a single operator. Accordingly, the repeated manual measurements characterize within-operator behavior under the specified measurement conditions; they do not estimate between-operator measurement reproducibility. This distinction follows the VIM separation of measurement repeatability from measurement reproducibility [JCGM 200:2012].
 
-The manual process is treated as the study's reference measurement process rather than as an error-free determination of “true” OAL. Its calibration status, resolution, repeatability, and measurement uncertainty remain relevant to interpretation of agreement with the computer-vision method. The final treatment of calibration correction, reference uncertainty, and any near-specification decision rule remains dependent on certificate review and will follow the applicable GUM and conformity-assessment framework [JCGM 100:2008; JCGM 106:2012].
+The manual process is treated as the study's reference measurement process rather than as an error-free determination of “true” OAL. Its calibration status, resolution, repeatability, and measurement uncertainty remain relevant to interpretation of agreement with the computer-vision method. The calibration-correction policy is frozen as no correction at 1 in. The remaining prospective statistical decision concerns the final reference-uncertainty model and treatment near the specification limits, following the applicable GUM and conformity-assessment framework [JCGM 100:2008; JCGM 106:2012].
 
 Raw manual replicate readings are preserved individually. Any specimen-level manual reference mean used in the agreement analysis is derived from those preserved observations rather than replacing the underlying measurements.
 

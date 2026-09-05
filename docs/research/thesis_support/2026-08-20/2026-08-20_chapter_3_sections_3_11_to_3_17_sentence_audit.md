@@ -89,7 +89,7 @@
 
 `[REPO]` The planned environmental instrumentation includes a Digi-Sense WD-20250-91 thermocouple thermometer and Digi-Sense WD-08519-54 Type-T self-adhesive surface probes.
 
-`[CERTIFICATE-PENDING]` Formal claims that those environmental measurements are calibrated or metrologically traceable require review of the instrument/probe calibration documentation applicable to the study.
+`[RESOLVED-LIMITATION]` The temperature-meter calibration documentation has been reviewed. The Type-T surface probes are not individually calibrated; environmental observations therefore document equilibration and stability only and are not used for dimensional temperature correction or numerical environmental acceptance limits.
 
 `[REPO] [GUARDRAIL]` Earlier approximate temperature observations obtained with non-traceable equipment are prevalidation observations and are not substituted for formal calibrated environmental evidence.
 
@@ -104,14 +104,14 @@
 
 `[REPO]` These checks provide session-level evidence for reference error, within-check spread, and pre-to-post drift.
 
-`[CERTIFICATE-PENDING]` Numerical acceptance thresholds for the manual measurement-assurance checks remain dependent on review of the calibrated manual-reference instrument certificate.
+`[RESOLVED]` The manual measurement-assurance limits are frozen at `E_limit = 0.0005 in`, `R_limit = 0.0005 in`, and `D_limit = 0.0005 in`.
 
 `[FORMAL-DATA-PENDING]` Actual formal temperatures, pre/post check results, session acceptability, and any associated deviations cannot be reported until data collection occurs.
 
 ### Audit disposition for Section 3.13
 
 **Supported now:** prospective environmental and assurance procedure.
-**Certificate pending:** environmental traceability and final manual-reference session limits.
+**Certificate resolved with limitation:** the temperature meter calibration has been reviewed, the Type-T probes are not individually calibrated, and the manual-reference session limits are frozen.
 **Formal-data pending:** actual temperatures/check outcomes.
 **Guardrail:** do not retroactively thermal-correct formal data without a prospective basis.
 
@@ -227,7 +227,7 @@ Availability =
 `[REPO] [STANDARD]` A confirmed false pass is treated as a material outcome because it represents acceptance by the CV method where the applicable reference decision indicates nonconformance. JCGM 106 identifies false acceptance as a distinct conformity-assessment risk and describes guarded decision rules as one means of reducing that risk.
 **Source:** JCGM 106:2012.
 
-`[CERTIFICATE-PENDING]` The final determination of a reference pass/fail classification for specimens sufficiently near a specification limit remains dependent on the manual-reference calibration certificate and the prospectively established uncertainty/decision rule.
+`[STATISTICAL-DECISION-PENDING]` Calibration-certificate review is complete. The remaining prospective decision is the final reference-uncertainty model and resulting near-specification conformity rule.
 
 `[REPO]` Unresolved material protocol deviations prevent an unconditional validation conclusion even if numerical performance thresholds are otherwise satisfied.
 
@@ -237,7 +237,7 @@ Availability =
 
 **Supported now:** all project-specific thresholds and prospective nature.
 **Standard context:** JCGM 106 for false-acceptance/conformity risk.
-**Certificate pending:** final near-limit reference decision rule.
+**Statistical decision pending:** final reference-uncertainty model and near-limit conformity rule.
 **Formal-data pending:** pass/fail outcome of the validation itself.
 
 ---

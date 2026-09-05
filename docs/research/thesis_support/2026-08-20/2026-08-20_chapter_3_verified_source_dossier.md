@@ -139,7 +139,7 @@ DOI: `10.59161/JCGM106-2012`
 - Section 3.16.7 for false-pass/false-fail interpretation and decision-rule context.
 
 **Important limitation**
-The final CaseMetrology near-specification decision rule remains certificate-dependent. JCGM 106 supplies the framework; it does not determine `E_limit`, `R_limit`, `D_limit`, or the final guard band for this study.
+Calibration-certificate inputs and the reference-system session limits are resolved. The final CaseMetrology near-specification conformity rule remains a prospective statistical decision. JCGM 106 supplies the framework; it does not determine the project-specific near-limit rule.
 
 ---
 
@@ -362,7 +362,7 @@ Cochran, *Sampling Techniques*, is a suitable classical candidate.
 7. Prevalidation estimator-comparison numbers must not be presented as formal validation results.
 8. The formal Chapter 4 results remain unwritten until formal data exist.
 9. Current project acceptance limits are prospective CaseMetrology criteria, not values imported from JCGM or a manufacturer catalog.
-10. The final near-limit conformity rule remains pending the reference-caliper certificate review.
+10. The reference-caliper certificate review is complete; the final near-limit conformity rule remains prospectively pending the reference-uncertainty decision.
 
 ---
 
@@ -372,5 +372,5 @@ Cochran, *Sampling Techniques*, is a suitable classical candidate.
 **Image-processing textbook source still to verify:** 1
 **Experimental-design source still to verify:** 1
 **Sampling source still to verify if used:** 1
-**Formal certificate-dependent items:** still open
+**Formal certificate review:** resolved; **remaining pre-measurement statistical items:** final reference-uncertainty model and near-limit conformity rule
 **Formal validation results:** not yet collected
