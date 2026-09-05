@@ -24,7 +24,7 @@ The formal manual-reference instrument is:
 - Serial B24254849
 - Resolution 0.0005 in / 0.01 mm
 
-Formal validation shall not begin until the accredited calibration certificate has been reviewed and accepted.
+Certificate DDJ25P23P has been reviewed and the instrument disposition is `ACCEPT_WITH_LIMITATION` under the controlling September 3, 2026 amendment.
 
 ## 3. Designated Check Standard
 
@@ -108,7 +108,7 @@ R_P=\max(P_1,\ldots,P_5)-\min(P_1,\ldots,P_5)
 \]
 
 \[
-E_P=\bar{P}-L_{ref}
+E_P=\bar{P}-L_{display}
 \]
 
 The raw five readings shall remain permanently preserved.
@@ -129,7 +129,7 @@ R_P\le R_{limit}
 
 together with acceptable caliper condition, calibration status, check-standard condition, environmental status, and no unresolved abnormality.
 
-**PENDING CERTIFICATE REVIEW:** final values for `E_limit` and `R_limit`.
+Frozen values: `E_limit = 0.0005 in` and `R_limit = 0.0005 in`.
 
 ## 10. Failed Pre-Session Check
 
@@ -156,7 +156,7 @@ R_Q=\max(Q_1,\ldots,Q_5)-\min(Q_1,\ldots,Q_5)
 \]
 
 \[
-E_Q=\bar{Q}-L_{ref}
+E_Q=\bar{Q}-L_{display}
 \]
 
 ## 12. Pre-to-Post Drift
@@ -171,7 +171,7 @@ with criterion:
 |D|\le D_{limit}
 \]
 
-**PENDING CERTIFICATE REVIEW:** final value for `D_limit`.
+Frozen value: `D_limit = 0.0005 in`.
 
 ## 13. Complete Session Acceptance
 

@@ -208,18 +208,15 @@ NVIDIA identifies the platform as the Jetson Orin Nano Super Developer Kit.
 
 ### S-10 — Mitutoyo manual reference caliper
 
-**Manufacturer evidence**
+**Primary project evidence**
 
-Mitutoyo documentation identifies code `500-197-30` as `CD-8"ASX`. Mitutoyo product literature for this model family lists 0.0005 in / 0.01 mm resolution, and official Mitutoyo material identifies 500-197-30 as the 0–8 in / 0–200 mm model.
+Calibration certificate DDJ25P23P and the preserved instrument/case identity images identify the formal manual-reference caliper as Mitutoyo code `500-196-30`, model `CD-6"ASX`, serial `B24254849`. The certificate describes a 0–6 in digital caliper, reports 0.0000-in as-left error at 1 in, and reports expanded uncertainty of 0.000126 in at 1 in (approximately 95% confidence).
 
 **Use in thesis**
-- Section 3.10 for model identity, nominal measuring range, and display resolution.
+- Section 3.10 for actual instrument identity, resolution, calibration status, 1-in indication error, and calibration uncertainty.
 
-**Do not use for**
-- Actual calibrated error of serial B23090910.
-- Actual uncertainty of serial B23090910.
-- Formal suitability decision.
-Those remain dependent on the incoming calibration certificate.
+**Limitation**
+- Do not treat the manual comparator as an error-free true value. Formal interpretation must retain the frozen session-control rules and the final prospective uncertainty treatment.
 
 ---
 

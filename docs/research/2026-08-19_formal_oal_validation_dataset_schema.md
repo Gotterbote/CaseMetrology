@@ -248,11 +248,17 @@ Required fields:
 
 ## 7. Certificate Review Records
 
-Recommended files:
+The current formal reference-system review is:
 
-- `docs/research/calibration/caliper_certificate_review.md`
-- `docs/research/calibration/check_standard_certificate_review.md`
-- `docs/research/calibration/temperature_instrument_certificate_review.md`
+- `docs/research/2026-09-03_formal_oal_reference_system_amendment_and_limit_freeze.md`
+
+The underlying preserved certificate-evidence indexes are:
+
+- `calibration/instruments/mitutoyo_B24254849/README.md`
+- `calibration/reference_standards/mitutoyo_gauge_block_253568/README.md`
+- `calibration/instruments/cole_parmer_20250-91_2605139793/README.md`
+
+These records supersede the earlier placeholder certificate-review paths.
 
 ## 8. Derived Manual Reference Dataset
 

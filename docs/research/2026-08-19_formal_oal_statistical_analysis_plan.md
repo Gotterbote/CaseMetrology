@@ -307,7 +307,7 @@ Any confirmed false pass shall require root-cause investigation and block an unc
 
 ## 23. Reference Uncertainty Near Specification Limits
 
-**PENDING CERTIFICATE REVIEW**
+**PENDING PRE-MEASUREMENT UNCERTAINTY DECISION**
 
 Before formal measurements, define whether uncertainty-overlap cases use:
 
@@ -486,13 +486,12 @@ Primary analysis shall not run until the audit verifies specimen/sample integrit
 
 ## 40. Remaining Pre-Measurement Statistical Decisions
 
-Pending only because certificate evidence has not yet been received:
+Certificate evidence has been received and the calibration-correction policy has been frozen as no correction at 1 in. Before formal measurements, finalize prospectively:
 
-1. final calibration-correction treatment;
-2. final reference uncertainty calculation;
-3. treatment near LSL/USL;
-4. any required guard band;
-5. final combined error/uncertainty definition.
+1. final reference uncertainty calculation/method;
+2. treatment near LSL/USL;
+3. whether any guard band is required; and
+4. final combined error/uncertainty definition.
 
 ## 41. Protocol Lock
 

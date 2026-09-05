@@ -74,11 +74,11 @@ Repository evidence demonstrates what was actually done. External literature sup
 | **3.9** | Exact strata boundaries and allocation | depend on completed screening distribution | No external citation | None | **FORMAL DATA PENDING** |
 | **3.9** | Intentionally short/long specimens not automatically excluded | formal sampling/protocol decision | No external citation | None | **SUPPORTED PROSPECTIVELY** |
 | **3.9** | Reproducible programmatic selection with documented seed/ranking | selection infrastructure/protocol | No external citation required | None | **SUPPORTED PROSPECTIVELY** |
-| **3.10 Manual Reference Measurement Method** | Mitutoyo 500-197-30 / CD-8"ASX, 0–8 in, 0.0005-in resolution | study records | Manufacturer citation recommended | Mitutoyo official product information | **SUPPORTED for identity/resolution**; actual calibrated performance must come from certificate |
-| **3.10** | Serial B23090910 and formal calibration status | project protocol/template | Actual certificate required | Incoming accredited certificate | **CERTIFICATE PENDING** |
+| **3.10 Manual Reference Measurement Method** | Mitutoyo 500-196-30 / CD-6"ASX, 0–6 in, 0.0005-in resolution | certificate DDJ25P23P; instrument identity evidence | Certificate is primary evidence for the actual study instrument | DDJ25P23P | **SUPPORTED NOW** |
+| **3.10** | Serial B24254849 and formal calibration status | certificate DDJ25P23P; 2026-09-03 reference-system amendment | Certificate primary | DDJ25P23P | **SUPPORTED NOW** |
 | **3.10** | Five pre + five post check-standard readings with removal/repositioning | formal manual/session protocols | No external citation | None | **SUPPORTED PROSPECTIVELY** |
 | **3.10** | Check-standard assigned value 1.0000024 in | gauge-block certificate | Certificate primary; VIM/GUM useful terminology | T26A06624; JCGM 200/JCGM 100 | **SUPPORTED NOW** |
-| **3.10** | Final `E_limit`, `R_limit`, `D_limit`, and any certificate-derived correction/decision rule | certificate review protocol | GUM/JCGM 106 relevant | JCGM 100; JCGM 106 | **CERTIFICATE PENDING** |
+| **3.10** | `E_limit`, `R_limit`, `D_limit`, and calibration-correction policy | 2026-09-03 reference-system amendment | GUM relevant to uncertainty interpretation | JCGM 100 | **SUPPORTED NOW**; final near-limit uncertainty rule remains open |
 | **3.10.4** | Repeatability versus reproducibility terminology; single-operator limitation | design/protocol | Authoritative terminology citation recommended | JCGM 200:2012; optionally ISO 5725 | **CITE** |
 | **3.11 Computer-Vision Validation Measurement Method** | 60 specimens × 3 planned attempts = 180 CV opportunities; full removal/repositioning | formal CV protocol/master protocol | No external citation | None | **SUPPORTED PROSPECTIVELY** |
 | **3.11** | `VALID`, `SYSTEM_FAILURE`, `PROTOCOL_INVALID`; system failure not automatically replaced | CV/failure/deviation protocols; OAL-D016 | No external citation | None | **SUPPORTED PROSPECTIVELY** |
@@ -87,7 +87,7 @@ Repository evidence demonstrates what was actually done. External literature sup
 | **3.12** | Manual seed 2026081901; CV seed 2026081902 | randomization protocol | No external citation | None | **SUPPORTED NOW** |
 | **3.12.3** | Experimental unit is specimen (n=60), not 180 replicate observations | SAP | General experimental-unit concept benefits from citation | DOE/statistics reference | **SUPPORTED NOW + CITE GENERAL PRINCIPLE** |
 | **3.13 Environmental and Measurement-Assurance Controls** | Environmental observations recorded; no automatic thermal correction currently planned | environmental protocol | GUM/VIM appropriate for uncertainty/environmental influence language | JCGM 100; JCGM 200 | **SUPPORTED PROSPECTIVELY + CITE** |
-| **3.13** | Calibrated Digi-Sense thermometer/probe traceability | equipment/protocol | Actual certificate required | Instrument certificate | **CERTIFICATE PENDING** before calling formal readings traceable |
+| **3.13** | Cole-Parmer 20250-91 meter calibration status and Type-T probe limitation | report 1817067; 2026-09-03 reference-system amendment | Actual report primary | 1817067 | **SUPPORTED NOW WITH LIMITATION**: meter calibrated by simulated input; probes not individually calibrated |
 | **3.13.1** | Pre/post reference checks support session assurance | session acceptance protocol | General terminology may cite VIM/GUM | JCGM 200/JCGM 100 | **SUPPORTED PROSPECTIVELY** |
 | **3.14 Data Integrity, Traceability, and Protocol Deviations** | Raw observations separate from derived data; deviations explicit; no outlier deletion solely for convenience | dataset schema; deviation policy; master protocol | No external citation required for project governance | Optional research-data-integrity source | **SUPPORTED NOW** |
 | **3.14** | SHA-256 used for artifact integrity in applicable workflows | manifests; transport code; research records | No external citation necessary for project use | Optional cryptographic standard only if discussing SHA-256 properties | **SUPPORTED NOW** |
@@ -125,7 +125,7 @@ Repository evidence demonstrates what was actually done. External literature sup
 - **Measurement-method precision terminology:** ISO 5725-2:2019 may be cited selectively for repeatability/reproducibility terminology and precision principles. Do not imply that the single-operator CaseMetrology study is an ISO 5725 interlaboratory study.
 - **Jetson platform:** NVIDIA official Jetson Orin Nano Super Developer Kit documentation for manufacturer specifications only.
 - **Camera:** Arducam official B0499 IMX296 Global Shutter USB3.0 camera datasheet.
-- **Manual reference caliper:** Mitutoyo official product information for 500-197-30 / CD-8"ASX for model, range, and display resolution only. Actual calibrated performance must come from the study instrument certificate.
+- **Manual reference caliper:** certificate DDJ25P23P and preserved identity evidence for the actual 500-196-30 / CD-6"ASX, serial B24254849; certificate evidence governs calibrated performance.
 
 ## Claims that should NOT rely primarily on outside literature
 

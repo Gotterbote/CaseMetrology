@@ -216,7 +216,7 @@ This can be concise in Chapter 3 and expanded in an appendix or supplementary re
 
 11. **NVIDIA Jetson Orin Nano Developer Kit User Guide** — platform identity/vendor specifications.
 12. **Arducam B0499 IMX296 datasheet** — camera/sensor capability.
-13. **Mitutoyo 500-197-30 documentation** — manual caliper model/range/resolution.
+13. **Mitutoyo 500-196-30 documentation** — manual caliper model/range/resolution.
 
 ## Certificate sources
 

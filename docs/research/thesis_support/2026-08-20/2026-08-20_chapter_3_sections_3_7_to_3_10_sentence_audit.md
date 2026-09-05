@@ -116,14 +116,14 @@
 
 ## 3.10 Manual Reference Measurement Method
 
-`[REPO] [MANUFACTURER]` Formal manual reference measurements are planned using Mitutoyo digital caliper model 500-197-30 / CD-8"ASX, serial number B23090910.
+`[REPO] [MANUFACTURER]` Formal manual reference measurements are planned using Mitutoyo digital caliper model 500-196-30 / CD-6"ASX, serial number B24254849.
 
-`[MANUFACTURER]` Mitutoyo documentation identifies model 500-197-30 as a 0–8 in (0–200 mm) digital caliper with 0.0005-in (0.01-mm) resolution.
+`[MANUFACTURER]` Mitutoyo documentation identifies model 500-196-30 as a 0–6 in (0–150 mm) digital caliper with 0.0005-in (0.01-mm) resolution.
 **Manufacturer source:** Mitutoyo official catalog/product literature.
 
-`[GUARDRAIL]` Manufacturer catalog accuracy specifications describe the product model and must not be substituted for the actual calibration status, error, or uncertainty of serial B23090910 during this study.
+`[GUARDRAIL]` Manufacturer catalog accuracy specifications describe the product model and must not be substituted for the actual calibration status, error, or uncertainty of serial B24254849 during this study.
 
-`[CERTIFICATE-PENDING]` Formal use of serial B23090910 as the reference instrument remains conditional on review and acceptance of its calibration certificate.
+`[CERTIFICATE-PENDING]` Formal use of serial B24254849 as the reference instrument remains conditional on review and acceptance of its calibration certificate.
 
 `[CERTIFICATE-PENDING]` The certificate review must establish, as applicable, the calibration laboratory and traceability information, certificate number, calibration date, as-found/as-left condition, reported error or correction near the approximately 1-in measurement region, and reported uncertainty.
 
@@ -211,9 +211,9 @@ The selection process will preserve the screened population input, eligibility r
 
 ## 3.10 Manual Reference Measurement Method
 
-Formal manual reference measurements are planned using a Mitutoyo digital caliper, model 500-197-30 / CD-8"ASX, serial number B23090910. Mitutoyo manufacturer documentation identifies this model as having a 0–8 in (0–200 mm) measuring range and 0.0005-in (0.01-mm) resolution [MITUTOYO SOURCE]. Manufacturer specifications are used only to describe the instrument model; the calibrated performance of the actual study instrument will be established from its calibration certificate.
+Formal manual reference measurements are planned using a Mitutoyo digital caliper, model 500-196-30 / CD-6"ASX, serial number B24254849. Mitutoyo manufacturer documentation identifies this model as having a 0–6 in (0–150 mm) measuring range and 0.0005-in (0.01-mm) resolution [MITUTOYO SOURCE]. Manufacturer specifications are used only to describe the instrument model; the calibrated performance of the actual study instrument will be established from its calibration certificate.
 
-Formal use of serial B23090910 as the reference instrument is conditional on review and acceptance of that certificate. The review will document the calibration laboratory and traceability information, certificate identification, applicable calibration date and condition, reported error or correction near the study's measurement region, and reported measurement uncertainty. Metrological traceability is treated in accordance with the International Vocabulary of Metrology, which relates a measurement result to a reference through a documented unbroken calibration chain in which the calibrations contribute to measurement uncertainty [JCGM 200:2012].
+Formal use of serial B24254849 as the reference instrument is conditional on review and acceptance of that certificate. The review will document the calibration laboratory and traceability information, certificate identification, applicable calibration date and condition, reported error or correction near the study's measurement region, and reported measurement uncertainty. Metrological traceability is treated in accordance with the International Vocabulary of Metrology, which relates a measurement result to a reference through a documented unbroken calibration chain in which the calibrations contribute to measurement uncertainty [JCGM 200:2012].
 
 Before and after each formal manual measurement session, five readings of the certified gauge block are obtained with full removal and repositioning between readings. The gauge block has a certified central length of 1.0000024 in under certificate T26A06624. Session acceptance is prospectively based on reference error, within-check spread, and pre-to-post drift criteria. Final numerical limits for these checks will be established only after the manual-reference calibration certificate has been reviewed.
 
@@ -279,17 +279,17 @@ JCGM 106 does not determine the project's numerical session limits or guard band
 
 ---
 
-## Mitutoyo 500-197-30
+## Mitutoyo 500-196-30
 
 Official Mitutoyo documentation supports:
-- model 500-197-30 / CD-8"ASX;
-- measuring range 0–8 in / 0–200 mm;
+- model 500-196-30 / CD-6"ASX;
+- measuring range 0–6 in / 0–150 mm;
 - resolution 0.0005 in / 0.01 mm.
 
 **Use in Section 3.10**
 Model description only.
 
-**Do not use manufacturer catalog accuracy as a substitute for the calibration certificate of serial B23090910.**
+**Do not use manufacturer catalog accuracy as a substitute for the calibration certificate of serial B24254849.**
 
 ---
 
@@ -298,7 +298,7 @@ Model description only.
 1. Complete formal screening of the eligible specimen population.
 2. Establish final stratum boundaries from the completed screening data.
 3. Execute and preserve the formal 60-specimen selection.
-4. Receive and review the calibration certificate for caliper serial B23090910.
+4. Receive and review the calibration certificate for caliper serial B24254849.
 5. Finalize `E_limit`, `R_limit`, and `D_limit`.
 6. Finalize any calibration correction and near-specification reference decision rule.
 7. Select the final sampling-method citation if Chapter 3 includes a general explanation of stratified random sampling.

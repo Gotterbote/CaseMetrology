@@ -19,30 +19,18 @@ The designated manual-reference instrument is:
 
 - **Manufacturer:** Mitutoyo
 - **Instrument:** Digimatic Caliper
-- **Model:** CD-8"ASX
-- **Code:** 500-197-30
-- **Serial number:** B23090910
+- **Model:** CD-6"ASX
+- **Code:** 500-196-30
+- **Serial number:** B24254849
+- **Calibration certificate/control number:** DDJ25P23P
 - **Display resolution:** 0.0005 in / 0.01 mm
 - **Measurement units used for study:** inches
 
-The instrument's accredited calibration certificate shall be reviewed and accepted before formal reference measurements begin.
+The accredited calibration certificate has been reviewed and accepted with the limitations documented in
+`docs/research/2026-09-03_formal_oal_reference_system_amendment_and_limit_freeze.md`.
+Certificate DDJ25P23P reports 0.0000-in as-left indication error at 1 in and expanded uncertainty of 0.000126 in at 1 in (approximately 95% confidence, k approximately 2).
 
-The certificate review shall verify, at minimum:
-
-- agreement between the certificate and instrument serial number;
-- calibration date;
-- calibration laboratory and accreditation information;
-- calibration status and interval, where stated;
-- as-found measurement results;
-- as-left measurement results, if applicable;
-- whether adjustment or repair occurred;
-- reported measurement uncertainty;
-- measurement results at or sufficiently near the approximately 1.000-in study region; and
-- any limitations, qualifications, or conditions stated on the certificate.
-
-**Pending protocol item:** The treatment of any calibration correction or documented indication error shall be determined only after the actual calibration certificate has been reviewed.
-
-No calibration correction shall be retrospectively selected on the basis of validation results.
+No calibration correction is applied to formal manual observations. This policy was frozen before formal validation and shall not be changed on the basis of validation results.
 
 ## 3. Formal Reference Measurements Are Independent of Screening
 
@@ -96,7 +84,7 @@ Previously entered measurements shall be hidden where practical.
 
 Before the beginning of a formal manual-measurement session:
 
-1. verify that the caliper is serial number B23090910;
+1. verify that the caliper is serial number B24254849;
 2. verify accepted calibration status;
 3. inspect the external measuring jaws;
 4. clean measuring surfaces when necessary;
@@ -115,7 +103,12 @@ Each reading shall include complete removal and repositioning of the standard.
 
 The five individual readings shall be retained along with the calculated mean, minimum, maximum, and range.
 
-The final numerical acceptance criterion remains **PENDING CERTIFICATE REVIEW**.
+The frozen pre-session acceptance limits are:
+
+- absolute mean indication error relative to the expected 1.0000-in display value: `<= 0.0005 in`; and
+- five-reading range: `<= 0.0005 in`.
+
+The complete session also requires the frozen pre-to-post mean drift limit `<= 0.0005 in`, as defined in the reference-system amendment and session-acceptance protocol.
 
 If the pre-session check fails the frozen acceptance criterion, formal specimen measurements shall not begin.
 
@@ -218,7 +211,7 @@ After completion and acceptance of the three formal manual observations for spec
 
 The individual readings shall remain the primary raw observations.
 
-The final metrologically qualified reference value may incorporate only a prospectively justified calibration correction determined from certificate review.
+No calibration correction is applied to the formal specimen readings because the accepted certificate reports 0.0000-in as-left indication error at 1 in. The specimen-level formal reference value is therefore derived directly from the preserved displayed readings.
 
 ## 17. Data Preservation
 

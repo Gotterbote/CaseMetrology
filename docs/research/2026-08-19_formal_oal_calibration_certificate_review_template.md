@@ -31,9 +31,10 @@ research records, including:
 ## 3. Designated Manual-Reference Instrument
 
 - Manufacturer: Mitutoyo
-- Model: CD-8"ASX
-- Code number: 500-197-30
-- Serial number: B23090910
+- Model: CD-6"ASX
+- Code number: 500-196-30
+- Serial number: B24254849
+- Certificate/control number: DDJ25P23P
 - Resolution: 0.0005 in / 0.01 mm
 - Intended validation use: manual comparison-reference measurement near 1.000 in
 - Study specification: 1.000 ± 0.010 in
@@ -169,7 +170,7 @@ comparison-reference use near 1.000 in.
 
 ### 10.1 Caliper identity and calibration
 
-- [ ] Certificate matches Mitutoyo B23090910.
+- [ ] Certificate matches Mitutoyo B24254849 / DDJ25P23P.
 - [ ] Calibration is current for intended formal-use dates.
 - [ ] Traceability is acceptable.
 - [ ] Applicable accreditation/scope is acceptable.

@@ -50,10 +50,11 @@ The formal configuration shall be identified by Git commit before data collectio
 
 Designated reference instrument:
 
-- Mitutoyo CD-8"ASX
-- Code 500-197-30
-- Serial B23090910
+- Mitutoyo CD-6"ASX
+- Code 500-196-30
+- Serial B24254849
 - Resolution 0.0005 in
+- Calibration certificate/control number DDJ25P23P
 
 Each validation specimen shall receive three independent formal manual measurements.
 
@@ -128,7 +129,7 @@ Each formal manual session requires:
 - five independent pre-session check-standard measurements;
 - five independent post-session measurements.
 
-Final numerical limits remain pending certificate review.
+Frozen session limits are `E_limit = 0.0005 in`, `R_limit = 0.0005 in`, and `D_limit = 0.0005 in`, under the September 3, 2026 reference-system amendment.
 
 Failed pre-check = `NO-GO`.
 
@@ -270,7 +271,7 @@ Before formal validation:
 
 ### Caliper
 
-- certificate matches B23090910;
+- certificate matches B24254849 / DDJ25P23P;
 - calibration status accepted;
 - indication error reviewed;
 - uncertainty reviewed;
@@ -292,23 +293,21 @@ Before formal validation:
 - uncertainty recorded;
 - limitations documented.
 
-## 26. Pending Certificate-Dependent Items
+## 26. Remaining Pre-Measurement Items
 
-Before formal measurements, finalize:
+The September 3, 2026 reference-system amendment resolved the manual-session mean-error, range, and drift limits and froze the no-correction treatment at 1 in.
 
-- manual-session mean-error limit;
-- manual-session range limit;
-- pre/post drift limit;
-- calibration-correction treatment;
-- manual-reference uncertainty;
-- treatment near specification limits;
-- any required guard band.
+Before formal measurements, still finalize:
+
+- manual-reference uncertainty method;
+- treatment near specification limits; and
+- whether any guard band is required.
 
 ## 27. Formal Pre-Measurement Stop/Go Checklist
 
 ### A. Reference Instrument
 
-- [ ] Mitutoyo B23090910 returned from accredited calibration.
+- [ ] Mitutoyo B24254849 certificate DDJ25P23P reviewed under the controlling amendment.
 - [ ] Calibration certificate received.
 - [ ] Serial number verified.
 - [ ] Calibration status accepted.

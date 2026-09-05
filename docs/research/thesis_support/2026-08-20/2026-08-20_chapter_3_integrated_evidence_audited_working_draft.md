@@ -192,17 +192,17 @@ The selection process will preserve the screened population input, eligibility r
 
 ## 3.10 Manual Reference Measurement Method
 
-Formal manual reference measurements are planned using a Mitutoyo digital caliper, model 500-197-30 / CD-8"ASX, serial number B23090910. Mitutoyo manufacturer documentation identifies this model as having a 0–8 in (0–200 mm) measuring range and 0.0005-in (0.01-mm) resolution [MITUTOYO SOURCE]. Manufacturer specifications are used only to describe the instrument model; the calibrated performance of the actual study instrument will be established from its calibration certificate.
+Formal manual reference measurements use a Mitutoyo digital caliper, model 500-196-30 / CD-6"ASX, serial number B24254849, with 0.0005-in (0.01-mm) display resolution. Calibration certificate DDJ25P23P identifies the instrument as a 0–6 in digital caliper and reports an as-left indication error of 0.0000 in at 1 in. The reported expanded uncertainty at 1 in is 0.000126 in at approximately 95% confidence. The formal reference-system review accepted the caliper with documented session-control limitations before formal specimen measurement.
 
-Formal use of serial B23090910 as the reference instrument is conditional on review and acceptance of that certificate. The review will document the calibration laboratory and traceability information, certificate identification, applicable calibration date and condition, reported error or correction near the study's measurement region, and reported measurement uncertainty. Metrological traceability is treated in accordance with the International Vocabulary of Metrology, which relates a measurement result to a reference through a documented unbroken calibration chain in which the calibrations contribute to measurement uncertainty [JCGM 200:2012].
+No calibration correction is applied to formal manual observations because the accepted certificate reports zero as-left indication error at 1 in. Metrological traceability and uncertainty are treated using the certificate evidence and the applicable VIM/GUM framework [JCGM 200:2012; JCGM 100:2008].
 
-Before and after each formal manual measurement session, five readings of the certified gauge block are obtained with full removal and repositioning between readings. The gauge block has a certified central length of 1.0000024 in under certificate T26A06624. Session acceptance is prospectively based on reference error, within-check spread, and pre-to-post drift criteria. Final numerical limits for these checks will be established only after the manual-reference calibration certificate has been reviewed.
+Before and after each formal manual measurement session, five readings of the certified gauge block are obtained with full removal and repositioning between readings. The gauge block has a certified central length of 1.0000024 in under certificate T26A06624. Session acceptance is prospectively based on reference error, within-check spread, and pre-to-post drift criteria. The frozen limits are 0.0005 in for absolute mean indication error, five-reading range, and pre-to-post mean drift.
 
 Each selected validation specimen is measured manually three times. The specimen is fully removed and repositioned between replicate readings so that the repeated-measurement series includes positioning variation inherent in the stated manual procedure. Formal manual run order is randomized independently of computer-vision acquisition order using the preserved manual randomization seed `2026081901`. Randomization and replication are established experimental-design principles used to control run-order effects and characterize repeated-observation behavior [NIST/SEMATECH DOE SOURCE].
 
 The formal manual study is conducted by a single operator. Accordingly, the repeated manual measurements characterize within-operator behavior under the specified measurement conditions; they do not estimate between-operator measurement reproducibility. This distinction follows the VIM separation of measurement repeatability from measurement reproducibility [JCGM 200:2012].
 
-The manual process is treated as the study's reference measurement process rather than as an error-free determination of “true” OAL. Its calibration status, resolution, repeatability, and measurement uncertainty remain relevant to interpretation of agreement with the computer-vision method. The final treatment of calibration correction, reference uncertainty, and any near-specification decision rule remains dependent on certificate review and will follow the applicable GUM and conformity-assessment framework [JCGM 100:2008; JCGM 106:2012].
+The manual process is treated as the study's reference measurement process rather than as an error-free determination of “true” OAL. Its calibration status, resolution, repeatability, and measurement uncertainty remain relevant to interpretation of agreement with the computer-vision method. The calibration-correction policy is frozen as no correction at 1 in. The remaining prospective statistical decision concerns the final reference-uncertainty model and treatment near the specification limits, which will follow the applicable GUM and conformity-assessment framework [JCGM 100:2008; JCGM 106:2012].
 
 Raw manual replicate readings are preserved individually. Any specimen-level manual reference mean used in the agreement analysis is derived from those preserved observations rather than replacing the underlying measurements.
 
@@ -320,7 +320,7 @@ The formal study is therefore designed to determine whether the frozen CaseMetro
 - `[OTSU 1979]` — Otsu, N. (1979), “A Threshold Selection Method from Gray-Level Histograms.”
 - `[JOLLIFFE AND CADIMA 2016]` — Jolliffe, I. T., & Cadima, J. (2016), PCA review.
 - `[SAMPLING SOURCE]` — Lohr, S. L. (2022), *Sampling: Design and Analysis*, 3rd ed.
-- `[MITUTOYO SOURCE]` — Mitutoyo official documentation for 500-197-30 / CD-8"ASX.
+- Calibration certificate DDJ25P23P and preserved instrument/case identity images — primary project evidence for the actual manual-reference instrument.
 - `[JCGM 100:2008]` — Guide to the Expression of Uncertainty in Measurement (GUM).
 - `[JCGM 200:2012]` — International Vocabulary of Metrology (VIM).
 - `[JCGM 106:2012]` — role of measurement uncertainty in conformity assessment.
@@ -329,7 +329,7 @@ The formal study is therefore designed to determine whether the frozen CaseMetro
 
 # Explicitly unresolved before final Chapter 3
 
-1. Manual-reference caliper calibration certificate review.
+1. Final manual-reference uncertainty model and near-specification decision rule.
 2. Certificate-derived correction, uncertainty treatment, `E_limit`, `R_limit`, and `D_limit`.
 3. Environmental thermometer/probe calibration documentation.
 4. Completed 235-case screening distribution.

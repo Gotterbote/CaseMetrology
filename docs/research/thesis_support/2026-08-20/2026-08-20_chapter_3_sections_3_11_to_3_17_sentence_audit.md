@@ -442,7 +442,7 @@ Relevant concepts:
 3. Confirm final thesis/reference formatting style against current K-State ETDR requirements.
 
 ## Certificate dependencies
-4. Receive and review calibration certificate for manual reference caliper serial B23090910.
+4. Receive and review calibration certificate for manual reference caliper serial B24254849.
 5. Finalize any certificate-derived correction.
 6. Finalize `E_limit`, `R_limit`, and `D_limit`.
 7. Finalize the near-specification reference decision rule.
