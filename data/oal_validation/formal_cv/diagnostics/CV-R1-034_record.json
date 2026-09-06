@@ -1,0 +1,37 @@
+{
+  "annotated_image": "/home/timmy/.local/share/casemetrology/artifacts/2026-09-06/annotated/oal_live_case_219_20260906_141123_annotated.png",
+  "annotated_image_sha256": "1c7308f8e7f559ea05c4a1c49efb8c72a6aad3981c31223e4968f563529e60dd",
+  "axis_angle_deg": -88.09546045296946,
+  "blank_reference": "data/oal_validation/formal_cv/raw/CV-S001_blank_reference.png",
+  "centroid_xy": [
+    569.1192736637639,
+    636.4330299657347
+  ],
+  "effective_ppi": 522.2275260034941,
+  "endpoint_max_xy": [
+    577.8238085415032,
+    374.6640317904603
+  ],
+  "endpoint_min_xy": [
+    560.1873747029119,
+    905.0394834552086
+  ],
+  "failure_reason": null,
+  "failure_stage": null,
+  "git_commit": "2e2f91620dcd3046429d6b5841cc4977af0348e6",
+  "largest_component_pixels": 91638,
+  "measurement_characteristic": "OAL",
+  "measurement_id": "oal_live_case_219_20260906_141123",
+  "measurement_status": "MEASURED",
+  "oal_in": 1.016163595460601,
+  "oal_pixels": 530.6686004722051,
+  "part_id": "219",
+  "physical_endpoint_roles": null,
+  "pipeline": "topdown_oal_pipeline",
+  "pipeline_passed": true,
+  "schema_version": "1.0",
+  "second_component_pixels": 0,
+  "source_image": "raw_images/acquisition/oal_live_case_219_20260906_141123/oal_live_case_219_20260906_141125_643678_01.png",
+  "source_image_sha256": "975228f6d440870896bac48ddec749589750396eabfb6fee15abd665e450f041",
+  "timestamp": "2026-09-06T14:11:26.088456-05:00"
+}
