@@ -29,11 +29,15 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import math
 import platform
+import statistics
 import subprocess
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
+
+from scipy import stats
 
 
 FROZEN_DATASET_COMMIT = "0c746036680cd01cc7ae5b2248cdadf8aae878cf"
@@ -42,6 +46,10 @@ EXPECTED_SPECIMENS = 60
 EXPECTED_ROUNDS = {1, 2, 3}
 EXPECTED_USABLE_MANUAL = 180
 EXPECTED_USABLE_CV = 180
+
+# Prospectively frozen 2026-09-05 reference-uncertainty terms.
+U_CAL_IN = 0.000063
+DISPLAY_INCREMENT_IN = 0.0005
 
 EXPECTED_STRATA = {
     "below_lsl": 8,
@@ -381,6 +389,364 @@ def validate_dataset(
     }
 
 
+
+def sample_sd(values: list[float]) -> float:
+    if len(values) < 2:
+        fail("Sample SD requires at least two observations")
+    return statistics.stdev(values)
+
+
+def empirical_nearest_rank(
+    values: list[float],
+    probability: float,
+) -> tuple[float, int]:
+    if not values:
+        fail("Cannot calculate percentile for empty values")
+
+    if not 0.0 < probability <= 1.0:
+        fail(f"Invalid percentile probability: {probability}")
+
+    ordered = sorted(values)
+    rank = math.ceil(probability * len(ordered))
+
+    return ordered[rank - 1], rank
+
+
+def group_by_part_and_round(
+    rows: list[dict[str, str]],
+    round_field: str,
+    value_field: str,
+) -> dict[str, dict[int, float]]:
+    grouped: dict[str, dict[int, float]] = defaultdict(dict)
+
+    for row in rows:
+        part_id = row["part_id"]
+        round_number = int(row[round_field])
+        value = float(row[value_field])
+
+        if not math.isfinite(value):
+            fail(
+                f"Non-finite {value_field} for part {part_id}, "
+                f"round {round_number}"
+            )
+
+        if round_number in grouped[part_id]:
+            fail(
+                f"Duplicate usable value for part {part_id}, "
+                f"round {round_number}"
+            )
+
+        grouped[part_id][round_number] = value
+
+    return grouped
+
+
+def build_core_analysis(
+    state: dict[str, object],
+) -> dict[str, object]:
+    specimens = state["specimens"]
+    manual_usable = state["manual_usable"]
+    cv_usable = state["cv_usable"]
+
+    specimen_by_id = {
+        row["part_id"]: row
+        for row in specimens
+    }
+
+    manual_by_part = group_by_part_and_round(
+        manual_usable,
+        "manual_round",
+        "reading_in",
+    )
+
+    cv_by_part = group_by_part_and_round(
+        cv_usable,
+        "cv_round",
+        "oal_in",
+    )
+
+    manual_summary: list[dict[str, object]] = []
+    cv_summary: list[dict[str, object]] = []
+    joined: list[dict[str, object]] = []
+
+    for part_id in sorted(specimen_by_id, key=int):
+        manual_values = [
+            manual_by_part[part_id][1],
+            manual_by_part[part_id][2],
+            manual_by_part[part_id][3],
+        ]
+
+        cv_values = [
+            cv_by_part[part_id][1],
+            cv_by_part[part_id][2],
+            cv_by_part[part_id][3],
+        ]
+
+        manual_mean = statistics.fmean(manual_values)
+        cv_mean = statistics.fmean(cv_values)
+
+        manual_sd = sample_sd(manual_values)
+        cv_sd = sample_sd(cv_values)
+
+        manual_range = max(manual_values) - min(manual_values)
+        cv_range = max(cv_values) - min(cv_values)
+
+        difference = cv_mean - manual_mean
+        absolute_error = abs(difference)
+
+        manual_summary.append(
+            {
+                "part_id": part_id,
+                "manual_1_in": manual_values[0],
+                "manual_2_in": manual_values[1],
+                "manual_3_in": manual_values[2],
+                "manual_mean_in": manual_mean,
+                "manual_sd_in": manual_sd,
+                "manual_range_in": manual_range,
+                "manual_n_valid": 3,
+            }
+        )
+
+        cv_summary.append(
+            {
+                "part_id": part_id,
+                "cv_1_in": cv_values[0],
+                "cv_2_in": cv_values[1],
+                "cv_3_in": cv_values[2],
+                "cv_mean_in": cv_mean,
+                "cv_sd_in": cv_sd,
+                "cv_range_in": cv_range,
+                "cv_n_valid": 3,
+            }
+        )
+
+        joined.append(
+            {
+                "part_id": part_id,
+                "selection_stratum":
+                    specimen_by_id[part_id]["selection_stratum"],
+                "manual_mean_in": manual_mean,
+                "manual_sd_in": manual_sd,
+                "cv_mean_in": cv_mean,
+                "cv_sd_in": cv_sd,
+                "difference_in": difference,
+                "absolute_error_in": absolute_error,
+            }
+        )
+
+    if len(manual_summary) != EXPECTED_SPECIMENS:
+        fail("Manual specimen summary does not contain exactly 60 rows")
+
+    if len(cv_summary) != EXPECTED_SPECIMENS:
+        fail("CV specimen summary does not contain exactly 60 rows")
+
+    if len(joined) != EXPECTED_SPECIMENS:
+        fail("Joined analysis population does not contain exactly 60 rows")
+
+    # -------------------------------------------------------------
+    # Frozen pooled manual repeatability term:
+    #
+    # s_p = sqrt(
+    #     sum_i sum_j (M_ij - M_bar_i)^2
+    #     /
+    #     [60 * (3 - 1)]
+    # )
+    # -------------------------------------------------------------
+
+    manual_mean_by_part = {
+        row["part_id"]: row["manual_mean_in"]
+        for row in manual_summary
+    }
+
+    residual_sum_squares = 0.0
+
+    for row in manual_usable:
+        value = float(row["reading_in"])
+        mean_value = manual_mean_by_part[row["part_id"]]
+        residual = value - mean_value
+        residual_sum_squares += residual * residual
+
+    pooled_manual_sd = math.sqrt(
+        residual_sum_squares
+        /
+        (EXPECTED_SPECIMENS * (3 - 1))
+    )
+
+    # Frozen 2026-09-05 reference uncertainty.
+    u_res = DISPLAY_INCREMENT_IN / math.sqrt(12.0)
+    u_rep = pooled_manual_sd / math.sqrt(3.0)
+
+    u_ref = math.sqrt(
+        U_CAL_IN**2
+        + u_res**2
+        + u_rep**2
+    )
+
+    expanded_u_ref = 2.0 * u_ref
+
+    # -------------------------------------------------------------
+    # Primary specimen-level agreement.
+    # -------------------------------------------------------------
+
+    errors = [
+        float(row["difference_in"])
+        for row in joined
+    ]
+
+    absolute_errors = [
+        float(row["absolute_error_in"])
+        for row in joined
+    ]
+
+    bias = statistics.fmean(errors)
+    median_signed_error = statistics.median(errors)
+    signed_error_sd = sample_sd(errors)
+
+    bias_standard_error = (
+        signed_error_sd
+        /
+        math.sqrt(EXPECTED_SPECIMENS)
+    )
+
+    t_critical = stats.t.ppf(
+        0.975,
+        df=EXPECTED_SPECIMENS - 1,
+    )
+
+    bias_ci_lower = (
+        bias
+        - t_critical * bias_standard_error
+    )
+
+    bias_ci_upper = (
+        bias
+        + t_critical * bias_standard_error
+    )
+
+    mae = statistics.fmean(absolute_errors)
+
+    rmse = math.sqrt(
+        statistics.fmean(
+            error * error
+            for error in errors
+        )
+    )
+
+    p95_absolute_error, p95_absolute_error_rank = (
+        empirical_nearest_rank(
+            absolute_errors,
+            0.95,
+        )
+    )
+
+    if p95_absolute_error_rank != 57:
+        fail(
+            "Frozen specimen-error P95 rank must equal 57 "
+            f"for n=60; obtained {p95_absolute_error_rank}"
+        )
+
+    maximum_absolute_error = max(absolute_errors)
+
+    # -------------------------------------------------------------
+    # Formal CV repositioning repeatability:
+    # three pairwise differences per specimen = 180.
+    # -------------------------------------------------------------
+
+    reposition_differences: list[float] = []
+
+    for row in cv_summary:
+        c1 = float(row["cv_1_in"])
+        c2 = float(row["cv_2_in"])
+        c3 = float(row["cv_3_in"])
+
+        reposition_differences.extend(
+            (
+                abs(c1 - c2),
+                abs(c1 - c3),
+                abs(c2 - c3),
+            )
+        )
+
+    if len(reposition_differences) != 180:
+        fail(
+            "Expected 180 CV repositioning pairwise differences, "
+            f"found {len(reposition_differences)}"
+        )
+
+    reposition_p95, reposition_p95_rank = (
+        empirical_nearest_rank(
+            reposition_differences,
+            0.95,
+        )
+    )
+
+    if reposition_p95_rank != 171:
+        fail(
+            "Frozen repositioning P95 rank must equal 171 "
+            f"for n=180; obtained {reposition_p95_rank}"
+        )
+
+    core = {
+        "manual_summary": manual_summary,
+        "cv_summary": cv_summary,
+        "joined": joined,
+        "reference_uncertainty": {
+            "u_cal_in": U_CAL_IN,
+            "u_res_in": u_res,
+            "pooled_manual_sd_in": pooled_manual_sd,
+            "u_rep_in": u_rep,
+            "u_ref_in": u_ref,
+            "expanded_u_ref_k2_in": expanded_u_ref,
+        },
+        "primary_agreement": {
+            "n": EXPECTED_SPECIMENS,
+            "bias_in": bias,
+            "median_signed_error_in": median_signed_error,
+            "signed_error_sd_in": signed_error_sd,
+            "bias_95_ci_lower_in": bias_ci_lower,
+            "bias_95_ci_upper_in": bias_ci_upper,
+            "mae_in": mae,
+            "rmse_in": rmse,
+            "p95_absolute_error_in": p95_absolute_error,
+            "p95_absolute_error_rank":
+                p95_absolute_error_rank,
+            "maximum_absolute_error_in":
+                maximum_absolute_error,
+        },
+        "cv_repositioning": {
+            "n_pairwise": len(reposition_differences),
+            "mean_pairwise_difference_in":
+                statistics.fmean(reposition_differences),
+            "median_pairwise_difference_in":
+                statistics.median(reposition_differences),
+            "p95_pairwise_difference_in":
+                reposition_p95,
+            "p95_pairwise_difference_rank":
+                reposition_p95_rank,
+            "maximum_pairwise_difference_in":
+                max(reposition_differences),
+        },
+    }
+
+    # Nothing in this computation layer is allowed to silently
+    # produce NaN or infinity.
+    def verify_finite(value: object, path: str) -> None:
+        if isinstance(value, float):
+            if not math.isfinite(value):
+                fail(f"Non-finite computed result: {path}")
+        elif isinstance(value, dict):
+            for key, child in value.items():
+                verify_finite(child, f"{path}.{key}")
+        elif isinstance(value, list):
+            for index, child in enumerate(value):
+                verify_finite(child, f"{path}[{index}]")
+
+    verify_finite(core, "core")
+
+    return core
+
+
+
 def package_version(name: str) -> str:
     try:
         from importlib.metadata import version
@@ -390,7 +756,11 @@ def package_version(name: str) -> str:
         return "NOT INSTALLED"
 
 
-def run_check(repo_root: Path, data_root: Path) -> None:
+def run_check(
+    repo_root: Path,
+    data_root: Path,
+    compute: bool = False,
+) -> None:
     print("=== FORMAL OAL ANALYSIS IMPLEMENTATION CHECK ===")
     print(f"Python: {platform.python_version()}")
     print(f"NumPy: {package_version('numpy')}")
@@ -401,6 +771,7 @@ def run_check(repo_root: Path, data_root: Path) -> None:
     print()
     print("=== FROZEN INPUT IDENTITY ===")
     hashes = verify_frozen_inputs(repo_root, data_root)
+
     for path, digest in hashes.items():
         print(f"PASS {path}")
         print(f"  SHA-256 {digest}")
@@ -411,12 +782,19 @@ def run_check(repo_root: Path, data_root: Path) -> None:
 
     print(f"Frozen specimens: {len(state['specimens'])}")
     print(f"Usable manual observations: {len(state['manual_usable'])}")
-    print(f"Preserved protocol-invalid manual rows: {len(state['manual_invalid'])}")
+    print(
+        "Preserved protocol-invalid manual rows: "
+        f"{len(state['manual_invalid'])}"
+    )
     print(f"Usable CV observations: {len(state['cv_usable'])}")
-    print(f"Accepted manual sessions: {len(state['accepted_sessions'])}")
+    print(
+        "Accepted manual sessions: "
+        f"{len(state['accepted_sessions'])}"
+    )
 
     print()
     print("Frozen strata:")
+
     for name in (
         "below_lsl",
         "near_lsl_in_spec",
@@ -434,6 +812,25 @@ def run_check(repo_root: Path, data_root: Path) -> None:
     print("PASS: usable observations exactly cover frozen run orders")
     print("PASS: manual sessions are accepted")
     print("PASS: no unresolved protocol deviations")
+
+    if compute:
+        build_core_analysis(state)
+
+        print()
+        print("=== CORE STATISTICAL IMPLEMENTATION ===")
+        print("PASS: 60 manual specimen summaries computed in memory")
+        print("PASS: 60 CV specimen summaries computed in memory")
+        print("PASS: CV - manual specimen errors computed in memory")
+        print("PASS: pooled manual repeatability computed")
+        print("PASS: frozen reference uncertainty model computed")
+        print("PASS: bias and 95% t confidence interval computed")
+        print("PASS: MAE and RMSE computed")
+        print("PASS: nearest-rank specimen P95 uses rank 57")
+        print("PASS: maximum absolute error computed")
+        print("PASS: 180 CV repositioning differences computed")
+        print("PASS: nearest-rank repositioning P95 uses rank 171")
+        print("PASS: all computed quantities are finite")
+
     print()
     print("CHECK PASS")
     print("No statistical analysis outputs were created.")
@@ -443,17 +840,34 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Formal CaseMetrology OAL validation analysis"
     )
+
     parser.add_argument(
         "--root",
         type=Path,
         default=Path("data/oal_validation"),
         help="formal OAL validation data root",
     )
-    parser.add_argument(
+
+    mode = parser.add_mutually_exclusive_group(required=True)
+
+    mode.add_argument(
         "--check-only",
         action="store_true",
-        help="verify immutable inputs and analysis population without outputs",
+        help=(
+            "verify immutable inputs and analysis population "
+            "without statistical calculations or outputs"
+        ),
     )
+
+    mode.add_argument(
+        "--compute-check",
+        action="store_true",
+        help=(
+            "execute frozen core statistical formulas in memory "
+            "without printing results or creating output files"
+        ),
+    )
+
     return parser.parse_args()
 
 
@@ -472,14 +886,24 @@ def main() -> int:
     if not data_root.is_relative_to(repo_root):
         fail(f"Data root is outside repository: {data_root}")
 
-    if not args.check_only:
-        fail(
-            "Output generation is intentionally disabled in this "
-            "implementation stage. Run with --check-only."
+    if args.check_only:
+        run_check(
+            repo_root,
+            data_root,
+            compute=False,
         )
+        return 0
 
-    run_check(repo_root, data_root)
-    return 0
+    if args.compute_check:
+        run_check(
+            repo_root,
+            data_root,
+            compute=True,
+        )
+        return 0
+
+    fail("No analysis mode selected")
+
 
 
 if __name__ == "__main__":
