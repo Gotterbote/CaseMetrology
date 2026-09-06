@@ -51,6 +51,16 @@ EXPECTED_USABLE_CV = 180
 U_CAL_IN = 0.000063
 DISPLAY_INCREMENT_IN = 0.0005
 
+LSL_IN = 0.9900
+USL_IN = 1.0100
+
+TARGET_AVAILABILITY_PCT = 99.0
+TARGET_ABS_BIAS_IN = 0.001
+TARGET_RMSE_IN = 0.002
+TARGET_P95_ABS_ERROR_IN = 0.003
+TARGET_MAX_ABS_ERROR_IN = 0.004
+TARGET_P95_REPOSITION_IN = 0.002
+
 EXPECTED_STRATA = {
     "below_lsl": 8,
     "near_lsl_in_spec": 14,
@@ -383,6 +393,7 @@ def validate_dataset(
         "manual_usable": manual_usable,
         "manual_invalid": manual_invalid,
         "cv_usable": cv_usable,
+        "cv_all": cv,
         "strata": strata,
         "accepted_sessions": accepted_sessions,
         "deviations": deviations,
@@ -747,6 +758,746 @@ def build_core_analysis(
 
 
 
+
+def verify_finite_tree(value: object, path: str = "result") -> None:
+    if isinstance(value, float):
+        if not math.isfinite(value):
+            fail(f"Non-finite computed result: {path}")
+
+    elif isinstance(value, dict):
+        for key, child in value.items():
+            verify_finite_tree(child, f"{path}.{key}")
+
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            verify_finite_tree(child, f"{path}[{index}]")
+
+
+def threshold_status(
+    observed: float,
+    threshold: float,
+    relation: str,
+) -> str:
+    if relation == "<=":
+        return "MET" if observed <= threshold else "NOT_MET"
+
+    if relation == ">=":
+        return "MET" if observed >= threshold else "NOT_MET"
+
+    fail(f"Unsupported threshold relation: {relation}")
+
+
+def build_extended_analysis(
+    state: dict[str, object],
+    core: dict[str, object],
+) -> dict[str, object]:
+
+    joined = core["joined"]
+    manual_summary = core["manual_summary"]
+    cv_summary = core["cv_summary"]
+
+    primary = core["primary_agreement"]
+    reference_uncertainty = core["reference_uncertainty"]
+    repositioning = core["cv_repositioning"]
+
+    expanded_u_ref = float(
+        reference_uncertainty["expanded_u_ref_k2_in"]
+    )
+
+    # =============================================================
+    # CV availability
+    #
+    # Frozen SAP:
+    #
+    # Availability =
+    # N_VALID / (N_VALID + N_SYSTEM_FAILURE) * 100
+    #
+    # PROTOCOL_INVALID does not enter this denominator.
+    # =============================================================
+
+    cv_all = state["cv_all"]
+
+    cv_status_counts = Counter(
+        row["measurement_status"].strip().upper()
+        for row in cv_all
+    )
+
+    n_cv_valid = cv_status_counts["VALID"]
+    n_cv_system_failure = cv_status_counts["SYSTEM_FAILURE"]
+
+    availability_denominator = (
+        n_cv_valid
+        + n_cv_system_failure
+    )
+
+    if availability_denominator == 0:
+        fail("CV availability denominator is zero")
+
+    availability_pct = (
+        100.0
+        * n_cv_valid
+        / availability_denominator
+    )
+
+    # System failures by specimen are retained for stratum summaries.
+    cv_system_failures_by_part: Counter[str] = Counter()
+
+    for row in cv_all:
+        if (
+            row["measurement_status"].strip().upper()
+            == "SYSTEM_FAILURE"
+        ):
+            cv_system_failures_by_part[row["part_id"]] += 1
+
+    # =============================================================
+    # Bland-Altman agreement
+    # =============================================================
+
+    errors = [
+        float(row["difference_in"])
+        for row in joined
+    ]
+
+    magnitudes = [
+        (
+            float(row["cv_mean_in"])
+            + float(row["manual_mean_in"])
+        )
+        / 2.0
+        for row in joined
+    ]
+
+    if len(errors) != EXPECTED_SPECIMENS:
+        fail("Bland-Altman population is not exactly 60 specimens")
+
+    bias = statistics.fmean(errors)
+    error_sd = sample_sd(errors)
+
+    loa_lower = bias - 1.96 * error_sd
+    loa_upper = bias + 1.96 * error_sd
+
+    # Approximate standard error for each Bland-Altman limit.
+    n = EXPECTED_SPECIMENS
+
+    loa_standard_error = (
+        error_sd
+        * math.sqrt(
+            (1.0 / n)
+            + ((1.96**2) / (2.0 * (n - 1)))
+        )
+    )
+
+    loa_t_critical = stats.t.ppf(
+        0.975,
+        df=n - 1,
+    )
+
+    loa_lower_ci_lower = (
+        loa_lower
+        - loa_t_critical * loa_standard_error
+    )
+
+    loa_lower_ci_upper = (
+        loa_lower
+        + loa_t_critical * loa_standard_error
+    )
+
+    loa_upper_ci_lower = (
+        loa_upper
+        - loa_t_critical * loa_standard_error
+    )
+
+    loa_upper_ci_upper = (
+        loa_upper
+        + loa_t_critical * loa_standard_error
+    )
+
+    bland_altman = {
+        "n": n,
+        "bias_in": bias,
+        "difference_sd_in": error_sd,
+        "loa_lower_in": loa_lower,
+        "loa_upper_in": loa_upper,
+        "loa_standard_error_in": loa_standard_error,
+        "loa_lower_95_ci_lower_in": loa_lower_ci_lower,
+        "loa_lower_95_ci_upper_in": loa_lower_ci_upper,
+        "loa_upper_95_ci_lower_in": loa_upper_ci_lower,
+        "loa_upper_95_ci_upper_in": loa_upper_ci_upper,
+        "magnitudes_in": magnitudes,
+        "differences_in": errors,
+    }
+
+    # =============================================================
+    # Regression / correlation
+    #
+    # These remain secondary diagnostic agreement evidence.
+    # =============================================================
+
+    manual_means = [
+        float(row["manual_mean_in"])
+        for row in joined
+    ]
+
+    cv_means = [
+        float(row["cv_mean_in"])
+        for row in joined
+    ]
+
+    regression_result = stats.linregress(
+        manual_means,
+        cv_means,
+    )
+
+    regression_df = n - 2
+
+    regression_t_critical = stats.t.ppf(
+        0.975,
+        df=regression_df,
+    )
+
+    slope = float(regression_result.slope)
+    intercept = float(regression_result.intercept)
+
+    slope_stderr = float(regression_result.stderr)
+
+    intercept_stderr = float(
+        regression_result.intercept_stderr
+    )
+
+    slope_ci_lower = (
+        slope
+        - regression_t_critical * slope_stderr
+    )
+
+    slope_ci_upper = (
+        slope
+        + regression_t_critical * slope_stderr
+    )
+
+    intercept_ci_lower = (
+        intercept
+        - regression_t_critical * intercept_stderr
+    )
+
+    intercept_ci_upper = (
+        intercept
+        + regression_t_critical * intercept_stderr
+    )
+
+    pearson_result = stats.pearsonr(
+        manual_means,
+        cv_means,
+    )
+
+    pearson_r = float(pearson_result.statistic)
+    pearson_p = float(pearson_result.pvalue)
+
+    regression = {
+        "n": n,
+        "slope": slope,
+        "slope_95_ci_lower": slope_ci_lower,
+        "slope_95_ci_upper": slope_ci_upper,
+        "intercept_in": intercept,
+        "intercept_95_ci_lower_in": intercept_ci_lower,
+        "intercept_95_ci_upper_in": intercept_ci_upper,
+        "pearson_r": pearson_r,
+        "pearson_p_value": pearson_p,
+        "r_squared": pearson_r**2,
+    }
+
+    # =============================================================
+    # Primary point-estimate specification classification
+    #
+    # 0.9900 <= OAL <= 1.0100 is conforming.
+    #
+    # Nonconforming is treated as the "positive" condition for
+    # sensitivity/specificity.
+    # =============================================================
+
+    analysis_rows: list[dict[str, object]] = []
+
+    classification_counts: Counter[str] = Counter()
+
+    for row in joined:
+        result = dict(row)
+
+        manual_mean = float(row["manual_mean_in"])
+        cv_mean = float(row["cv_mean_in"])
+        difference = float(row["difference_in"])
+
+        reference_conforming = (
+            LSL_IN <= manual_mean <= USL_IN
+        )
+
+        cv_conforming = (
+            LSL_IN <= cv_mean <= USL_IN
+        )
+
+        uncertainty_overlap = (
+            abs(manual_mean - LSL_IN) <= expanded_u_ref
+            or
+            abs(manual_mean - USL_IN) <= expanded_u_ref
+        )
+
+        if (
+            not reference_conforming
+            and not cv_conforming
+        ):
+            classification = "TRUE_NONCONFORMING"
+
+        elif (
+            not reference_conforming
+            and cv_conforming
+        ):
+            classification = "FALSE_PASS"
+
+        elif (
+            reference_conforming
+            and not cv_conforming
+        ):
+            classification = "FALSE_FAIL"
+
+        else:
+            classification = "TRUE_CONFORMING"
+
+        classification_counts[classification] += 1
+
+        result.update(
+            {
+                "percent_error":
+                    100.0 * difference / manual_mean,
+                "reference_conforming":
+                    reference_conforming,
+                "cv_conforming":
+                    cv_conforming,
+                "classification_outcome":
+                    classification,
+                "uncertainty_overlap_flag":
+                    uncertainty_overlap,
+                "cv_n_valid": 3,
+                "cv_failure_count":
+                    cv_system_failures_by_part[
+                        row["part_id"]
+                    ],
+                "analysis_included": True,
+                "exclusion_reason": "",
+            }
+        )
+
+        analysis_rows.append(result)
+
+    if len(analysis_rows) != EXPECTED_SPECIMENS:
+        fail(
+            "Classification population is not exactly "
+            "60 specimens"
+        )
+
+    true_nonconforming = (
+        classification_counts["TRUE_NONCONFORMING"]
+    )
+
+    false_passes = (
+        classification_counts["FALSE_PASS"]
+    )
+
+    false_fails = (
+        classification_counts["FALSE_FAIL"]
+    )
+
+    true_conforming = (
+        classification_counts["TRUE_CONFORMING"]
+    )
+
+    sensitivity_denominator = (
+        true_nonconforming
+        + false_passes
+    )
+
+    specificity_denominator = (
+        true_conforming
+        + false_fails
+    )
+
+    sensitivity_nonconforming = (
+        true_nonconforming
+        / sensitivity_denominator
+        if sensitivity_denominator
+        else None
+    )
+
+    specificity_conforming = (
+        true_conforming
+        / specificity_denominator
+        if specificity_denominator
+        else None
+    )
+
+    uncertainty_overlap_count = sum(
+        bool(row["uncertainty_overlap_flag"])
+        for row in analysis_rows
+    )
+
+    classification = {
+        "n": len(analysis_rows),
+        "true_nonconforming": true_nonconforming,
+        "false_passes": false_passes,
+        "false_fails": false_fails,
+        "true_conforming": true_conforming,
+        "sensitivity_detect_nonconforming":
+            sensitivity_nonconforming,
+        "specificity_conforming":
+            specificity_conforming,
+        "uncertainty_overlap_count":
+            uncertainty_overlap_count,
+    }
+
+    # =============================================================
+    # Manual and CV specimen-level repeatability summaries
+    # =============================================================
+
+    manual_sds = [
+        float(row["manual_sd_in"])
+        for row in manual_summary
+    ]
+
+    manual_ranges = [
+        float(row["manual_range_in"])
+        for row in manual_summary
+    ]
+
+    cv_sds = [
+        float(row["cv_sd_in"])
+        for row in cv_summary
+    ]
+
+    cv_ranges = [
+        float(row["cv_range_in"])
+        for row in cv_summary
+    ]
+
+    manual_sd_p95, manual_sd_rank = empirical_nearest_rank(
+        manual_sds,
+        0.95,
+    )
+
+    manual_range_p95, manual_range_rank = (
+        empirical_nearest_rank(
+            manual_ranges,
+            0.95,
+        )
+    )
+
+    cv_sd_p95, cv_sd_rank = empirical_nearest_rank(
+        cv_sds,
+        0.95,
+    )
+
+    cv_range_p95, cv_range_rank = (
+        empirical_nearest_rank(
+            cv_ranges,
+            0.95,
+        )
+    )
+
+    for rank in (
+        manual_sd_rank,
+        manual_range_rank,
+        cv_sd_rank,
+        cv_range_rank,
+    ):
+        if rank != 57:
+            fail(
+                "Specimen repeatability P95 rank "
+                f"must equal 57; obtained {rank}"
+            )
+
+    repeatability = {
+        "manual": {
+            "n_specimens": EXPECTED_SPECIMENS,
+            "mean_sd_in": statistics.fmean(manual_sds),
+            "median_sd_in": statistics.median(manual_sds),
+            "p95_sd_in": manual_sd_p95,
+            "max_sd_in": max(manual_sds),
+            "mean_range_in":
+                statistics.fmean(manual_ranges),
+            "median_range_in":
+                statistics.median(manual_ranges),
+            "p95_range_in": manual_range_p95,
+            "max_range_in": max(manual_ranges),
+            "pooled_sd_in":
+                float(
+                    reference_uncertainty[
+                        "pooled_manual_sd_in"
+                    ]
+                ),
+        },
+        "cv": {
+            "n_specimens": EXPECTED_SPECIMENS,
+            "mean_sd_in": statistics.fmean(cv_sds),
+            "median_sd_in": statistics.median(cv_sds),
+            "p95_sd_in": cv_sd_p95,
+            "max_sd_in": max(cv_sds),
+            "mean_range_in":
+                statistics.fmean(cv_ranges),
+            "median_range_in":
+                statistics.median(cv_ranges),
+            "p95_range_in": cv_range_p95,
+            "max_range_in": max(cv_ranges),
+        },
+    }
+
+    # =============================================================
+    # Five frozen sampling-stratum summaries
+    #
+    # Strata are NEVER reassigned from formal manual measurements.
+    # =============================================================
+
+    stratum_order = (
+        "below_lsl",
+        "near_lsl_in_spec",
+        "central_nominal",
+        "near_usl_in_spec",
+        "above_usl",
+    )
+
+    stratum_summaries: list[dict[str, object]] = []
+
+    for stratum in stratum_order:
+        rows = [
+            row
+            for row in analysis_rows
+            if row["selection_stratum"] == stratum
+        ]
+
+        if len(rows) != EXPECTED_STRATA[stratum]:
+            fail(
+                f"Stratum {stratum} count changed: "
+                f"expected {EXPECTED_STRATA[stratum]}, "
+                f"found {len(rows)}"
+            )
+
+        stratum_errors = [
+            float(row["difference_in"])
+            for row in rows
+        ]
+
+        stratum_abs_errors = [
+            float(row["absolute_error_in"])
+            for row in rows
+        ]
+
+        outcomes = Counter(
+            str(row["classification_outcome"])
+            for row in rows
+        )
+
+        stratum_summaries.append(
+            {
+                "selection_stratum": stratum,
+                "n_specimens": len(rows),
+                "valid_cv_observations":
+                    sum(
+                        int(row["cv_n_valid"])
+                        for row in rows
+                    ),
+                "system_failures":
+                    sum(
+                        int(row["cv_failure_count"])
+                        for row in rows
+                    ),
+                "mean_signed_error_in":
+                    statistics.fmean(stratum_errors),
+                "median_signed_error_in":
+                    statistics.median(stratum_errors),
+                "mae_in":
+                    statistics.fmean(
+                        stratum_abs_errors
+                    ),
+                "maximum_absolute_error_in":
+                    max(stratum_abs_errors),
+                "reference_conforming_count":
+                    sum(
+                        bool(row["reference_conforming"])
+                        for row in rows
+                    ),
+                "cv_conforming_count":
+                    sum(
+                        bool(row["cv_conforming"])
+                        for row in rows
+                    ),
+                "true_nonconforming":
+                    outcomes["TRUE_NONCONFORMING"],
+                "false_passes":
+                    outcomes["FALSE_PASS"],
+                "false_fails":
+                    outcomes["FALSE_FAIL"],
+                "true_conforming":
+                    outcomes["TRUE_CONFORMING"],
+                "uncertainty_overlap_count":
+                    sum(
+                        bool(
+                            row[
+                                "uncertainty_overlap_flag"
+                            ]
+                        )
+                        for row in rows
+                    ),
+            }
+        )
+
+    # =============================================================
+    # Primary prespecified target evaluation
+    # =============================================================
+
+    criteria = {
+        "cv_availability": {
+            "observed": availability_pct,
+            "target": TARGET_AVAILABILITY_PCT,
+            "relation": ">=",
+            "status": threshold_status(
+                availability_pct,
+                TARGET_AVAILABILITY_PCT,
+                ">=",
+            ),
+        },
+        "cv_repositioning_p95": {
+            "observed":
+                float(
+                    repositioning[
+                        "p95_pairwise_difference_in"
+                    ]
+                ),
+            "target": TARGET_P95_REPOSITION_IN,
+            "relation": "<=",
+            "status": threshold_status(
+                float(
+                    repositioning[
+                        "p95_pairwise_difference_in"
+                    ]
+                ),
+                TARGET_P95_REPOSITION_IN,
+                "<=",
+            ),
+        },
+        "absolute_mean_bias": {
+            "observed": abs(float(primary["bias_in"])),
+            "target": TARGET_ABS_BIAS_IN,
+            "relation": "<=",
+            "status": threshold_status(
+                abs(float(primary["bias_in"])),
+                TARGET_ABS_BIAS_IN,
+                "<=",
+            ),
+        },
+        "rmse": {
+            "observed": float(primary["rmse_in"]),
+            "target": TARGET_RMSE_IN,
+            "relation": "<=",
+            "status": threshold_status(
+                float(primary["rmse_in"]),
+                TARGET_RMSE_IN,
+                "<=",
+            ),
+        },
+        "p95_absolute_specimen_error": {
+            "observed":
+                float(
+                    primary[
+                        "p95_absolute_error_in"
+                    ]
+                ),
+            "target": TARGET_P95_ABS_ERROR_IN,
+            "relation": "<=",
+            "status": threshold_status(
+                float(
+                    primary[
+                        "p95_absolute_error_in"
+                    ]
+                ),
+                TARGET_P95_ABS_ERROR_IN,
+                "<=",
+            ),
+        },
+        "maximum_absolute_specimen_error": {
+            "observed":
+                float(
+                    primary[
+                        "maximum_absolute_error_in"
+                    ]
+                ),
+            "target": TARGET_MAX_ABS_ERROR_IN,
+            "relation": "<=",
+            "status": threshold_status(
+                float(
+                    primary[
+                        "maximum_absolute_error_in"
+                    ]
+                ),
+                TARGET_MAX_ABS_ERROR_IN,
+                "<=",
+            ),
+        },
+    }
+
+    primary_thresholds_met = all(
+        result["status"] == "MET"
+        for result in criteria.values()
+    )
+
+    zero_false_pass_preference_met = (
+        false_passes == 0
+    )
+
+    # The SAP states that any confirmed false pass blocks an
+    # unconditional acceptance conclusion unless prospectively
+    # defensible treatment has already been established.
+    if not primary_thresholds_met:
+        overall_interpretation = (
+            "ONE_OR_MORE_PRIMARY_TARGETS_NOT_MET"
+        )
+
+    elif not zero_false_pass_preference_met:
+        overall_interpretation = (
+            "PRIMARY_NUMERIC_TARGETS_MET_BUT_FALSE_PASS_"
+            "BLOCKS_UNCONDITIONAL_ACCEPTANCE"
+        )
+
+    else:
+        overall_interpretation = (
+            "ALL_PRIMARY_NUMERIC_TARGETS_MET_AND_"
+            "ZERO_FALSE_PASS_PREFERENCE_MET"
+        )
+
+    extended = {
+        "availability": {
+            "n_valid": n_cv_valid,
+            "n_system_failure": n_cv_system_failure,
+            "denominator": availability_denominator,
+            "availability_pct": availability_pct,
+        },
+        "bland_altman": bland_altman,
+        "regression": regression,
+        "classification": classification,
+        "repeatability": repeatability,
+        "stratum_summaries": stratum_summaries,
+        "analysis_rows": analysis_rows,
+        "criteria": criteria,
+        "zero_false_pass_preference": {
+            "observed_false_passes": false_passes,
+            "preferred": 0,
+            "status":
+                "MET"
+                if zero_false_pass_preference_met
+                else "NOT_MET",
+        },
+        "overall_interpretation":
+            overall_interpretation,
+    }
+
+    verify_finite_tree(extended)
+
+    return extended
+
 def package_version(name: str) -> str:
     try:
         from importlib.metadata import version
@@ -814,7 +1565,8 @@ def run_check(
     print("PASS: no unresolved protocol deviations")
 
     if compute:
-        build_core_analysis(state)
+        core = build_core_analysis(state)
+        build_extended_analysis(state, core)
 
         print()
         print("=== CORE STATISTICAL IMPLEMENTATION ===")
@@ -830,6 +1582,23 @@ def run_check(
         print("PASS: 180 CV repositioning differences computed")
         print("PASS: nearest-rank repositioning P95 uses rank 171")
         print("PASS: all computed quantities are finite")
+
+        print()
+        print("=== EXTENDED STATISTICAL IMPLEMENTATION ===")
+        print("PASS: frozen CV availability computed")
+        print("PASS: Bland-Altman bias and limits computed")
+        print("PASS: 95% confidence intervals for limits computed")
+        print("PASS: OLS regression and coefficient CIs computed")
+        print("PASS: Pearson correlation and R-squared computed")
+        print("PASS: primary point-estimate classification computed")
+        print("PASS: false-pass and false-fail accounting computed")
+        print("PASS: sensitivity and specificity computed where defined")
+        print("PASS: uncertainty-overlap flags computed separately")
+        print("PASS: manual repeatability summaries computed")
+        print("PASS: CV specimen repeatability summaries computed")
+        print("PASS: five frozen stratum summaries computed")
+        print("PASS: primary performance criteria evaluated")
+        print("PASS: no numerical validation results were displayed")
 
     print()
     print("CHECK PASS")
