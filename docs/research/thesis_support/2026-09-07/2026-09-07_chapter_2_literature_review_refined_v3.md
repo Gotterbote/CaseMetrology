@@ -1,0 +1,425 @@
+# Chapter 2 — Literature Review
+
+**Project:** CaseMetrology  
+**Researcher:** Timmy D. Bell  
+**Degree:** M.S. Integrated Systems Design & Dynamics, Kansas State University  
+**Date:** 2026-09-07  
+**Status:** Evidence-based synthesis working draft
+
+## 2.1 Introduction
+
+Machine vision is widely used in industrial inspection to obtain information
+about manufactured parts without relying exclusively on manual visual or
+contact-based inspection. Applications include dimensional inspection, surface
+evaluation, feature recognition, process monitoring, and automated
+classification [MALAMAS ET AL. 2003; HASHMI ET AL. 2022]. When the objective
+is dimensional measurement rather than detection or classification, however,
+the production of a numerical value from an image is not by itself sufficient
+to establish measurement quality. The result also depends on the relationship
+among image formation, calibration, physical geometry, feature localization,
+reference standards, repeated-measurement behavior, and the intended
+measurement decision.
+
+This distinction is central to the CaseMetrology research problem. The present
+study concerns static computer-vision measurement of cartridge-case overall
+length (OAL), but the relevant literature extends beyond cartridge cases alone.
+Prior work in dimensional machine vision provides guidance regarding optical
+measurement architecture, calibration, uncertainty, edge and contour
+localization, specimen presentation, and reference comparison. Historical cartridge-case inspection research also establishes that
+electro-optical dimensional measurement of cartridge cases, including total
+length, predates the present system [SWINTH ET AL. 1979; COLEMAN AND SWINTH 1977; COLEMAN ET AL. 1974].
+
+Accordingly, this chapter reviews four related bodies of literature:
+industrial machine vision and dimensional inspection; vision-based dimensional
+metrology; calibration, traceability, uncertainty, and measurement-system
+evaluation; and optical or computational analysis of cartridge cases. The
+chapter concludes by positioning CaseMetrology within that established
+research space without assuming that optical cartridge-case dimensional
+measurement itself is novel.
+
+## 2.2 Industrial Machine Vision and Dimensional Inspection
+
+Industrial machine vision combines image acquisition, computation, and
+application-specific interpretation to extract information about manufactured
+objects and processes. Malamas et al. described industrial vision systems as
+supporting a broad range of inspection functions and emphasized that useful
+systems require clear definitions of inspection objectives, inputs, outputs,
+and operating conditions [MALAMAS ET AL. 2003]. More recent manufacturing
+literature similarly demonstrates the continued use of cameras and image
+processing for process monitoring and measurement-oriented applications
+[HASHMI ET AL. 2022].
+
+For dimensional inspection, the important transition is from recognizing an
+object or feature to assigning a defensible physical dimension. A dimensional
+machine-vision system must relate image coordinates to physical units and must
+define how the relevant physical boundaries are located in the image. The measurement is therefore influenced by both the physical imaging
+system and the computational procedure used to interpret the image
+[HEMMING 2007; LAZZARI AND IUCULANO 2004].
+
+This complete-system view distinguishes dimensional metrology from a purely
+algorithmic computer-vision task. Sensor resolution alone does not define
+dimensional accuracy, and successful segmentation alone does not establish the
+relationship between a measured image feature and a traceable physical
+dimension. Optical geometry, illumination, calibration, object presentation,
+boundary localization, and reference comparison become part of the
+measurement problem [HEMMING 2007; LAZZARI AND IUCULANO 2004].
+
+For CaseMetrology, this distinction motivates evaluation of the complete frozen
+OAL method rather than evaluation of segmentation performance in isolation.
+The relevant research question is therefore not simply whether a cartridge
+case can be detected or measured computationally, but whether the complete
+computer-vision measurement process demonstrates acceptable dimensional
+behavior relative to an independent reference process under defined conditions.
+
+## 2.3 Vision-Based Dimensional Metrology
+
+### 2.3.1 Backlit and silhouette-based dimensional measurement
+
+Backlighting is a well-established image-formation approach for dimensional
+inspection because it can produce high contrast between a manufactured object
+and its background. In such systems, dimensional information is derived from the location and
+geometric interpretation of the resulting object boundary
+[SHIN ET AL. 2002; XIANG ET AL. 2018; CHE AND RATNAM 2018].
+
+Shin, Han, and Moon developed a machine-vision system for dimensional
+inspection of ball studs using silhouetted images generated by backlighting
+[SHIN ET AL. 2002]. Object outlines were extracted at subpixel resolution and
+modeled using geometric primitives. The system also incorporated jig fixtures
+and servo-controlled motion to position and rotate the inspected component.
+This work provides a useful example of the integration of illumination,
+boundary localization, geometric modeling, and controlled specimen
+presentation in dimensional machine vision.
+
+Xiang et al. used a two-camera backlit system for dimensional measurement of
+automobile brake-pad bayonets [XIANG ET AL. 2018]. Their method incorporated a
+specially designed dimensional standard, relative edge-position measurement,
+edge detection, and line fitting. The study is particularly relevant because
+measurement behavior was evaluated in terms of both systematic dimensional
+difference and repeatability rather than only whether the vision algorithm
+could identify the measured feature.
+
+Che and Ratnam similarly used LED backlighting and subpixel edge localization
+for real-time monitoring of workpiece diameter during turning [CHE AND RATNAM 2018]. Their image-derived measurements were compared quantitatively with
+digital-caliper measurements. Although the machining geometry and reference
+process differed from the CaseMetrology study, the work provides useful
+precedent for evaluating machine-vision dimensions against an independent
+physical measurement method.
+
+Together, these studies show that backlit dimensional vision can involve
+more than thresholding an object silhouette. Physical presentation, edge
+location, dimensional calibration, and an external basis for evaluating the
+result can be integral components of the measurement process
+[SHIN ET AL. 2002; XIANG ET AL. 2018; CHE AND RATNAM 2018].
+
+### 2.3.2 Optical geometry and measurement-plane effects
+
+The geometric relationship between the camera, calibrated coordinate system,
+and measured object can materially influence monocular dimensional
+measurement.
+
+Wang et al. analyzed measurement error arising when the physical measurement
+plane differs from the plane associated with camera calibration [WANG ET AL. 2024]. Their theoretical and experimental work considered translation and
+rotation between calibration and measurement geometry and demonstrated that
+external camera parameters can influence dimensional results. The experiments
+included both conventional industrial and telecentric optics.
+
+The importance of Wang et al. is broader than any specific error equation. The study demonstrates that dimensional accuracy can depend on the
+geometric relationship represented during calibration and that departures
+from that relationship can introduce measurement error even when the
+image-processing algorithm itself remains unchanged [WANG ET AL. 2024].
+
+This principle is relevant to any monocular dimensional measurement system.
+The physical configuration of the camera, lens, measurement plane, and
+specimen cannot be treated as incidental to the dimensional result. At the same time, a general geometric mechanism identified in the
+literature should not be assumed to explain the behavior of another system
+unless the relevant physical variable has been experimentally isolated
+[WANG ET AL. 2024].
+
+### 2.3.3 Telecentric and high-precision dimensional vision
+
+Modern high-precision vision systems often use telecentric optics to reduce
+perspective sensitivity and maintain comparatively stable magnification over a
+limited depth range. Lai et al. developed a telecentric dimensional-vision
+system that jointly addressed calibration, distortion correction, contour
+geometry, subpixel edge localization, and illumination variation [LAI ET AL. 2026].
+
+Their work demonstrates several principles relevant beyond telecentric systems.
+First, the calibration model should correspond to the optical architecture
+being modeled. Second, dimensional calibration may benefit from geometric
+information distributed across object contours rather than relying only on
+isolated calibration points. Third, dimensional measurement can require
+subpixel localization of boundaries when the required physical discrimination
+is finer than one image pixel. Finally, illumination behavior can influence the estimated position of an
+image boundary [LAI ET AL. 2026].
+
+Telecentric performance cannot be transferred directly to a conventional-lens
+system such as CaseMetrology. Nevertheless, the study provides contemporary evidence that high-precision
+dimensional vision can require integrated treatment of optics, calibration,
+distortion, image formation, and feature localization rather than a single
+image-processing operation [LAI ET AL. 2026].
+
+## 2.4 Calibration, Traceability, and Measurement Uncertainty
+
+### 2.4.1 Metrological framework
+
+The International Vocabulary of Metrology distinguishes concepts including
+measurement result, calibration, metrological traceability, measurement
+repeatability, and measurement reproducibility [JCGM 200:2012]. The Guide to
+the Expression of Uncertainty in Measurement provides a general framework for
+evaluating and combining uncertainty contributions associated with a
+measurement result [JCGM 100:2008].
+
+These principles are particularly important for computer-vision dimensional
+measurement because the observed image is not itself a physical dimension.
+Image information must be connected to physical units through a defined
+measurement model and appropriate dimensional references
+[JCGM 100:2008; JCGM 200:2012].
+
+A calibrated artifact or scale relationship therefore provides only one part
+of the measurement chain. Additional contributions may arise from optical geometry, image formation,
+localization of the measured feature, mechanical relationships,
+environmental influence quantities, repeated-observation variation, and
+characteristics of the measured object
+[HEMMING 2007; LAZZARI AND IUCULANO 2004].
+
+### 2.4.2 Machine-vision traceability and complete-system uncertainty
+
+Hemming examined dimensional machine-vision applications specifically from the
+perspective of traceability and measurement uncertainty [HEMMING 2007]. His
+work considered two-dimensional camera-based systems and demonstrated that the
+dominant uncertainty source can differ among applications. In some cases,
+camera, lens, and edge-finding behavior can make an important contribution,
+while in other applications mechanical or geometrical factors can dominate.
+
+A major implication is that the principal source of dimensional error should
+not be assumed from intuition. Different components of the complete
+measurement system may need to be evaluated independently.
+
+Hemming's treatment is directly relevant to the distinction between an
+image-processing result and a metrologically characterized measurement
+process. It supports consideration of illumination, optics, geometry, mechanical
+behavior, edge localization, object characteristics, and calibration as
+potentially interacting contributors to dimensional measurement
+[HEMMING 2007].
+
+### 2.4.3 Optical vision machines and uncertainty evaluation
+
+Lazzari and Iuculano similarly treated a camera-equipped optical measurement
+machine as a metrological system rather than only an imaging device [LAZZARI AND IUCULANO 2004]. Their work developed a GUM-oriented mathematical model for
+measurement uncertainty and conceptually separated contributions associated
+with the physical measuring machine from those associated with the vision or
+survey subsystem.
+
+An important conclusion of this research is that verification of instrument
+performance and evaluation of measurement uncertainty are related but distinct
+activities. Demonstrating that a measurement system operates within an observed range
+does not by itself establish the uncertainty associated with each measurement
+result [LAZZARI AND IUCULANO 2004].
+
+Related work from the same research program also used certified dimensional
+standards, repeated measurements, and experimental separation of machine and
+camera-related behavior [LAZZARI ET AL. 2001]. This provides useful precedent
+for isolating potential contributors to complete-system dimensional behavior
+rather than assigning all observed disagreement to one assumed source.
+
+These works also establish an important boundary for the present thesis.
+CaseMetrology evaluates a calibrated manual reference process and empirically
+characterizes the CV system through agreement and repeated-measurement metrics,
+but the formal study does not claim to provide a complete GUM uncertainty
+budget for the entire computer-vision measurement system.
+
+## 2.5 Measurement-System Evaluation and Method Agreement
+
+A dimensional measurement system may produce highly correlated values with
+another method while still exhibiting systematic or practically important
+disagreement. Bland and Altman demonstrated that correlation is not an
+appropriate substitute for agreement analysis when two measurement methods are
+being compared [BLAND AND ALTMAN 1986]. Difference-based analysis is therefore
+important when the scientific question concerns whether two methods return
+sufficiently similar measurement results.
+
+For the present CaseMetrology study, measurement-system evaluation includes
+several distinct properties:
+
+- measurement availability or failure behavior;
+- systematic difference or bias relative to a reference process;
+- absolute dimensional error;
+- repeated-measurement variation;
+- behavior across the measurement range;
+- classification performance when dimensions are used for conformance
+  decisions; and
+- uncertainty associated with the reference and decision process.
+
+These properties answer different questions. A system can exhibit strong
+linear association while failing an engineering agreement criterion, or it can
+produce measurements reliably while exhibiting excessive dimensional error.
+
+The NIST/SEMATECH Engineering Statistics Handbook also emphasizes the roles of
+randomization and replication in experimental work [NIST/SEMATECH ENGINEERING STATISTICS HANDBOOK]. Replication provides information about repeated
+observations, while randomized run sequencing can reduce systematic coupling
+between measurement order and uncontrolled temporal effects.
+
+Sampling design likewise affects the interpretation of a validation study.
+Stratified sampling can preserve representation across predefined portions of
+a population when simple convenience sampling would not adequately represent
+the measurement range [LOHR 2022].
+
+These statistical and experimental principles support treating dimensional
+machine-vision validation as a prospective measurement-system study rather
+than as an informal comparison of selected example images.
+
+## 2.6 Historical Cartridge-Case Dimensional Inspection
+
+Optical dimensional inspection of cartridge cases predates modern
+general-purpose computer vision.
+
+Historical work at Pacific Northwest Laboratory and Battelle developed
+high-speed electro-optical inspection systems for manufactured cartridge
+cases. These systems measured multiple case dimensions, including total
+length, and integrated dimensional measurement with automated inspection,
+process monitoring, and rejection [SWINTH ET AL. 1979; COLEMAN AND SWINTH 1977; COLEMAN ET AL. 1974].
+
+Swinth, Walker, and Nedrow described a high-throughput profile-monitor system
+that used transmitted illumination, projected cartridge-case shadows,
+fiber-optic image transfer, linear sensing arrays, and precision mechanical
+gauging features [SWINTH ET AL. 1979]. The
+system measured several cartridge-case dimensions, including total length.
+
+Coleman and Swinth described an automatic cartridge-case inspection and process
+control system incorporating electro-optical dimensional measurement,
+calibration and quality-assurance functions, automatic rejection, and
+comparison with conventionally gauged case dimensions [COLEMAN AND SWINTH 1977].
+
+Earlier work by Coleman and colleagues similarly documented an on-line
+automatic high-speed cartridge-case inspection system using electro-optical
+profile measurement, computer control, calibration standards, and automatic
+classification [COLEMAN ET AL. 1974].
+
+These sources have two important implications for the present thesis.
+
+First, optical or electro-optical measurement of cartridge-case total length is
+not a new concept. Historical manufacturing systems had already demonstrated
+total-length measurement, multiple dimensional measurements, calibration
+checks, computer-assisted inspection, and automatic rejection.
+
+Second, those historical systems used substantially different architectures
+from CaseMetrology. They relied heavily on dedicated mechanical handling,
+gauging fixtures, optical projection, and linear sensor arrays. CaseMetrology
+instead employs a modern two-dimensional area camera, embedded computation,
+software-defined image processing, preserved raw imagery, and an explicit
+prospective validation framework.
+
+The historical literature therefore establishes relevant prior art while also
+helping define the narrower research space occupied by the present study.
+
+## 2.7 Modern Cartridge-Case Optical and Computational Analysis
+
+Modern cartridge-case imaging literature is dominated by forensic applications
+rather than manufacturing dimensional metrology.
+
+Computerized optical analysis has been used to acquire and compare breech-face,
+firing-pin, ejector, and related surface features on cartridge cases. NIST
+Standard Reference Material 2461 provides a cartridge-case reference artifact
+for quality assurance in computerized optical topography and forensic
+comparison systems [NIST SRM 2461].
+
+Additional research has addressed automated cartridge-case image matching and
+automatic identification of regions of interest in cartridge-case imagery
+[YAMMEN AND MUNEESAWANG 2013; SAKARYA ET AL. 2012].
+
+This literature establishes that controlled optical acquisition and
+computational analysis of cartridge cases are established research topics.
+However, the measurement targets represented by these sources are principally
+forensic surface marks and topographic comparison rather than manufacturing
+OAL measurement [NIST SRM 2461; YAMMEN AND MUNEESAWANG 2013; SAKARYA ET AL. 2012].
+
+Accordingly, forensic cartridge-case literature is relevant contextual
+evidence but should not be interpreted as validation of dimensional
+manufacturing inspection or cartridge-case OAL accuracy.
+
+## 2.8 Literature Synthesis and Research Position
+
+The reviewed literature establishes several consistent principles relevant to
+CaseMetrology.
+
+First, dimensional machine vision is a complete measurement-system problem.
+Optical geometry, illumination, specimen presentation, calibration, boundary
+localization, dimensional conversion, reference comparison, and statistical
+evaluation can all influence the measurement result
+[HEMMING 2007; LAZZARI AND IUCULANO 2004; WANG ET AL. 2024; LAI ET AL. 2026].
+
+Second, calibration is necessary but does not by itself establish complete
+measurement quality. Hemming and Lazzari and Iuculano demonstrate the
+importance of traceability and uncertainty across the full measurement chain,
+while Wang et al. shows that physical geometry relative to the calibrated
+measurement condition can affect monocular dimensional results
+[HEMMING 2007; LAZZARI AND IUCULANO 2004; WANG ET AL. 2024].
+
+Third, backlit silhouette measurement is an established technique for
+dimensional inspection. Shin et al., Xiang et al., and Che and Ratnam provide
+examples in which transmitted illumination, boundary localization, geometric
+measurement, and reference comparison are integrated into industrial
+measurement systems. Lai et al. provides a contemporary high-precision example
+showing the continued importance of calibration, distortion, and subpixel
+boundary localization [SHIN ET AL. 2002; XIANG ET AL. 2018; CHE AND RATNAM 2018; LAI ET AL. 2026].
+
+Fourth, optical cartridge-case dimensional inspection itself is not novel.
+Historical electro-optical inspection systems measured total cartridge-case
+length and other case dimensions decades before the present work
+[SWINTH ET AL. 1979; COLEMAN AND SWINTH 1977; COLEMAN ET AL. 1974].
+
+The research position of CaseMetrology must therefore be narrower than a claim
+of first optical or computer-assisted cartridge-case measurement.
+
+The present study instead evaluates a modern embedded area-camera approach to
+static cartridge-case OAL measurement using a defined physical configuration,
+software-defined silhouette and dimensional estimator, spatial and directional
+calibration, independent manual reference process, repeated measurements,
+prospective specimen selection, randomized acquisition, explicit failure
+accounting, predefined engineering acceptance criteria, and preserved software
+and data provenance.
+
+The contribution lies in the integration and prospective evaluation of this
+particular measurement architecture and research methodology rather than in
+the invention of optical cartridge-case dimensional inspection.
+
+The literature also identifies several factors that may be relevant to future
+system development, including controlled specimen presentation, optical
+architecture, measurement-plane geometry, distortion, subpixel boundary
+localization, illumination stability, and complete-system uncertainty
+evaluation. These factors represent experimentally testable directions for future work.
+Their identification in prior literature does not, by itself, establish the
+cause of any observed behavior in the present measurement system
+[HEMMING 2007; SHIN ET AL. 2002; WANG ET AL. 2024; LAI ET AL. 2026].
+
+---
+
+## Working Citation Notes
+
+The following citation labels require final bibliographic normalization before
+submission:
+
+- MALAMAS ET AL. 2003
+- HASHMI ET AL. 2022
+- SHIN ET AL. 2002
+- XIANG ET AL. 2018
+- CHE AND RATNAM 2018
+- WANG ET AL. 2024
+- LAI ET AL. 2026
+- HEMMING 2007
+- LAZZARI AND IUCULANO 2004
+- LAZZARI ET AL. 2001
+- JCGM 100:2008
+- JCGM 200:2012
+- BLAND AND ALTMAN 1986
+- NIST/SEMATECH ENGINEERING STATISTICS HANDBOOK
+- LOHR 2022
+- NIST SRM 2461
+- SWINTH ET AL. 1979
+- COLEMAN AND SWINTH 1977
+- COLEMAN ET AL. 1974
+- YAMMEN AND MUNEESAWANG 2013
+- SAKARYA ET AL. 2012
+
+No final novelty claim should be strengthened beyond Section 2.8 until these
+citations and the remaining source metadata have been normalized.
