@@ -380,7 +380,7 @@ def make_repeatability_comparison(manual, cv, output_dir):
 
     ax.boxplot(
         [manual_sd, cv_sd],
-        tick_labels=[
+        labels=[
             "Manual reference",
             "CV free placement",
         ],
@@ -421,7 +421,7 @@ def make_stratum_error(analysis, output_dir):
 
     ax.boxplot(
         grouped,
-        tick_labels=STRATUM_LABELS,
+        labels=STRATUM_LABELS,
         showmeans=True,
     )
 
