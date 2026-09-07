@@ -154,15 +154,16 @@ def make_cv_vs_manual(analysis, summary, output_dir):
     ax.legend()
 
     ax.text(
-        0.03,
         0.97,
+        0.03,
         (
             f"Slope = {regression['slope']:.4f}\n"
             f"Intercept = {regression['intercept_in']:+.4f} in\n"
             f"$R^2$ = {regression['r_squared']:.4f}"
         ),
         transform=ax.transAxes,
-        va="top",
+        ha="right",
+        va="bottom",
     )
 
     save_figure(
@@ -481,12 +482,17 @@ def make_confusion_matrix(summary, output_dir):
         ]
     )
 
+    cell_names = [
+        ["True conforming", "False fail"],
+        ["False pass", "True nonconforming"],
+    ]
+
     for i in range(2):
         for j in range(2):
             ax.text(
                 j,
                 i,
-                str(matrix[i, j]),
+                f"{cell_names[i][j]}\n{matrix[i, j]}",
                 ha="center",
                 va="center",
             )
