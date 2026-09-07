@@ -1,0 +1,251 @@
+{
+  "analysis_metadata": {
+    "analysis_code_commit": "a3b958d638e8b0e11a0209461da39682c6167b8a",
+    "frozen_acquisition_dataset_commit": "0c746036680cd01cc7ae5b2248cdadf8aae878cf",
+    "input_sha256": {
+      "data/oal_validation/cv_observations.csv": "724fbb0f78907a3d002e2e56aa411c62f28e42398a233c8ac37bec916ade9a86",
+      "data/oal_validation/cv_run_order.csv": "3ac1e1a2a5e1563465e85982d96253cf642bd6e15127667ad383ca3653340f34",
+      "data/oal_validation/environmental_observations.csv": "be1217a230714e88324a346599c30885f7664c2df1955a0ef5b503b854fbe107",
+      "data/oal_validation/formal_validation_specimens.csv": "ab637e535066e033bb680405fe5aad0a2e56e8a8b9f8eee43d9e7d4ba98134d2",
+      "data/oal_validation/manual_reference_checks.csv": "2ddc08172b799ed0032e1dc0d5deda97d83d4748c0db7cf62fc751b4bf48de6d",
+      "data/oal_validation/manual_reference_observations.csv": "0db7a1d19cb0cf841b155f9437954584cd208736768323d410bef5decad3c4cf",
+      "data/oal_validation/manual_run_order.csv": "c3de0e7adfc15e640a0b2e2baa37a4059784fd6fd846f4249c6c16b49fb09a18",
+      "data/oal_validation/manual_sessions.csv": "b2a6834912fcc0d66c99353e5cab41d4e8111c29820d54627a5d855d8be1b286",
+      "data/oal_validation/protocol_deviations.csv": "d511564bcf822a18df6f5e87566bf14d58ef5287b82fe2dba189eb0dd233c958"
+    },
+    "matplotlib_version": "3.6.3",
+    "measurement_characteristic": "OAL",
+    "n_specimens": 60,
+    "numpy_version": "1.26.4",
+    "pandas_version": "2.1.4+dfsg",
+    "primary_analysis_unit": "unique_specimen",
+    "project": "CaseMetrology",
+    "python_version": "3.12.3",
+    "scipy_version": "1.11.4"
+  },
+  "bland_altman": {
+    "bias_in": 0.0016132933460213995,
+    "difference_sd_in": 0.0015152956814900136,
+    "loa_lower_95_ci_lower_in": -0.0020293928705109473,
+    "loa_lower_95_ci_upper_in": -0.000683979508887107,
+    "loa_lower_in": -0.001356686189699027,
+    "loa_standard_error_in": 0.00033618602447961206,
+    "loa_upper_95_ci_lower_in": 0.003910566200929906,
+    "loa_upper_95_ci_upper_in": 0.005255979562553747,
+    "loa_upper_in": 0.0045832728817418265,
+    "n": 60
+  },
+  "classification": {
+    "false_fails": 8,
+    "false_passes": 1,
+    "n": 60,
+    "sensitivity_detect_nonconforming": 0.9333333333333333,
+    "specificity_conforming": 0.8222222222222222,
+    "true_conforming": 37,
+    "true_nonconforming": 14,
+    "uncertainty_overlap_count": 13
+  },
+  "cv_availability": {
+    "availability_pct": 100.0,
+    "denominator": 180,
+    "n_system_failure": 0,
+    "n_valid": 180
+  },
+  "cv_repositioning_repeatability": {
+    "maximum_pairwise_difference_in": 0.007081294661745785,
+    "mean_pairwise_difference_in": 0.001863983079444441,
+    "median_pairwise_difference_in": 0.0015254227887753213,
+    "n_pairwise": 180,
+    "p95_pairwise_difference_in": 0.0048309734587173025,
+    "p95_pairwise_difference_rank": 171
+  },
+  "overall_interpretation": "ONE_OR_MORE_PRIMARY_TARGETS_NOT_MET",
+  "primary_agreement": {
+    "bias_95_ci_lower_in": 0.0012218509639502515,
+    "bias_95_ci_upper_in": 0.0020047357280925473,
+    "bias_in": 0.0016132933460213995,
+    "mae_in": 0.001815377582143838,
+    "maximum_absolute_error_in": 0.004799482141816913,
+    "median_signed_error_in": 0.001345056626280705,
+    "n": 60,
+    "p95_absolute_error_in": 0.003960087648225974,
+    "p95_absolute_error_rank": 57,
+    "rmse_in": 0.0022046695306296668,
+    "signed_error_sd_in": 0.0015152956814900136
+  },
+  "primary_criteria": {
+    "absolute_mean_bias": {
+      "observed": 0.0016132933460213995,
+      "relation": "<=",
+      "status": "NOT_MET",
+      "target": 0.001
+    },
+    "cv_availability": {
+      "observed": 100.0,
+      "relation": ">=",
+      "status": "MET",
+      "target": 99.0
+    },
+    "cv_repositioning_p95": {
+      "observed": 0.0048309734587173025,
+      "relation": "<=",
+      "status": "NOT_MET",
+      "target": 0.002
+    },
+    "maximum_absolute_specimen_error": {
+      "observed": 0.004799482141816913,
+      "relation": "<=",
+      "status": "NOT_MET",
+      "target": 0.004
+    },
+    "p95_absolute_specimen_error": {
+      "observed": 0.003960087648225974,
+      "relation": "<=",
+      "status": "NOT_MET",
+      "target": 0.003
+    },
+    "rmse": {
+      "observed": 0.0022046695306296668,
+      "relation": "<=",
+      "status": "NOT_MET",
+      "target": 0.002
+    }
+  },
+  "reference_uncertainty": {
+    "expanded_u_ref_k2_in": 0.0007117701460027179,
+    "pooled_manual_sd_in": 0.0005527707983925595,
+    "u_cal_in": 6.3e-05,
+    "u_ref_in": 0.00035588507300135893,
+    "u_rep_in": 0.0003191423692521086,
+    "u_res_in": 0.00014433756729740645
+  },
+  "regression": {
+    "intercept_95_ci_lower_in": -0.0330973750930072,
+    "intercept_95_ci_upper_in": 0.030801353688300448,
+    "intercept_in": -0.0011480107023533748,
+    "n": 60,
+    "pearson_p_value": 4.770776089849742e-55,
+    "pearson_r": 0.9927365599568115,
+    "r_squared": 0.9855258774748841,
+    "slope": 1.0027607902346363,
+    "slope_95_ci_lower": 0.9708198103228433,
+    "slope_95_ci_upper": 1.0347017701464294
+  },
+  "specimen_repeatability": {
+    "cv": {
+      "max_range_in": 0.007081294661745785,
+      "max_sd_in": 0.0037324969603177993,
+      "mean_range_in": 0.0027959746191666616,
+      "mean_sd_in": 0.0014539654677871194,
+      "median_range_in": 0.002328630434977219,
+      "median_sd_in": 0.0012215170900417359,
+      "n_specimens": 60,
+      "p95_range_in": 0.00537052216886047,
+      "p95_sd_in": 0.002721449557202939
+    },
+    "manual": {
+      "max_range_in": 0.0040000000000000036,
+      "max_sd_in": 0.002309401076758505,
+      "mean_range_in": 0.000749999999999984,
+      "mean_sd_in": 0.0004133034711633746,
+      "median_range_in": 0.000500000000000056,
+      "median_sd_in": 0.0002886751345948452,
+      "n_specimens": 60,
+      "p95_range_in": 0.0015000000000000568,
+      "p95_sd_in": 0.0008660254037844714,
+      "pooled_sd_in": 0.0005527707983925595
+    }
+  },
+  "stratum_summaries": [
+    {
+      "cv_conforming_count": 0,
+      "false_fails": 0,
+      "false_passes": 0,
+      "mae_in": 0.0013547734091599456,
+      "maximum_absolute_error_in": 0.0038532093043169846,
+      "mean_signed_error_in": 0.001109392617790264,
+      "median_signed_error_in": 0.0009508649464328167,
+      "n_specimens": 8,
+      "reference_conforming_count": 0,
+      "selection_stratum": "below_lsl",
+      "system_failures": 0,
+      "true_conforming": 0,
+      "true_nonconforming": 8,
+      "uncertainty_overlap_count": 0,
+      "valid_cv_observations": 24
+    },
+    {
+      "cv_conforming_count": 13,
+      "false_fails": 1,
+      "false_passes": 1,
+      "mae_in": 0.0017245046262479341,
+      "maximum_absolute_error_in": 0.0035673889730494235,
+      "mean_signed_error_in": 0.0016145521688924152,
+      "median_signed_error_in": 0.0016763987408984216,
+      "n_specimens": 14,
+      "reference_conforming_count": 13,
+      "selection_stratum": "near_lsl_in_spec",
+      "system_failures": 0,
+      "true_conforming": 12,
+      "true_nonconforming": 0,
+      "uncertainty_overlap_count": 7,
+      "valid_cv_observations": 42
+    },
+    {
+      "cv_conforming_count": 16,
+      "false_fails": 0,
+      "false_passes": 0,
+      "mae_in": 0.0021889342665786862,
+      "maximum_absolute_error_in": 0.004799482141816913,
+      "mean_signed_error_in": 0.0021822173016523075,
+      "median_signed_error_in": 0.0017562408633743365,
+      "n_specimens": 16,
+      "reference_conforming_count": 16,
+      "selection_stratum": "central_nominal",
+      "system_failures": 0,
+      "true_conforming": 16,
+      "true_nonconforming": 0,
+      "uncertainty_overlap_count": 0,
+      "valid_cv_observations": 48
+    },
+    {
+      "cv_conforming_count": 9,
+      "false_fails": 5,
+      "false_passes": 0,
+      "mae_in": 0.0016093166589218968,
+      "maximum_absolute_error_in": 0.004125569957254438,
+      "mean_signed_error_in": 0.0014801800178579588,
+      "median_signed_error_in": 0.001456166693941996,
+      "n_specimens": 14,
+      "reference_conforming_count": 14,
+      "selection_stratum": "near_usl_in_spec",
+      "system_failures": 0,
+      "true_conforming": 9,
+      "true_nonconforming": 0,
+      "uncertainty_overlap_count": 4,
+      "valid_cv_observations": 42
+    },
+    {
+      "cv_conforming_count": 0,
+      "false_fails": 2,
+      "false_passes": 0,
+      "mae_in": 0.0020485026747142643,
+      "maximum_absolute_error_in": 0.004124403789682374,
+      "mean_signed_error_in": 0.001210091547252462,
+      "median_signed_error_in": 0.0010823876654689757,
+      "n_specimens": 8,
+      "reference_conforming_count": 2,
+      "selection_stratum": "above_usl",
+      "system_failures": 0,
+      "true_conforming": 0,
+      "true_nonconforming": 6,
+      "uncertainty_overlap_count": 2,
+      "valid_cv_observations": 24
+    }
+  ],
+  "zero_false_pass_preference": {
+    "observed_false_passes": 1,
+    "preferred": 0,
+    "status": "NOT_MET"
+  }
+}

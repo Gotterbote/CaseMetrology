@@ -1,0 +1,8 @@
+metric,value
+true_nonconforming,14
+false_passes,1
+false_fails,8
+true_conforming,37
+sensitivity_detect_nonconforming,0.933333333333
+specificity_conforming,0.822222222222
+uncertainty_overlap_count,13
