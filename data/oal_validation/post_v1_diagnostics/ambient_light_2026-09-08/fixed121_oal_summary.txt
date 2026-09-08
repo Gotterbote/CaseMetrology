@@ -1,0 +1,17 @@
+POST-V1 FIXED-SPECIMEN DIAGNOSTIC
+Specimen: 121
+Representative blank rule: third chronological blank image per condition
+
+A  blocked/off mean : 0.999597370 in
+B  exposed/off mean : 0.999619935 in
+C  blocked/on mean  : 0.999674992 in
+A2 blocked/off mean : 0.999680822 in
+
+B - A daylight-associated difference      : +0.000022565 in
+C - A ceiling-light-associated difference : +0.000077622 in
+A2 - A return/drift difference             : +0.000083452 in
+
+A  P95 pairwise  : 0.000106909 in
+B  P95 pairwise  : 0.000146398 in
+C  P95 pairwise  : 0.000171343 in
+A2 P95 pairwise  : 0.000151617 in

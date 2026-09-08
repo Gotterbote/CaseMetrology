@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "session_id": "postv1_blank_c_blocked_on_20260908_171458",
+  "label": "postv1_blank_c_blocked_on",
+  "started_at": "2026-09-08T17:14:58-05:00",
+  "completed_at": "2026-09-08T17:15:08-05:00",
+  "hostname": "timmy-nano",
+  "platform": "Linux-6.8.12-1021-tegra-aarch64-with-glibc2.39",
+  "python_version": "3.12.3",
+  "git_commit": "94839b64dee5b7f520341c2554ce3ab0cbf16a95",
+  "git_working_tree_dirty": true,
+  "camera": {
+    "device": "/dev/case-metrology-camera",
+    "requested_width": 1456,
+    "requested_height": 1088,
+    "requested_fps": 44,
+    "actual_width": 1456,
+    "actual_height": 1088,
+    "actual_fps": 44.0,
+    "warmup_frames": 20,
+    "pixel_format": "YUYV"
+  },
+  "camera_controls_before": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "camera_controls_after": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "expected_camera_controls": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "control_mismatches": [],
+  "capture_count": 5,
+  "requested_interval_seconds": 2.0,
+  "images": [
+    {
+      "sequence": 1,
+      "filename": "postv1_blank_c_blocked_on_20260908_171500_361544_01.png",
+      "relative_path": "data/oal_validation/post_v1_diagnostics/ambient_light_2026-09-08/raw/postv1_blank_c_blocked_on_20260908_171458/postv1_blank_c_blocked_on_20260908_171500_361544_01.png",
+      "captured_at": "2026-09-08T17:15:00.361544-05:00",
+      "size_bytes": 1283718,
+      "sha256": "00dc96fb6db0fb0c0278dbf7ae821c314a631eb4b2ab03b381a8a84802c5490c"
+    },
+    {
+      "sequence": 2,
+      "filename": "postv1_blank_c_blocked_on_20260908_171502_376643_02.png",
+      "relative_path": "data/oal_validation/post_v1_diagnostics/ambient_light_2026-09-08/raw/postv1_blank_c_blocked_on_20260908_171458/postv1_blank_c_blocked_on_20260908_171502_376643_02.png",
+      "captured_at": "2026-09-08T17:15:02.376643-05:00",
+      "size_bytes": 1283044,
+      "sha256": "83397c1f873632f8f5732123743f07d8c919e3cbf60270edf8a4a633beb28c20"
+    },
+    {
+      "sequence": 3,
+      "filename": "postv1_blank_c_blocked_on_20260908_171504_391538_03.png",
+      "relative_path": "data/oal_validation/post_v1_diagnostics/ambient_light_2026-09-08/raw/postv1_blank_c_blocked_on_20260908_171458/postv1_blank_c_blocked_on_20260908_171504_391538_03.png",
+      "captured_at": "2026-09-08T17:15:04.391538-05:00",
+      "size_bytes": 1281765,
+      "sha256": "5d82b653d7a8648ff70b3e9d3ae2b7147aa363aee582fdf6bbb50f54c59cf7ca"
+    },
+    {
+      "sequence": 4,
+      "filename": "postv1_blank_c_blocked_on_20260908_171506_407145_04.png",
+      "relative_path": "data/oal_validation/post_v1_diagnostics/ambient_light_2026-09-08/raw/postv1_blank_c_blocked_on_20260908_171458/postv1_blank_c_blocked_on_20260908_171506_407145_04.png",
+      "captured_at": "2026-09-08T17:15:06.407145-05:00",
+      "size_bytes": 1282076,
+      "sha256": "92f62d7dddc1dd0f9ff830e8ab746aed86214fa61cd09c2871c4dc30a9701ba3"
+    },
+    {
+      "sequence": 5,
+      "filename": "postv1_blank_c_blocked_on_20260908_171508_454593_05.png",
+      "relative_path": "data/oal_validation/post_v1_diagnostics/ambient_light_2026-09-08/raw/postv1_blank_c_blocked_on_20260908_171458/postv1_blank_c_blocked_on_20260908_171508_454593_05.png",
+      "captured_at": "2026-09-08T17:15:08.454593-05:00",
+      "size_bytes": 1283175,
+      "sha256": "91cbe1a6e43c6198615ccd49d49049a167af9e36a6ad1132f235457c011dab52"
+    }
+  ]
+}
