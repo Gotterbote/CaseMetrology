@@ -1,0 +1,16 @@
+POST-V1 CONTROLLED-REPOSITIONING DIAGNOSTIC
+Specimen: 121
+Valid placements: 10
+Valid images: 30
+
+Overall mean OAL: 1.001919698 in
+Within-placement P95 pairwise: 0.000518827 in
+Within-placement max pairwise: 0.000670539 in
+Placement-mean SD: 0.000522986 in
+Placement-mean range: 0.001780475 in
+Between-placement P95 pairwise: 0.001629399 in
+Between-placement max pairwise: 0.001780475 in
+
+V1 independent-placement P95: 0.004831000 in
+V1 / controlled P95 ratio: 2.96x
+Reduction relative to V1: 66.27%

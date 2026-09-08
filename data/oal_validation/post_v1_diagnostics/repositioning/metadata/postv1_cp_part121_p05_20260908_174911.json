@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "session_id": "postv1_cp_part121_p05_20260908_174911",
+  "label": "postv1_cp_part121_p05",
+  "started_at": "2026-09-08T17:49:11-05:00",
+  "completed_at": "2026-09-08T17:49:17-05:00",
+  "hostname": "timmy-nano",
+  "platform": "Linux-6.8.12-1021-tegra-aarch64-with-glibc2.39",
+  "python_version": "3.12.3",
+  "git_commit": "140082c72f7edf995ab5764aca64b9eaeea5576b",
+  "git_working_tree_dirty": true,
+  "camera": {
+    "device": "/dev/case-metrology-camera",
+    "requested_width": 1456,
+    "requested_height": 1088,
+    "requested_fps": 44,
+    "actual_width": 1456,
+    "actual_height": 1088,
+    "actual_fps": 44.0,
+    "warmup_frames": 20,
+    "pixel_format": "YUYV"
+  },
+  "camera_controls_before": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "camera_controls_after": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "expected_camera_controls": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "control_mismatches": [],
+  "capture_count": 3,
+  "requested_interval_seconds": 2.0,
+  "images": [
+    {
+      "sequence": 1,
+      "filename": "postv1_cp_part121_p05_20260908_174913_745779_01.png",
+      "relative_path": "data/oal_validation/post_v1_diagnostics/repositioning/raw/postv1_cp_part121_p05_20260908_174911/postv1_cp_part121_p05_20260908_174913_745779_01.png",
+      "captured_at": "2026-09-08T17:49:13.745779-05:00",
+      "size_bytes": 1345768,
+      "sha256": "ea672ffb7e9ebaaf6b1c633a5e96efc29ac135ea91093c0706e87cd36c3b701f"
+    },
+    {
+      "sequence": 2,
+      "filename": "postv1_cp_part121_p05_20260908_174915_791653_02.png",
+      "relative_path": "data/oal_validation/post_v1_diagnostics/repositioning/raw/postv1_cp_part121_p05_20260908_174911/postv1_cp_part121_p05_20260908_174915_791653_02.png",
+      "captured_at": "2026-09-08T17:49:15.791653-05:00",
+      "size_bytes": 1345868,
+      "sha256": "412d6364fe5d2dfb8f385d5a1ace80eb271e21512cab3f0a3aff6a1a352b2f40"
+    },
+    {
+      "sequence": 3,
+      "filename": "postv1_cp_part121_p05_20260908_174917_806695_03.png",
+      "relative_path": "data/oal_validation/post_v1_diagnostics/repositioning/raw/postv1_cp_part121_p05_20260908_174911/postv1_cp_part121_p05_20260908_174917_806695_03.png",
+      "captured_at": "2026-09-08T17:49:17.806695-05:00",
+      "size_bytes": 1344640,
+      "sha256": "926b83feeccb2fa081b634099d005e1ec1519470964d45376d1911face331fc5"
+    }
+  ]
+}
