@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "session_id": "v2_cv_s001_blank_reference_20260910_154656",
+  "label": "v2_cv_s001_blank_reference",
+  "started_at": "2026-09-10T15:46:56-05:00",
+  "completed_at": "2026-09-10T15:46:59-05:00",
+  "hostname": "timmy-nano",
+  "platform": "Linux-6.8.12-1021-tegra-aarch64-with-glibc2.39",
+  "python_version": "3.12.3",
+  "git_commit": "ee4cf97f5313afb72fa651c5b99e8c793573540b",
+  "git_working_tree_dirty": true,
+  "camera": {
+    "device": "/dev/case-metrology-camera",
+    "requested_width": 1456,
+    "requested_height": 1088,
+    "requested_fps": 44,
+    "actual_width": 1456,
+    "actual_height": 1088,
+    "actual_fps": 44.0,
+    "warmup_frames": 20,
+    "pixel_format": "YUYV"
+  },
+  "camera_controls_before": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "camera_controls_after": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "expected_camera_controls": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "control_mismatches": [],
+  "capture_count": 1,
+  "requested_interval_seconds": 1.0,
+  "images": [
+    {
+      "sequence": 1,
+      "filename": "v2_cv_s001_blank_reference_20260910_154659_040904_01.png",
+      "relative_path": "raw_images/acquisition/v2_cv_s001_blank_reference_20260910_154656/v2_cv_s001_blank_reference_20260910_154659_040904_01.png",
+      "captured_at": "2026-09-10T15:46:59.040904-05:00",
+      "size_bytes": 1417652,
+      "sha256": "365e29f45f612ad34aea57edd02a7528335fb88bc7099f43dec39164a1083802"
+    }
+  ]
+}

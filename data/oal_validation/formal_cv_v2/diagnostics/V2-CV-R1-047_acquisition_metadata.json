@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "session_id": "oal_live_case_30_20260910_163903",
+  "label": "oal_live_case_30",
+  "started_at": "2026-09-10T16:39:03-05:00",
+  "completed_at": "2026-09-10T16:39:05-05:00",
+  "hostname": "timmy-nano",
+  "platform": "Linux-6.8.12-1021-tegra-aarch64-with-glibc2.39",
+  "python_version": "3.12.3",
+  "git_commit": "ee4cf97f5313afb72fa651c5b99e8c793573540b",
+  "git_working_tree_dirty": true,
+  "camera": {
+    "device": "/dev/case-metrology-camera",
+    "requested_width": 1456,
+    "requested_height": 1088,
+    "requested_fps": 44,
+    "actual_width": 1456,
+    "actual_height": 1088,
+    "actual_fps": 44.0,
+    "warmup_frames": 20,
+    "pixel_format": "YUYV"
+  },
+  "camera_controls_before": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "camera_controls_after": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "expected_camera_controls": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "control_mismatches": [],
+  "capture_count": 1,
+  "requested_interval_seconds": 1.0,
+  "images": [
+    {
+      "sequence": 1,
+      "filename": "oal_live_case_30_20260910_163905_756835_01.png",
+      "relative_path": "raw_images/acquisition/oal_live_case_30_20260910_163903/oal_live_case_30_20260910_163905_756835_01.png",
+      "captured_at": "2026-09-10T16:39:05.756835-05:00",
+      "size_bytes": 1442000,
+      "sha256": "e63a7fa6b3d4a7122b56d3034ffa3a55575964ca898c08472ca70f4abab1f7dd"
+    }
+  ]
+}
