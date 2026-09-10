@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "session_id": "fixture1_ref_plus1875_part121_20260908_191321",
+  "label": "fixture1_ref_plus1875_part121",
+  "started_at": "2026-09-08T19:13:21-05:00",
+  "completed_at": "2026-09-08T19:13:28-05:00",
+  "hostname": "timmy-nano",
+  "platform": "Linux-6.8.12-1021-tegra-aarch64-with-glibc2.39",
+  "python_version": "3.12.3",
+  "git_commit": "af24653d25220a1d5d9826bf22104d573cba7e79",
+  "git_working_tree_dirty": true,
+  "camera": {
+    "device": "/dev/case-metrology-camera",
+    "requested_width": 1456,
+    "requested_height": 1088,
+    "requested_fps": 44,
+    "actual_width": 1456,
+    "actual_height": 1088,
+    "actual_fps": 44.0,
+    "warmup_frames": 20,
+    "pixel_format": "YUYV"
+  },
+  "camera_controls_before": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "camera_controls_after": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "expected_camera_controls": {
+    "brightness": 0,
+    "contrast": 10,
+    "saturation": 0,
+    "white_balance_automatic": 0,
+    "gain": 100,
+    "white_balance_temperature": 2498,
+    "auto_exposure": 1,
+    "exposure_time_absolute": 5
+  },
+  "control_mismatches": [],
+  "capture_count": 3,
+  "requested_interval_seconds": 2.0,
+  "images": [
+    {
+      "sequence": 1,
+      "filename": "fixture1_ref_plus1875_part121_20260908_191324_111104_01.png",
+      "relative_path": "data/oal_validation/post_v1_diagnostics/fixture1_position_dev/raw/fixture1_ref_plus1875_part121_20260908_191321/fixture1_ref_plus1875_part121_20260908_191324_111104_01.png",
+      "captured_at": "2026-09-08T19:13:24.111104-05:00",
+      "size_bytes": 1343434,
+      "sha256": "29ce4f81cdc227de4a3bbe5efba509e2773d8b0ee362c7f381341f1b2fb17ff0"
+    },
+    {
+      "sequence": 2,
+      "filename": "fixture1_ref_plus1875_part121_20260908_191326_156560_02.png",
+      "relative_path": "data/oal_validation/post_v1_diagnostics/fixture1_position_dev/raw/fixture1_ref_plus1875_part121_20260908_191321/fixture1_ref_plus1875_part121_20260908_191326_156560_02.png",
+      "captured_at": "2026-09-08T19:13:26.156560-05:00",
+      "size_bytes": 1343905,
+      "sha256": "3f9282620bcf1e482aaa826506ef16db1cd890d92d29baef84a66aeb5c7ce5cd"
+    },
+    {
+      "sequence": 3,
+      "filename": "fixture1_ref_plus1875_part121_20260908_191328_172258_03.png",
+      "relative_path": "data/oal_validation/post_v1_diagnostics/fixture1_position_dev/raw/fixture1_ref_plus1875_part121_20260908_191321/fixture1_ref_plus1875_part121_20260908_191328_172258_03.png",
+      "captured_at": "2026-09-08T19:13:28.172258-05:00",
+      "size_bytes": 1343183,
+      "sha256": "562ca1adcd33cda563f0cd1f104bed7eb779972574a097fc285c67bbe7a9e5b2"
+    }
+  ]
+}
