@@ -1,0 +1,8 @@
+criterion,observed,target,relation,unit,status
+cv_availability,100,99,>=,%,MET
+cv_repositioning_p95,0.00399359348795,0.002,<=,in,NOT_MET
+absolute_mean_bias,0.000277373682234,0.001,<=,in,MET
+rmse,0.00153849823147,0.002,<=,in,MET
+p95_absolute_specimen_error,0.00306515912313,0.003,<=,in,NOT_MET
+maximum_absolute_specimen_error,0.00428991569256,0.004,<=,in,NOT_MET
+zero_false_pass_preference,1,0,preferred_equal,count,NOT_MET

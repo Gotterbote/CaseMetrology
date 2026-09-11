@@ -1,0 +1,6 @@
+selection_stratum,n_specimens,valid_cv_observations,system_failures,mean_signed_error_in,median_signed_error_in,mae_in,maximum_absolute_error_in,reference_conforming_count,cv_conforming_count,true_nonconforming,false_passes,false_fails,true_conforming,uncertainty_overlap_count
+below_lsl,8,24,0,-0.000459345851465,-0.000146434934181,0.00123104902072,0.002511781945,0,0,8,0,0,0,0
+near_lsl_in_spec,14,42,0,-0.000109553054302,0.000328541284793,0.00127879811422,0.00316426606986,13,12,0,1,2,11,7
+central_nominal,16,48,0,0.00112254596538,0.000519577975791,0.00148375792587,0.00428991569256,16,16,0,0,0,16,0
+near_usl_in_spec,14,42,0,0.000305339633291,0.000435422766941,0.000849550042349,0.00256209727907,14,11,0,0,3,11,4
+above_usl,8,24,0,-4.80699757635e-05,8.09011524072e-05,0.00100603604581,0.00205839607871,2,2,6,0,0,2,2
