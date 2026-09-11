@@ -1,0 +1,62 @@
+{
+  "analysis_type": "retrospective_exploratory",
+  "endface_hybrid": {
+    "bias_95_ci_lower_in": -0.0009003285000111649,
+    "bias_95_ci_upper_in": -0.0001088355196418655,
+    "bias_in": -0.0005045820098265152,
+    "classification": {
+      "false_fails": 5,
+      "false_passes": 0,
+      "true_conforming": 40,
+      "true_nonconforming": 15
+    },
+    "mae_in": 0.0012570119169869238,
+    "maximum_absolute_error_in": 0.003842109720819109,
+    "median_signed_error_in": -0.0004272407719120297,
+    "n_complete_specimens": 60,
+    "p95_absolute_error_in": 0.0031093033927196423,
+    "p95_absolute_error_rank": 57,
+    "reposition_maximum_pairwise_in": 0.004557383239196966,
+    "reposition_mean_pairwise_in": 0.0010554243280284376,
+    "reposition_median_pairwise_in": 0.00066783791971331,
+    "reposition_n_pairwise": 180,
+    "reposition_p95_pairwise_in": 0.0030208356172929385,
+    "reposition_p95_pairwise_rank": 171,
+    "rmse_in": 0.0016007438178161275
+  },
+  "formal_v1_v2_unchanged": true,
+  "freeze_commit": "dbc4920",
+  "frozen_hybrid_sha256": "3f332ef097f5f39e6e1447a61756c7ecc4c8e7c8170fe8933ab362daffb2a2af",
+  "hybrid_availability": {
+    "availability_pct": 100.0,
+    "complete_three_round_specimens": 60,
+    "total_observations": 180,
+    "valid_observations": 180
+  },
+  "pca_reproduction_max_difference_in": 0.0,
+  "recorded_v2_baseline": {
+    "bias_95_ci_lower_in": -0.00011684906042854859,
+    "bias_95_ci_upper_in": 0.0006715964248969077,
+    "bias_in": 0.00027737368223417955,
+    "classification": {
+      "false_fails": 5,
+      "false_passes": 1,
+      "true_conforming": 40,
+      "true_nonconforming": 14
+    },
+    "mae_in": 0.0011905613589688556,
+    "maximum_absolute_error_in": 0.004289915692555324,
+    "median_signed_error_in": 0.0004059640130145148,
+    "n_complete_specimens": 60,
+    "p95_absolute_error_in": 0.003065159123134986,
+    "p95_absolute_error_rank": 57,
+    "reposition_maximum_pairwise_in": 0.0051990573458513545,
+    "reposition_mean_pairwise_in": 0.0014183117527974594,
+    "reposition_median_pairwise_in": 0.001080759066465764,
+    "reposition_n_pairwise": 180,
+    "reposition_p95_pairwise_in": 0.003993593487950031,
+    "reposition_p95_pairwise_rank": 171,
+    "rmse_in": 0.0015384982314730533
+  },
+  "run_git_head": "dbc4920a1a9173d6e4c29fd44d0d9d765225a743"
+}
