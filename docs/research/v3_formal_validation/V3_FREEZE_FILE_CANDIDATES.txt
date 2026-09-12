@@ -1,0 +1,14 @@
+V3 FREEZE FILE CANDIDATES
+================================================================================
+
+These are search candidates only. The final freeze must explicitly
+identify the authoritative estimator, calibration, and configuration
+files before formal acquisition.
+
+config/pca_oal_validation_plan.json
+config/udev/99-case-metrology-camera.rules
+scripts/__pycache__/evaluate_oal_endface_hybrid_dev.cpython-312.pyc
+scripts/analyze_oal_endface_hybrid_v2_residuals.py
+scripts/analyze_oal_endface_hybrid_v2_scale.py
+scripts/evaluate_oal_endface_hybrid_dev.py
+scripts/evaluate_oal_endface_hybrid_v2_retrospective.py

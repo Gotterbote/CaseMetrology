@@ -1,0 +1,19 @@
+CaseMetrology V3 Development Baseline
+
+Recorded: 2026-09-11T23:23:10-05:00
+
+Development-complete commit:
+cdd76a7942b16f4c2aaf7b6f0b653f3589a77986
+
+Short commit:
+cdd76a7
+
+Commit subject:
+Record V3 controlled-presentation development diagnostics
+
+This commit represents the end of exploratory V3 controlled-presentation
+development immediately before prospective formal-validation
+preparation.
+
+No V3 formal measurements had been collected when this record was
+created.

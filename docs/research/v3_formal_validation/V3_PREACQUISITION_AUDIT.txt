@@ -1,0 +1,41 @@
+================================================================================
+CASEMETROLOGY V3 PRE-ACQUISITION AUDIT
+================================================================================
+
+Generated: 2026-09-11T23:23:10-05:00
+Development baseline: cdd76a7
+
+PASS: repository was clean before preparation
+PASS: development baseline verified
+PASS: formal cohort count = 60
+PASS: unique formal specimens = 60
+PASS: formal IDs exactly match established frozen 60
+PASS: development specimens absent from formal cohort
+Stratum audit: {'near_usl_in_spec': 14, 'above_usl': 8, 'below_lsl': 8, 'central_nominal': 16, 'near_lsl_in_spec': 14}
+
+PASS: manual stability run order = 60 specimens
+PASS: manual stability seed = 2026091201
+
+PASS: V3 CV round 1 = 60 specimens
+PASS: V3 CV round 1 unique = 60
+PASS: V3 CV round 1 cohort complete = True
+PASS: V3 CV round 2 = 60 specimens
+PASS: V3 CV round 2 unique = 60
+PASS: V3 CV round 2 cohort complete = True
+PASS: V3 CV round 3 = 60 specimens
+PASS: V3 CV round 3 unique = 60
+PASS: V3 CV round 3 cohort complete = True
+
+PASS: total planned formal V3 CV placements = 180
+
+PENDING: exact Endface Hybrid source file identification
+PENDING: exact PCA comparator source file identification
+PENDING: exact Geometry source file identification
+PENDING: exact calibration/configuration file identification
+PENDING: SHA-256 final freeze manifest
+
+NO FORMAL V3 MEASUREMENT DATA WERE GENERATED.
+
+PREPARATION AUDIT: PASS
+FINAL FREEZE: NOT YET COMPLETE
+================================================================================

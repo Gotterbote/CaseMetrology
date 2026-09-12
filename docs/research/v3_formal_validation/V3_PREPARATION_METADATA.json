@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-09-11T23:23:10-05:00",
+  "development_baseline": "cdd76a7942b16f4c2aaf7b6f0b653f3589a77986",
+  "development_baseline_short": "cdd76a7",
+  "source_cohort": "data/oal_validation/formal_validation_specimens.csv",
+  "source_cohort_sha256": "ab637e535066e033bb680405fe5aad0a2e56e8a8b9f8eee43d9e7d4ba98134d2",
+  "formal_specimen_count": 60,
+  "development_specimens": [
+    121,
+    146,
+    178,
+    187,
+    197
+  ],
+  "manual_seed": "2026091201",
+  "cv_seed": "2026091202",
+  "manual_stability_measurements_planned": 60,
+  "formal_cv_measurements_planned": 180,
+  "primary_estimator": "Endface Hybrid",
+  "historical_comparator": "PCA",
+  "secondary_estimator": "Geometry",
+  "final_freeze_complete": false
+}
