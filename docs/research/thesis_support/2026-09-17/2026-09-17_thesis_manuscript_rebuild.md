@@ -330,3 +330,379 @@ Sixth, optical cartridge-case dimensional inspection is not novel. Historical sy
 CaseMetrology occupies a research space defined by the engineering evaluation of a modern embedded, static, backlit area-camera architecture for cartridge-case OAL. Its contribution lies in the documented progression from prospective baseline validation through diagnostic investigation, fixture and presentation control, estimator development, and prospective evaluation of the final frozen configuration. The research also evaluates the difference between repeated-presentation stability and absolute agreement and explores how measured limitations could be incorporated into a guarded screening process.
 
 This position does not claim that CaseMetrology replaces precision contact metrology, that it is production ready, or that its exploratory decision margins are validated for production. Instead, the literature supports the narrower question answered by the thesis: what a specific embedded dimensional-vision architecture can defensibly support under documented static conditions, what limitations remain, and how those limitations affect its potential role as an industrial screening tool.
+
+# Chapter 3 — Methodology
+
+## 3.1 Research Design and Experimental Chronology
+
+This study used a sequential engineering-validation design to evaluate a static computer-vision system for cartridge-case overall-length measurement. The work began with a prospectively specified formal validation of the original frozen system, followed by diagnostic investigation and two engineering iterations. The completed sequence was analyzed chronologically so that later findings were not represented as though they had been known or planned before the original validation.
+
+The formal measurand was cartridge-case overall length (OAL), defined as the axial distance from the case base/head end to the case mouth end. The nominal specification interval used for research classification was 0.9900–1.0100 in, inclusive. All screening, manual reference, and formal computer-vision measurements were performed by one operator, Timmy D. Bell. The study therefore characterized single-operator performance under the documented conditions; it was not a multi-operator Gage R&R study.
+
+Development observations and formal validation observations were kept analytically separate. Five specimens used during estimator and presentation development were excluded from formal sample eligibility. Formal datasets were not used to retune the configuration being evaluated, and an unfavorable result did not authorize a repeat measurement, specimen replacement, calibration change, estimator change, or relaxation of an acceptance criterion.
+
+Table 3.1 summarizes the status of each phase. The distinction between prospective and retrospective work is central to the methodology.
+
+**Table 3.1. Experimental phases and inferential status**
+
+| Phase | Configuration or activity | Primary purpose | Status |
+|---|---|---|---|
+| V1 | PCA estimator; independent free placement | Establish the original formal performance baseline | Prospective formal validation |
+| Post-V1 diagnostics | Ambient-light, controlled-repositioning, and fixture investigations | Investigate V1 variability and generate engineering hypotheses | Exploratory diagnostic work |
+| V2 | Revised mechanical fixture; PCA estimator retained | Evaluate the fixture change on the retained formal cohort | Prospective formal engineering iteration |
+| Endface-Hybrid development | Geometry-derived axis with subpixel end-face localization | Develop an alternative endpoint estimator using excluded development data | Development work |
+| V2 Endface-Hybrid analysis | Frozen Endface-Hybrid applied to previously acquired V2 images | Compare estimator behavior on a common formal image set | Retrospective exploratory analysis |
+| Controlled-presentation development | Rocking control, fixed roll orientation, and fixture-retention verification | Define the V3 presentation procedure | Development and preacquisition verification |
+| V3 | Frozen Endface-Hybrid; controlled presentation | Evaluate the final frozen configuration | Prospective formal validation |
+| Guard-band analysis | Symmetric guarded acceptance intervals applied to V3 specimen means | Explore dimensional-screening decision behavior | Retrospective exploratory analysis |
+
+The same frozen 60-specimen cohort and the same accepted manual-reference means were retained for V1, V2, and V3. This supported paired engineering comparisons while avoiding a change in specimen composition or reference assignment between iterations. Results from each phase are reported in Chapter 4; the present chapter describes how those results were generated and classified.
+
+## 3.2 CaseMetrology System Architecture
+
+### 3.2.1 Embedded computing and imaging hardware
+
+CaseMetrology was implemented as a static backlit vision system. Image acquisition, segmentation, calibration lookup, and dimensional computation were executed on an NVIDIA Jetson Orin Nano Super Developer Kit. The documented study environment used NVIDIA L4T R39.2 with kernel `6.8.12-1021-tegra`, Python 3.12.3, OpenCV 4.6.0, and NumPy 1.26.4. The Jetson operated in the documented 15 W power mode.
+
+The imaging device was an Arducam B0499 USB 3.0 camera based on the Sony IMX296 global-shutter sensor. The project camera was identified by serial number `Arducam_20231211_0001` and accessed through the persistent device path `/dev/case-metrology-camera`. Images were acquired at 1456 × 1088 pixels in YUYV format at 44 frames/s after a 20-frame warm-up. The installed optic was an Arducam 16 mm CS-mount lens, model CS2316ZM02. Repository history and a nondisturbing physical inspection supported continuity of this 16 mm lens through the validation sequence; no evidence supported the earlier recollection that a 25 mm lens had been used.
+
+The camera-to-measurement-plane distance was 8.625 in, measured from the front edge of the lens barrel to the surface on which the reference artifact or specimen rested. A clear Lexan sheet with nominal thickness 0.250 in served as the working surface and measurement plane. Transmitted illumination was provided by a VALIKIY LED backlight sheet rated at 24 V and 36 W within the measurement enclosure.
+
+The locked camera-control values were brightness 0, contrast 10, saturation 0, automatic white balance disabled, white-balance temperature 2498, gain 100, manual exposure mode, and exposure-time value 5. The acquisition software checked these controls against the expected values. The camera, lens, focus, backlight, and calibrated working geometry were not intentionally changed across V1, V2, and V3.
+
+### 3.2.2 Image acquisition and segmentation
+
+Each formal computer-vision session began with a preserved blank-reference image acquired without a specimen. A specimen image was converted to grayscale and compared with the session blank using blank-minus-specimen subtraction so that regions darkened by the case silhouette were emphasized. The difference image was smoothed with a 5 × 5 Gaussian kernel, thresholded using Otsu's method, and processed with 3 × 3 morphological opening and closing (Otsu, 1979; Gonzalez & Woods, 2018). Connected components were then evaluated, and the largest foreground component was retained as the candidate case silhouette.
+
+Segmentation generated the binary mask, component centroid, and quality information required by the measurement estimators. Thresholds, morphology settings, component selection, and quality-gate logic were not adjusted for individual formal specimens. The same segmentation and calibration lineage was used when multiple estimators were applied to a common image.
+
+### 3.2.3 PCA OAL estimator
+
+The primary V1 and V2 estimator was the frozen PCA/extreme-mask method implemented in `src/measurement/topdown_oal.py`. Principal component analysis provided an initial longitudinal direction for the foreground point set (Jolliffe & Cadima, 2016). The implementation refined the case axis from exposed silhouette points and projected accepted mask points onto that axis. The pixel-space OAL was the separation between the minimum and maximum accepted projections. Base and mouth identity followed specimen geometry rather than being inferred only from the sign of the projection.
+
+The estimator returned the pixel length, centroid, measurement-axis angle, endpoint coordinates, component information, and pass/fail status. Its source identity and the segmentation implementation were frozen before V1 formal acquisition. The PCA estimator remained unchanged for the prospective V2 fixture evaluation and was retained as a historical comparator for V3.
+
+### 3.2.4 Endface-Hybrid OAL estimator
+
+The Endface-Hybrid estimator combined a geometry-derived longitudinal axis with grayscale subpixel localization at the two OAL end faces. It did not apply subpixel refinement to the case sidewalls. The binary geometry estimator supplied the axis, end seeds, centroid, case width, and measurement angle. At each end, 41 transverse seed locations were distributed across a centered span equal to 60% of the estimated case width.
+
+For each seed, grayscale intensity was sampled along the longitudinal direction from -6 to +6 pixels in 0.25-pixel increments. Interior and exterior plateau intensities were estimated from the prescribed sampling intervals, and a profile was accepted only when it met the frozen local-contrast, anchor-distance, and unique-crossing rules. The edge location was the 0.50 normalized-intensity crossing. At least 12 accepted profiles were required at each end. Accepted crossing points were fit using iteratively reweighted linear least squares, and pixel OAL was the axial separation between the fitted base and mouth intercepts.
+
+The frozen numerical parameters included a minimum local contrast of 30 grayscale units and maximum anchor and crossing distances of 3 pixels. The estimator converted its pixel result to inches using the same spatial and directional calibration used by the PCA pipeline. The frozen implementation was `scripts/evaluate_oal_endface_hybrid_dev.py`, with SHA-256 `3f332ef097f5f39e6e1447a61756c7ecc4c8e7c8170fe8933ab362daffb2a2af`.
+
+### 3.2.5 Configuration control and data preservation
+
+Measurement-affecting source code, protocols, run orders, calibration records, and formal analysis scripts were maintained under Git version control. Raw images, blank references, acquisition metadata, observation tables, and derived outputs were preserved separately. SHA-256 manifests were used for the V3 measurement-system freeze and selected research artifacts. Version control and hashing established configuration identity and research chronology; they were not treated as substitutes for empirical measurement validation.
+
+Formal records distinguished `VALID`, `SYSTEM_FAILURE`, and `PROTOCOL_INVALID` events. A system failure was an otherwise valid attempt in which the frozen pipeline failed to return an accepted measurement; it remained in the availability denominator and could not be repeated merely to obtain a favorable result. A protocol-invalid event was an external procedural failure, such as an incorrect specimen or acquisition condition. Its original record was retained, and a linked replacement was permitted only under the frozen deviation procedure. No missing result was imputed.
+
+## 3.3 Calibration and Manual Reference Measurement
+
+### 3.3.1 Spatial and directional calibration
+
+Image-space measurements were converted to physical units using a Mitutoyo Grade 0 steel gauge block, identification number 253568. Certificate T26A06624 assigned a central length of 1.0000024 in with expanded uncertainty of 0.0000024 in at coverage factor $k=2$. Calibration characterization was performed on the installed measurement plane with the permanent Lexan assembly in place.
+
+A coordinate-controlled 2 × 2 grid at positions A through D was measured in two principal gauge-block orientations, with three images acquired at each position-orientation combination. A fifth location near the center of the grid was withheld from fitting and used for principal-direction and oblique holdout checks. The calibration observations showed that effective scale varied with both image position and measurement direction, so one global pixels-per-inch value was not used.
+
+Separate first-order spatial planes were fit to the accepted A–D observations:
+
+\[
+PPI_0(x,y)=516.907045+0.00843326411x+0.000817091863y,
+\]
+
+and
+
+\[
+PPI_{90}(x,y)=518.408825+0.00322556849x+0.00442714650y.
+\]
+
+The labels $PPI_0$ and $PPI_{90}$ identify the historical gauge-block acquisition orientations. A prevalidation audit found that the gauge-block analyzer reported the block's long-axis orientation while measuring the certified short dimension perpendicular to that axis. The cartridge-case estimator reported the OAL measurement direction itself. The direction mapping was therefore corrected before formal validation without refitting the accepted planes.
+
+For a segmented specimen centroid $(x_c,y_c)$ and OAL direction $\theta$, the frozen effective scale was
+
+\[
+PPI_{eff}=\sqrt{[PPI_{90}(x_c,y_c)\cos\theta]^2+[PPI_0(x_c,y_c)\sin\theta]^2}.
+\]
+
+Physical OAL was then
+
+\[
+L_{OAL}=\frac{L_{px}}{PPI_{eff}},
+\]
+
+where $L_{px}$ was the estimator's pixel-space length. Under this convention, a horizontal OAL direction resolved to the historical $PPI_{90}$ surface and a vertical direction resolved to $PPI_0$. The corrected oblique holdout had an equivalent residual of approximately -0.000413 in over the approximately 1-in reference. The calibration therefore supported use within the tested region while retaining the limitation that the conventional optical system was not demonstrated to have universal sub-thousandth-inch accuracy at arbitrary positions and orientations.
+
+### 3.3.2 Manual reference instrument and session assurance
+
+The formal reference instrument was a Mitutoyo digital caliper, model CD-6"ASX, code 500-196-30, serial number B24254849, with 0.0005-in display resolution. Calibration certificate DDJ25P23P reported an as-left indication error of 0.0000 in at 1 in and expanded uncertainty of 0.000126 in at approximately 95% confidence. No numerical correction was applied to formal case measurements because the reported as-left error at 1 in was zero.
+
+The Grade 0 gauge block served as a session-assurance standard rather than as a direct calibration correction for each specimen. Before and after every formal manual session, the operator obtained five independent gauge-block readings, completely removing and replacing the block between readings. The prospectively frozen inclusive limits were absolute mean indication error no greater than 0.0005 in relative to the expected 1.0000-in display, five-reading range no greater than 0.0005 in, and pre-to-post mean drift no greater than 0.0005 in. A failed precheck prevented specimen measurement; a failed postcheck placed the session on hold for review.
+
+The measurement equipment was allowed to equilibrate in a consistent indoor workspace. Room and gauge-block surface temperatures were recorded at the beginning and end of formal manual sessions using a Cole-Parmer 20250-91 thermometer, serial number 2605139793, under calibration report 1817067, with Type-T surface probes. The calibration report applied to the meter using simulated thermocouple inputs; the individual surface probes were not separately calibrated. The temperature records therefore documented stability and abnormalities, but no numerical thermal correction or environmental uncertainty component was introduced.
+
+### 3.3.3 Formal manual measurement procedure
+
+The 60 selected specimens were measured in three independently randomized rounds, one reading per specimen per round, using seed `2026081901`. The three sessions were identified as MAN-S001, MAN-S002, and MAN-S003. For each observation, the operator verified the laser-etched specimen ID, placed the case lengthwise between the external caliper faces, established axial contact between the base/head and mouth using only sufficient force for gentle contact, recorded the stabilized display exactly, and completely removed the case before proceeding.
+
+Screening values and previous formal readings were not consulted during acquisition. A reading was not repeated because it differed from screening, another replicate, the nominal specification, or an expectation. Two out-of-sequence readings in MAN-S002 were preserved as protocol-invalid records and replaced under the documented deviation procedure. The accepted dataset contained 180 displayed readings, and the invalid records remained in the audit trail.
+
+For specimen $i$, the formal reference mean was
+
+\[
+\bar{M}_i=\frac{M_{i1}+M_{i2}+M_{i3}}{3}.
+\]
+
+These accepted three-round means were frozen after V1 and reused for the paired V2 and V3 evaluations. Reusing the same reference values preserved the intended V1-to-V3 comparison. A planned V3 manual stability-check round was removed by Protocol Amendment 001 before V3 acquisition; no new V3 manual readings replaced the accepted reference means.
+
+### 3.3.4 Reference uncertainty and near-limit classification
+
+The reference process was treated as a calibrated comparator with finite uncertainty, not as error-free truth. The standard calibration contribution was
+
+\[
+u_{cal}=0.000126/2=0.000063\text{ in},
+\]
+
+and the digital-resolution contribution was
+
+\[
+u_{res}=0.0005/\sqrt{12}.
+\]
+
+The pooled within-specimen manual standard deviation was calculated from the 60 triplicate sets:
+
+\[
+s_p=\sqrt{\frac{\sum_i\sum_j(M_{ij}-\bar{M}_i)^2}{60(3-1)}}.
+\]
+
+The repeated-measurement contribution to a three-reading specimen mean was
+
+\[
+u_{rep}=\frac{s_p}{\sqrt{3}}.
+\]
+
+Combined standard and expanded reference uncertainties were
+
+\[
+u_{ref}=\sqrt{u_{cal}^2+u_{res}^2+u_{rep}^2}
+\]
+
+and
+
+\[
+U_{ref}=2u_{ref}.
+\]
+
+The primary reference classification used the point estimate \(\bar{M}_i\) and the inclusive 0.9900–1.0100 in specification limits. A secondary descriptive flag identified a specimen when its expanded reference-uncertainty interval reached or crossed either limit. This flag did not reclassify the specimen, create an indeterminate primary category, authorize replacement, or impose a guard band.
+
+## 3.4 Specimen Population, Screening, and Frozen Cohort
+
+The source population comprised 235 cartridge cases laser etched with unique identifiers 1 through 235. The etched integer was used as `part_id` throughout the study. The population included cases distributed across the available OAL range, including cases shorter and longer than the nominal interval.
+
+Specimens 121, 146, 178, 187, and 197 had been used during estimator or presentation development and were excluded from formal eligibility. The remaining 230 cases were screened using the designated manual process to characterize the OAL distribution for stratification. Screening observations were not included in the formal three-reading reference means.
+
+The formal cohort was selected with a prospectively frozen, intentionally non-proportional stratified design. Within each stratum, eligible specimens were ranked using SHA-256 applied to the fixed string containing the project name, seed `2026090301`, stratum, and specimen ID. The highest-ranked eligible cases were selected according to the frozen allocation shown in Table 3.2.
+
+**Table 3.2. Frozen formal-cohort allocation**
+
+| Stratum | Screening definition | Eligible | Selected |
+|---|---:|---:|---:|
+| Below LSL | $L<0.9900$ in | 10 | 8 |
+| Near LSL, in specification | $0.9900\leq L\leq0.9950$ in | 34 | 14 |
+| Central nominal | $0.9950<L<1.0050$ in | 137 | 16 |
+| Near USL, in specification | $1.0050\leq L\leq1.0100$ in | 24 | 14 |
+| Above USL | $L>1.0100$ in | 25 | 8 |
+| **Total** |  | **230** | **60** |
+
+The deliberately enriched near-limit and out-of-specification strata increased the study's ability to challenge dimensional agreement and classification behavior. Because the selection fractions differed by stratum, unweighted acceptance and referral fractions from this cohort were not interpreted as production-yield estimates (Lohr, 2022).
+
+The 60-specimen cohort was frozen before formal manual or CV acquisition and retained without performance-based replacement through V1, V2, and V3. Each formal CV phase used three independently randomized rounds containing all 60 specimens exactly once. Replicates were used to characterize repeated presentation and to form specimen means; they were not treated as 180 independent specimens.
+
+## 3.5 V1 Prospective Formal Validation
+
+### 3.5.1 Frozen V1 configuration and acquisition
+
+V1 evaluated the original frozen OAL measurement system with the PCA/extreme-mask estimator. Formal CV acquisition followed completion of the manual reference phase. The operator did not consult formal manual readings, specimen means, screening values, sampling strata, or CV-versus-reference errors while acquiring CV observations.
+
+The CV run order was generated independently of the manual order using seed `2026081902`. Three sessions, CV-S001 through CV-S003, each contained all 60 specimens once. A separate blank-reference image was preserved for each session. For every scheduled observation, the operator verified the specimen ID, completely removed the case from the measurement surface, placed it for a single acquisition, preserved the resulting image and metadata, and removed it before the next observation.
+
+The physical placement condition used in V1 was documented after acquisition to resolve ambiguity in the earlier fixture description. The clear Lexan working surface was present, but no rails, stops, pockets, pins, or other locating features constrained case position. Cases were laid freely within the field of view with the long axis approximately vertical and with a consistent gross base-to-mouth direction. Exact image-plane location, small in-plane angular differences, roll orientation, and possible base-to-mouth rocking were not mechanically controlled. V1 repeatability therefore represented independent free placement rather than repeatability within a dedicated locating fixture.
+
+Each scheduled position permitted one formal attempt. A surprising numerical result, pipeline rejection, or disagreement with another reading did not authorize a retake. Valid observations, failures, raw images, blank linkage, diagnostic metadata, effective scale, software revision, and protocol status were preserved.
+
+### 3.5.2 Specimen-level analysis
+
+The unique specimen was the primary unit for agreement analysis. For specimen $i$, the formal CV mean was
+
+\[
+\bar{C}_i=\frac{C_{i1}+C_{i2}+C_{i3}}{3},
+\]
+
+and signed specimen error was
+
+\[
+e_i=\bar{C}_i-\bar{M}_i.
+\]
+
+Positive error indicated that the CV specimen mean exceeded the manual-reference mean. Mean bias, mean absolute error, and root mean squared error were defined as
+
+\[
+Bias=\bar{e}=\frac{1}{n}\sum_{i=1}^{n}e_i,
+\]
+
+\[
+MAE=\frac{1}{n}\sum_{i=1}^{n}|e_i|,
+\]
+
+and
+
+\[
+RMSE=\sqrt{\frac{1}{n}\sum_{i=1}^{n}e_i^2}.
+\]
+
+The empirical 95th percentile used the frozen nearest-rank definition. For $n=60$, P95 absolute specimen error was the 57th ordered value of $|e_i|$. Maximum absolute error was the largest observed $|e_i|$. The two-sided 95% confidence interval for mean bias used the Student's $t$ distribution:
+
+\[
+\bar{e}\pm t_{0.975,n-1}\frac{s_e}{\sqrt{n}},
+\]
+
+where $s_e$ was the sample standard deviation of specimen errors. Difference-versus-magnitude and Bland–Altman analyses were also used to examine agreement. The descriptive 95% limits of agreement were $\bar{e}\pm1.96s_e$. Correlation and regression, when reported, were secondary and did not replace direct error analysis (Bland & Altman, 1986).
+
+### 3.5.3 Repositioning, availability, and classification
+
+Repeated-presentation behavior was evaluated independently of specimen-level agreement. Three valid measurements generated three absolute pairwise differences per specimen:
+
+\[
+d_{i,12}=|C_{i1}-C_{i2}|,\quad
+d_{i,13}=|C_{i1}-C_{i3}|,\quad
+d_{i,23}=|C_{i2}-C_{i3}|.
+\]
+
+For 60 complete specimens, the pooled repositioning distribution contained 180 pairwise differences. Its empirical P95 was the 171st ordered value. Specimen-level ranges and standard deviations and the pooled median, mean, P95, and maximum pairwise differences were also calculated. This definition was retained for V2 and V3 so that repeated-presentation results were comparable.
+
+Attempt-level measurement availability was
+
+\[
+Availability=\frac{N_{VALID}}{N_{VALID}+N_{SYSTEM\_FAILURE}}.
+\]
+
+Protocol-invalid events were preserved but were not counted as validly executed measurement-system attempts. No failed measurement was imputed.
+
+Both manual-reference and CV specimen means were classified with the inclusive 0.9900-in LSL and 1.0100-in USL. A false pass occurred when the CV mean was in specification and the manual-reference mean was not. A false fail occurred when the CV mean was outside specification and the manual-reference mean was in specification. The confusion matrix, sensitivity for detecting nonconforming specimens, specificity for conforming specimens, and identities of misclassified cases were retained.
+
+### 3.5.4 Prospectively frozen performance criteria
+
+The criteria in Table 3.3 were specified before V1 formal collection and were not relaxed after results were observed. The same quantitative targets were retained for the prospective V3 evaluation. Zero false passes was a preferred decision outcome rather than one of the six quantitative performance thresholds.
+
+**Table 3.3. Prospectively frozen OAL performance criteria**
+
+| Endpoint | Target |
+|---|---:|
+| Valid CV measurement availability | ≥99% |
+| Absolute mean bias | ≤0.0010 in |
+| RMSE | ≤0.0020 in |
+| P95 absolute specimen error | ≤0.0030 in |
+| Maximum absolute specimen error | ≤0.0040 in |
+| P95 pairwise repositioning difference | ≤0.0020 in |
+| False passes | Zero preferred |
+
+Meeting availability or repeatability targets did not imply meeting absolute-agreement criteria. Conversely, failure of a criterion was retained as a study result and did not authorize validation-set tuning. Numerical results and criterion dispositions are reported in Chapter 4.
+
+## 3.6 Post-V1 Diagnostic Investigation
+
+V1 was closed and preserved before diagnostic work began. The post-V1 program was designed to investigate plausible contributors to the observed measurement variation and to guide engineering changes. These studies used excluded development specimens or non-formal images and did not replace, correct, or reclassify any V1 observation.
+
+### 3.6.1 Ambient-light diagnostic
+
+An ambient-light diagnostic used excluded specimen 121 while the V1 camera, lens, backlight, working surface, controls, calibration, segmentation, and estimator remained unchanged. Blank images were acquired under four ordered conditions: window blocked and ceiling light off; window exposed and ceiling light off; window blocked and ceiling light on; and a return to the initial blocked-window, light-off condition. Five blank images were acquired per condition.
+
+The case was then placed once and left physically untouched while ten specimen images were collected under each of the same four lighting conditions. Blank-image intensity and fixed-specimen OAL were compared across conditions. Because the specimen remained unmoved, any repeatable change could be attributed to acquisition or illumination state rather than deliberate repositioning. The diagnostic was not designed to prove or disprove the lighting conditions that existed during V1.
+
+### 3.6.2 Controlled-repositioning diagnostic
+
+A separate controlled-repositioning study used specimen 121 under blocked-window and ceiling-light-off conditions with one frozen blank reference. The case was removed and reseated ten times using the existing locator's natural seated position. Three consecutive images were acquired without touching the case after each seating. The design separated short-term frame-to-frame variation within a placement from variation among independent placements. No estimator, segmentation, calibration, exposure, focus, or working-geometry parameter was changed.
+
+### 3.6.3 Fixture and presentation diagnostics
+
+Subsequent fixture studies examined whether mechanical registration, base-to-mouth rocking, and roll orientation contributed to repeated-presentation variation. These investigations used development specimens 121, 146, 178, 187, and 197. The specimen was removed and replaced between placements, and fixed-position image sequences were used where needed to separate acquisition stability from physical presentation. Later controlled-presentation trials held roll orientation constant by orienting the engraved identifier toward the camera and constrained base-to-mouth rocking.
+
+The diagnostic sequence was interpreted as engineering evidence rather than confirmatory validation. Its role was to identify a defensible change for the next frozen configuration. Numerical diagnostic results are reported separately in Chapter 4.
+
+## 3.7 V2 Fixture Engineering Iteration and Formal Evaluation
+
+V2 prospectively evaluated whether improved mechanical registration reduced the placement-dependent variation observed in V1. The sole intentional system change was the specimen fixture. Fixture 1 provided a 90-degree mouth stop constrained by the frame rails. Fixture 2 was a rebuilt U-shaped lateral locator; its left side was shortened by approximately 0.505 in, and its groove was narrowed and hand-fitted so cases rested on the unchanged base Lexan without binding. For an accepted placement, the case rested on the base Lexan, contacted the Fixture 1 mouth stop, and occupied its natural constrained position within Fixture 2.
+
+The Arducam IMX296 camera, 16 mm lens, mounting geometry, backlight, Lexan measurement plane, camera controls, spatial calibration, segmentation, PCA estimator, physical-unit conversion, and analysis definitions were inherited unchanged from V1. The same 60 formal specimens and accepted V1 manual-reference means were retained. Development observations were excluded from the formal V2 dataset.
+
+V2 comprised three independently randomized rounds of 60 placements, for 180 planned observations. The V2 run order used seed `2026090901`. Each observation required complete removal and independent reseating before one image acquisition, and each session used its own preserved blank reference. An unexpected OAL did not authorize reseating or reacquisition. The PCA pipeline was the prospective formal V2 estimator.
+
+V2 used the same specimen-level agreement, pooled pairwise repositioning, availability, classification, and error definitions used for V1. Because the specimen cohort and manual reference were unchanged, V1 and V2 could be compared on a paired specimen basis. This comparison evaluated the combined consequence of the revised physical registration under the retained PCA measurement chain; it did not treat the fixture change as proof that any particular physical error mechanism had been eliminated.
+
+## 3.8 Endface-Hybrid Development and Retrospective V2 Evaluation
+
+The Endface-Hybrid estimator was developed after V2 using only non-formal diagnostic images, including images of specimens excluded from the formal cohort. Its purpose was to test whether retaining a geometry-derived axis while applying subpixel localization only to the two OAL end faces could reduce endpoint-related variability without changing the optical hardware or calibration. The estimator architecture and numerical parameters described in Section 3.2.4 were frozen before any Endface-Hybrid result was generated from the V2 formal images.
+
+The estimator freeze identified the source implementation and SHA-256 hash and prohibited any architecture or parameter change in response to the retrospective V2 results. The complete V2 raw-image set was first regenerated through the frozen PCA pipeline as an integrity check against the recorded V2 PCA values. The frozen Endface-Hybrid estimator was then applied to the same 180 previously acquired V2 images. Availability, specimen means, agreement errors, pairwise repositioning, and classification were recalculated using the original V2 run structure and the same manual reference.
+
+This analysis was retrospective because V2 images already existed when the Endface-Hybrid estimator was finalized. It provided comparative evidence and informed the decision to proceed to a later prospective evaluation, but it was not an independent prospective validation of the estimator. Formal V2 remained the PCA evaluation defined by the V2 freeze. No V2 image, specimen, or measurement result was used to retune the frozen Hybrid estimator after the retrospective analysis.
+
+Geometry and other experimental estimators were retained as secondary diagnostic comparators. Their outputs were not substituted for the prospective V2 PCA outcome.
+
+## 3.9 V3 Controlled-Presentation Development, Freeze, and Prospective Validation
+
+### 3.9.1 Development boundary and controlled-presentation rule
+
+Post-V2 development examined presentation more directly after estimator-only investigation indicated that a substantial residual was shared across endpoint methods. Controlled-presentation trials were conducted with excluded specimens 121, 146, 178, 187, and 197. These trials constrained base-to-mouth rocking and registered roll orientation by placing the laser engraving toward the camera. The work was completed before V3 formal acquisition and was not included in the V3 performance dataset.
+
+The final V3 presentation procedure required the operator to remove the case completely, replace it independently, seat it against the established fixture datum, mechanically control base-to-mouth rocking, orient the engraving toward the camera, confirm seating, acquire one image, and remove the case. The procedure was not changed in response to measurement outcomes.
+
+Fixture 2 was retained against the established left datum using a friction-based holding method located outside the camera field of view. Protocol Amendment 002 prospectively documented this method. Before formal acquisition, a blank image verified that the retention mechanism did not intrude into the field of view, and excluded specimen 178 was used for five independent presentation checks with the planned V3 procedure. This activity was a mechanical verification only and was excluded from formal analysis.
+
+### 3.9.2 Final V3 freeze
+
+The end of controlled-presentation development was recorded at baseline commit `cdd76a7`. The prospective V3 configuration was then frozen at configuration commit `e5e634d`. The final evidence identified Endface-Hybrid as the primary estimator, PCA as the historical comparator, and Geometry as a secondary exploratory estimator. The measurement-system manifest preserved hashes for the cohort, run orders, plan, acquisition scripts, estimator source, segmentation, calibration, camera-control code, and comparator estimators.
+
+The preacquisition audit verified a 60-specimen cohort identical to the established formal cohort, absence of the five development specimens, the expected stratum allocation, and three complete 60-specimen randomized run orders. The primary-estimator source hash was `3f332ef097f5f39e6e1447a61756c7ecc4c8e7c8170fe8933ab362daffb2a2af`. No estimator, calibration, segmentation, camera, lens, lighting, or presentation change was permitted after final freeze without formal disposition.
+
+The original V3 plan included a randomized manual stability-check round. Protocol Amendment 001 removed that round before any V3 formal measurement was collected. The accepted V1 three-round manual-reference means remained the frozen reference values. This amendment did not alter the cohort, CV run orders, presentation, estimator hierarchy, or performance targets.
+
+### 3.9.3 Capture-only formal acquisition
+
+V3 used three independently randomized sessions, V3-CV-S001 through V3-CV-S003, generated with seed `2026091202`. Each session contained every formal specimen once, for 180 planned placements. A separate session blank was acquired under the locked camera-control procedure.
+
+The V3 runner used a capture-only architecture. Before each image, it checked the expected round, sequence, specimen ID, existence of the session blank, completion of preceding positions, frozen manifest, and camera controls. It preserved one raw image and its metadata but did not execute or display an OAL estimator. The operator therefore had no Endface-Hybrid, PCA, or Geometry value available to influence seating, repetition, or reacquisition. All three rounds had to be completed before estimator processing was allowed.
+
+During V3 Round 2, sequence 13 was initially captured under the scheduled label for specimen 35 while the wrong specimen had been placed. Acquisition stopped when the mismatch was recognized. The mislabeled capture and metadata were preserved in the protocol-invalid record and excluded from the formal observation table. The correct scheduled specimen 35 was then acquired under the documented replacement rule. No unfavorable numerical result prompted the replacement because no estimator output was displayed during acquisition.
+
+After collection, the run-order and observation tables were audited for round coverage, identity, file linkage, and uniqueness. The formal dataset contained three scheduled images for each of the 60 specimens. The preserved protocol-invalid capture remained outside those 180 validly executed formal positions.
+
+### 3.9.4 Post-acquisition estimator processing and primary analysis
+
+Only after all 180 formal images had been acquired were the frozen estimators applied. Endface-Hybrid was the primary V3 estimator. PCA was processed on the same images to support historical and presentation comparisons, and Geometry was processed as a secondary estimator. Per-observation JSON diagnostics and the V3 observation table preserved estimator validity, pixel and inch results, effective scale, accepted end-profile counts, image linkage, and session information.
+
+The primary experimental unit remained the specimen. Each specimen's three Endface-Hybrid results were averaged and compared with its frozen manual-reference mean. The agreement, P95 absolute-error, maximum-error, availability, pairwise-repositioning, and classification definitions in Section 3.5 were retained. V3 therefore evaluated the frozen Endface-Hybrid system prospectively under controlled presentation, even though the estimator calculations were intentionally deferred until acquisition was complete.
+
+The prospective V3 targets were those in Table 3.3. The V3 plan also precluded introducing a post-hoc guard band into the primary formal classification. Failure of any target, false pass, false fail, estimator disagreement, or unusual specimen geometry was a reportable result rather than an acquisition stop condition. Hardware movement, configuration change, failed required verification, loss of traceability, or inability to reproduce the frozen presentation procedure required a stop or hold.
+
+### 3.9.5 Comparative analysis boundaries
+
+The completed chronology permitted several comparisons, but their evidentiary status differed. V1 PCA and V2 PCA were prospective evaluations of their respective physical configurations. V2 Endface-Hybrid was a retrospective estimator comparison using preserved V2 images. V3 Endface-Hybrid was the prospective primary evaluation of the frozen estimator and controlled presentation. V3 PCA and Geometry were same-image comparator analyses rather than separate acquisition experiments.
+
+Paired comparisons used the same 60 specimens and the same reference means. Changes in repeated-presentation metrics were interpreted in relation to the physical presentation and estimator combination used in each phase. Absolute agreement and repeatability were analyzed separately; improvement in one was not treated as proof of improvement in the other.
+
+## 3.10 Exploratory Guard-Band Analysis
+
+The guard-band analysis was performed after V3 formal results were available. It was therefore retrospective and exploratory and did not alter the primary V3 confusion matrix, performance targets, estimator, reference classifications, or specimen measurements.
+
+For a symmetric guard $g$, the automatic-acceptance interval was defined as
+
+\[
+LSL+g\leq \bar{C}_i\leq USL-g,
+\]
+
+where $LSL=0.9900$ in and $USL=1.0100$ in. A CV specimen mean inside this guarded interval was a candidate for automatic acceptance. A mean within the original specification interval but outside the guarded interval entered a near-limit review zone for secondary inspection. A mean outside the original specification interval was not automatically accepted and would require rejection, confirmation, or investigation under an eventual production procedure.
+
+Candidate symmetric margins were applied to all 60 V3 specimen means. For each margin, the analysis recorded the number automatically accepted, the number routed to near-limit review, observed false passes among automatically accepted specimens, and conforming specimens not automatically accepted. The minimum observed margin that eliminated false passes in this cohort was also identified. A 0.0010-in margin was retained as a simple engineering example for thesis discussion.
+
+The analysis did not estimate production yield or a general false-acceptance probability. The cohort was intentionally stratified around the specification limits, and the same cohort was used both to observe formal performance and to examine candidate margins. Consequently, any margin selected from these data remained a cohort-dependent feasibility result. A production decision rule would require a prospectively specified risk basis, an appropriate uncertainty model, and independent validation on the intended operating population (Joint Committee for Guides in Metrology, 2012a; International Organization for Standardization, 2017).
+
+The methodology supports a three-way screening interpretation—automatic acceptance, secondary review, and nonacceptance—but does not claim that the demonstrated prototype was production ready, interchangeable with precision contact metrology, validated for conveyor operation, or validated with a production guard band. Those claim boundaries are retained in the interpretation of Chapters 4 and 5.
