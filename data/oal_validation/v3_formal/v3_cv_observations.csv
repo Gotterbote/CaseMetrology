@@ -119,63 +119,63 @@ V3-CV-S002,2,57,127,2026-09-16T18:54:51.981736-05:00,data/oal_validation/v3_form
 V3-CV-S002,2,58,69,2026-09-16T18:55:10.066743-05:00,data/oal_validation/v3_formal/raw/V3-CV-R2-058_part_69.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
 V3-CV-S002,2,59,100,2026-09-16T18:55:31.362059-05:00,data/oal_validation/v3_formal/raw/V3-CV-R2-059_part_100.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
 V3-CV-S002,2,60,194,2026-09-16T18:55:50.729032-05:00,data/oal_validation/v3_formal/raw/V3-CV-R2-060_part_194.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
-V3-CV-S003,3,1,127,,,,,,,,
-V3-CV-S003,3,2,230,,,,,,,,
-V3-CV-S003,3,3,51,,,,,,,,
-V3-CV-S003,3,4,192,,,,,,,,
-V3-CV-S003,3,5,123,,,,,,,,
-V3-CV-S003,3,6,64,,,,,,,,
-V3-CV-S003,3,7,219,,,,,,,,
-V3-CV-S003,3,8,48,,,,,,,,
-V3-CV-S003,3,9,222,,,,,,,,
-V3-CV-S003,3,10,165,,,,,,,,
-V3-CV-S003,3,11,163,,,,,,,,
-V3-CV-S003,3,12,188,,,,,,,,
-V3-CV-S003,3,13,221,,,,,,,,
-V3-CV-S003,3,14,69,,,,,,,,
-V3-CV-S003,3,15,100,,,,,,,,
-V3-CV-S003,3,16,161,,,,,,,,
-V3-CV-S003,3,17,35,,,,,,,,
-V3-CV-S003,3,18,131,,,,,,,,
-V3-CV-S003,3,19,75,,,,,,,,
-V3-CV-S003,3,20,106,,,,,,,,
-V3-CV-S003,3,21,235,,,,,,,,
-V3-CV-S003,3,22,218,,,,,,,,
-V3-CV-S003,3,23,72,,,,,,,,
-V3-CV-S003,3,24,225,,,,,,,,
-V3-CV-S003,3,25,233,,,,,,,,
-V3-CV-S003,3,26,136,,,,,,,,
-V3-CV-S003,3,27,172,,,,,,,,
-V3-CV-S003,3,28,118,,,,,,,,
-V3-CV-S003,3,29,194,,,,,,,,
-V3-CV-S003,3,30,14,,,,,,,,
-V3-CV-S003,3,31,120,,,,,,,,
-V3-CV-S003,3,32,143,,,,,,,,
-V3-CV-S003,3,33,85,,,,,,,,
-V3-CV-S003,3,34,9,,,,,,,,
-V3-CV-S003,3,35,40,,,,,,,,
-V3-CV-S003,3,36,204,,,,,,,,
-V3-CV-S003,3,37,189,,,,,,,,
-V3-CV-S003,3,38,55,,,,,,,,
-V3-CV-S003,3,39,30,,,,,,,,
-V3-CV-S003,3,40,226,,,,,,,,
-V3-CV-S003,3,41,104,,,,,,,,
-V3-CV-S003,3,42,215,,,,,,,,
-V3-CV-S003,3,43,86,,,,,,,,
-V3-CV-S003,3,44,135,,,,,,,,
-V3-CV-S003,3,45,61,,,,,,,,
-V3-CV-S003,3,46,15,,,,,,,,
-V3-CV-S003,3,47,70,,,,,,,,
-V3-CV-S003,3,48,139,,,,,,,,
-V3-CV-S003,3,49,53,,,,,,,,
-V3-CV-S003,3,50,12,,,,,,,,
-V3-CV-S003,3,51,200,,,,,,,,
-V3-CV-S003,3,52,150,,,,,,,,
-V3-CV-S003,3,53,58,,,,,,,,
-V3-CV-S003,3,54,151,,,,,,,,
-V3-CV-S003,3,55,124,,,,,,,,
-V3-CV-S003,3,56,95,,,,,,,,
-V3-CV-S003,3,57,144,,,,,,,,
-V3-CV-S003,3,58,228,,,,,,,,
-V3-CV-S003,3,59,152,,,,,,,,
-V3-CV-S003,3,60,193,,,,,,,,
+V3-CV-S003,3,1,127,2026-09-16T19:02:14.867661-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-001_part_127.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,2,230,2026-09-16T19:02:39.944044-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-002_part_230.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,3,51,2026-09-16T19:03:07.244346-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-003_part_51.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,4,192,2026-09-16T19:03:32.337553-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-004_part_192.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,5,123,2026-09-16T19:03:58.829850-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-005_part_123.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,6,64,2026-09-16T19:04:20.582283-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-006_part_64.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,7,219,2026-09-16T19:04:50.121931-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-007_part_219.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,8,48,2026-09-16T19:05:14.160748-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-008_part_48.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,9,222,2026-09-16T19:05:36.460032-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-009_part_222.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,10,165,2026-09-16T19:05:57.558705-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-010_part_165.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,11,163,2026-09-16T19:06:19.091972-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-011_part_163.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,12,188,2026-09-16T19:06:38.232639-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-012_part_188.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,13,221,2026-09-16T19:06:58.176045-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-013_part_221.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,14,69,2026-09-16T19:07:15.467691-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-014_part_69.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,15,100,2026-09-16T19:07:38.420314-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-015_part_100.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,16,161,2026-09-16T19:07:57.532519-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-016_part_161.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,17,35,2026-09-16T19:08:26.949874-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-017_part_35.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,18,131,2026-09-16T19:08:45.498133-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-018_part_131.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,19,75,2026-09-16T19:09:05.866395-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-019_part_75.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,20,106,2026-09-16T19:09:26.195152-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-020_part_106.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,21,235,2026-09-16T19:09:57.789366-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-021_part_235.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,22,218,2026-09-16T19:10:17.005411-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-022_part_218.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,23,72,2026-09-16T19:10:34.576911-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-023_part_72.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,24,225,2026-09-16T19:10:54.036029-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-024_part_225.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,25,233,2026-09-16T19:11:14.390836-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-025_part_233.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,26,136,2026-09-16T19:11:33.070295-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-026_part_136.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,27,172,2026-09-16T19:12:01.106343-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-027_part_172.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,28,118,2026-09-16T19:12:21.110371-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-028_part_118.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,29,194,2026-09-16T19:12:42.626526-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-029_part_194.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,30,14,2026-09-16T19:13:05.033467-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-030_part_14.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,31,120,2026-09-16T19:13:28.035458-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-031_part_120.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,32,143,2026-09-16T19:13:50.316995-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-032_part_143.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,33,85,2026-09-16T19:14:11.590796-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-033_part_85.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,34,9,2026-09-16T19:14:32.017180-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-034_part_9.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,35,40,2026-09-16T19:14:49.256655-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-035_part_40.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,36,204,2026-09-16T19:15:09.326327-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-036_part_204.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,37,189,2026-09-16T19:15:27.645494-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-037_part_189.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,38,55,2026-09-16T19:15:44.032160-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-038_part_55.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,39,30,2026-09-16T19:16:01.850767-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-039_part_30.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,40,226,2026-09-16T19:16:21.083954-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-040_part_226.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,41,104,2026-09-16T19:16:43.695378-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-041_part_104.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,42,215,2026-09-16T19:17:02.430016-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-042_part_215.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,43,86,2026-09-16T19:17:21.538940-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-043_part_86.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,44,135,2026-09-16T19:17:36.908075-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-044_part_135.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,45,61,2026-09-16T19:17:56.152867-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-045_part_61.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,46,15,2026-09-16T19:18:14.790232-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-046_part_15.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,47,70,2026-09-16T19:18:33.026446-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-047_part_70.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,48,139,2026-09-16T19:18:55.613095-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-048_part_139.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,49,53,2026-09-16T19:19:13.892335-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-049_part_53.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,50,12,2026-09-16T19:19:28.803016-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-050_part_12.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,51,200,2026-09-16T19:19:44.364789-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-051_part_200.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,52,150,2026-09-16T19:20:00.503560-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-052_part_150.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,53,58,2026-09-16T19:20:21.600475-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-053_part_58.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,54,151,2026-09-16T19:20:39.316085-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-054_part_151.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,55,124,2026-09-16T19:21:00.293656-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-055_part_124.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,56,95,2026-09-16T19:21:21.210373-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-056_part_95.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,57,144,2026-09-16T19:21:37.054971-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-057_part_144.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,58,228,2026-09-16T19:21:56.383350-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-058_part_228.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,59,152,2026-09-16T19:22:15.128470-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-059_part_152.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
+V3-CV-S003,3,60,193,2026-09-16T19:22:31.372234-05:00,data/oal_validation/v3_formal/raw/V3-CV-R3-060_part_193.png,CAPTURED,,,,,Prospective V3 capture-only acquisition. Estimator results intentionally blinded until all 180 images are acquired.
