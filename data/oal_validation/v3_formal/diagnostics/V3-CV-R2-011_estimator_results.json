@@ -1,0 +1,49 @@
+{
+  "analysis_timestamp": "2026-09-16T19:41:16-05:00",
+  "run_id": "V3-CV-R2-011",
+  "session_id": "V3-CV-S002",
+  "specimen_id": "150",
+  "image_path": "data/oal_validation/v3_formal/raw/V3-CV-R2-011_part_150.png",
+  "blank_path": "data/oal_validation/v3_formal/raw/V3-CV-S002_blank_reference.png",
+  "estimators": {
+    "pca": {
+      "estimator": "pca",
+      "passed": true,
+      "failure_reason": null,
+      "length_pixels": 511.7895695646473,
+      "length_inches": 0.9774938675662814,
+      "effective_ppi": 523.5731768209217,
+      "angle_degrees": -88.50937599043522,
+      "end_min_accepted": null,
+      "end_max_accepted": null,
+      "sidewall_min_accepted": null,
+      "sidewall_max_accepted": null
+    },
+    "geometry": {
+      "estimator": "geometry",
+      "passed": true,
+      "failure_reason": null,
+      "length_pixels": 509.6771650684525,
+      "length_inches": 0.9734592706689251,
+      "effective_ppi": 523.5731790999548,
+      "angle_degrees": -88.49507641533107,
+      "end_min_accepted": null,
+      "end_max_accepted": null,
+      "sidewall_min_accepted": null,
+      "sidewall_max_accepted": null
+    },
+    "endface_hybrid": {
+      "estimator": "endface_hybrid",
+      "passed": true,
+      "failure_reason": null,
+      "length_pixels": 511.3977787411695,
+      "length_inches": 0.9767455613755552,
+      "effective_ppi": 523.5731790999548,
+      "angle_degrees": -88.49507641533107,
+      "end_min_accepted": 41,
+      "end_max_accepted": 41,
+      "sidewall_min_accepted": null,
+      "sidewall_max_accepted": null
+    }
+  }
+}
