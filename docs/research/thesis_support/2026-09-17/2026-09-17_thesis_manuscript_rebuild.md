@@ -131,7 +131,7 @@ The study demonstrates how physical presentation, optical measurement, calibrati
 
 This distinction is important for industrial dimensional inspection. A system that produces highly repeatable results may still contain systematic or residual measurement error that limits its suitability for direct replacement of a precision reference instrument. Conversely, a system that does not satisfy all precision-metrology requirements may still provide useful inspection value if its limitations are understood and incorporated into the decision process.
 
-The V3 results are particularly important because controlled presentation reduced P95 repositioning from 0.004831 in in the V1 configuration to 0.000633 in, an improvement of approximately 86.9%. At the same time, the specimen-level nearest-rank V3 P95 absolute error remained 0.003170 in. The completed experimental sequence therefore provides direct evidence that presentation-dependent repeatability and residual absolute measurement error were separate limitations of the prototype.
+The V3 results are particularly important because P95 repositioning decreased from 0.004831 in in the V1 configuration to 0.000633 in in the final V3 configuration, an overall system-level improvement of approximately 86.9%. Because estimator and presentation conditions both changed across the full V1-to-V3 sequence, that reduction is not attributed to controlled presentation alone. At the same time, the specimen-level nearest-rank V3 P95 absolute error remained 0.003170 in. The completed experimental sequence therefore supports the conclusion that repeated-presentation performance and residual absolute measurement error were distinct limitations of the prototype.
 
 This finding shifts the practical interpretation of the system. The completed prototype was not demonstrated as interchangeable with precision contact measurement across the complete specification interval. However, the measured stability, availability, low systematic bias, and exploratory guard-band behavior support further evaluation of the architecture as a dimensional-screening system.
 
@@ -951,3 +951,162 @@ V1, V2, and V3 each produced valid measurements for all 180 scheduled CV observa
 P95 pairwise repositioning was 0.004831 in for V1 PCA, 0.003994 in for V2 PCA, 0.003021 in for the retrospective V2 Endface-Hybrid analysis, and 0.000633 in for prospective V3 Endface-Hybrid. Unguarded classification produced one false pass in each prospective configuration; false fails decreased from eight in V1 to five in V2 and three in V3. Retrospective V2 Endface-Hybrid produced no false passes and five false fails.
 
 The post-hoc guard-band analysis found that a symmetric 0.0006-in margin was the smallest evaluated cohort margin that eliminated observed false passes, while a 0.0010-in example automatically accepted 34 of 60 specimens with zero observed false passes. These guard-band results remain exploratory and are interpreted in Chapter 5.
+
+
+# Chapter 5 — Discussion and Conclusions
+
+## 5.1 Answer to the Original Validation Question
+
+The original prospective validation question asked whether the frozen CaseMetrology computer-vision system could measure cartridge-case overall length (OAL) with acceptable agreement and repeated-measurement performance relative to an independent manual reference process under documented static inspection conditions. For the original V1 configuration, the answer is no.
+
+V1 completed all 180 planned computer-vision acquisitions and therefore achieved 100% measurement availability. Availability, however, was the only one of the six quantitative performance criteria that V1 satisfied. Mean bias was +0.001613 in, RMSE was 0.002205 in, nearest-rank P95 absolute specimen error was 0.003960 in, maximum absolute specimen error was 0.004799 in, and P95 pairwise repositioning difference was 0.004831 in. The unguarded classification result also included one false pass and eight false fails, contrary to the prospectively preferred zero-false-pass outcome.
+
+The V1 result should remain an immutable answer to the original prospective question. It established that the original free-placement PCA configuration did not satisfy the complete OAL validation requirements under the tested conditions. The later engineering program does not erase, correct, or reinterpret that outcome. Instead, V1 provided the preserved quantitative baseline that motivated the diagnostic and redesign sequence.
+
+The final V3 configuration addressed a later and different engineering question: whether a modified, frozen system could improve the limitations revealed by V1. V3 combined controlled physical presentation with the frozen Endface-Hybrid estimator and was evaluated prospectively after the configuration had been frozen. All 180 planned V3 images produced valid measurements. Using the 60 specimen means for agreement with the manual reference, V3 mean bias was -0.000435 in, MAE was 0.001517 in, RMSE was 0.001794 in, nearest-rank P95 absolute specimen error was 0.003170 in, and maximum absolute specimen error was 0.003913 in. P95 pairwise repositioning difference was 0.000633 in.
+
+V3 therefore satisfied five of the six retained quantitative criteria. Availability met the >=99% target; absolute mean bias met the <=0.0010-in target; RMSE met the <=0.0020-in target; maximum absolute specimen error met the <=0.0040-in target; and P95 pairwise repositioning met the <=0.0020-in target. The one unmet quantitative criterion was P95 absolute specimen error, which was 0.003170 in compared with the <=0.0030-in target, an exceedance of 0.000170 in.
+
+The preferred zero-false-pass decision outcome was separate from those six quantitative thresholds. Under the unguarded 0.9900-1.0100 in specification rule, V3 produced one false pass and three false fails. The final configuration therefore cannot be described as having satisfied every predefined performance expectation or as having been validated for unconditional final acceptance across the full specification interval.
+
+The completed formal evidence consequently supports two distinct statements. First, the original V1 system did not satisfy the complete prospective validation requirements. Second, the later V3 system achieved substantial engineering improvement and met five of six quantitative criteria, but residual specimen-level absolute error and one observed false pass still limited the permissible claim. The final system is therefore better interpreted as evidence of a potentially useful static dimensional-screening architecture than as a demonstrated replacement for precision reference metrology.
+
+## 5.2 Engineering Progression
+
+The V1-through-V3 sequence is most informative when interpreted as an evidence-driven engineering progression rather than as a set of isolated experiments. Each stage was used to narrow the technical problem while preserving the evidentiary status of the work that preceded it.
+
+V1 established the prospective baseline. The original PCA configuration returned valid measurements for all planned images, but its independent free-placement performance was not sufficiently stable. P95 pairwise repositioning was 0.004831 in compared with the 0.0020-in target. V1 also exceeded the limits for absolute mean bias, RMSE, P95 absolute specimen error, and maximum absolute specimen error. These results demonstrated that successful image acquisition and dimensional output were not sufficient to establish acceptable metrological behavior.
+
+Post-V1 diagnostic studies investigated acquisition stability, repositioning sensitivity, fixture behavior, rocking, seating, and roll orientation. Those studies were exploratory and were not designed to retroactively explain the V1 result with a single causal mechanism. They did, however, show that repeated measurements could become more stable when physical presentation was constrained, thereby providing a defensible basis for fixture and presentation changes.
+
+V2 introduced fixture modifications while retaining the PCA estimator. Relative to V1, mean bias decreased from +0.001613 in to +0.000277 in, RMSE decreased from 0.002205 in to 0.001538 in, and P95 absolute error decreased from 0.003960 in to 0.003065 in. P95 repositioning also decreased, from 0.004831 in to 0.003994 in, but remained above the 0.0020-in target. V2 therefore showed that fixture improvement alone did not fully resolve repeated-presentation variability.
+
+The Endface-Hybrid estimator was subsequently developed using excluded development data and then applied retrospectively to the already acquired V2 images. Because the image set was unchanged, the V2 PCA-versus-Hybrid comparison is particularly useful for examining estimator effects without claiming prospective validation of the Hybrid result. P95 repositioning decreased from 0.003994 in with PCA to 0.003021 in with Endface-Hybrid. In contrast, RMSE changed from 0.001538 in to 0.001601 in and P95 absolute error changed from 0.003065 in to 0.003109 in. The retrospective comparison therefore showed that estimator design affected repeated-measurement behavior but did not eliminate the broader absolute-agreement limitation.
+
+Controlled-presentation development then addressed physical presentation more directly. The final V3 configuration retained the Endface-Hybrid estimator while constraining seating, roll orientation, and fixture retention. The estimator and physical configuration were frozen before formal acquisition, and formal estimator-result interpretation was withheld until all 180 V3 images had been acquired.
+
+The resulting system-level improvement in repeated-presentation behavior was substantial. P95 repositioning decreased from 0.004831 in in V1 to 0.000633 in in V3, a reduction of approximately 86.9%. That total V1-to-V3 change should not be attributed to a single component because both estimator and presentation conditions changed across the full engineering sequence.
+
+The more specific V2 Endface-Hybrid-to-V3 comparison provides stronger evidence regarding presentation control. The same Endface-Hybrid estimator was used for both analyses, while the later V3 acquisition incorporated the controlled-presentation procedure. P95 repositioning decreased from 0.003021 in for the retrospective V2 Hybrid analysis to 0.000633 in for prospective V3, a reduction of approximately 79.0%. Because the datasets were acquired in different phases rather than in a randomized factorial experiment, this comparison still does not isolate a pure causal effect. It is nevertheless consistent with the diagnostic evidence that controlled presentation was a major contributor to the improved repeated-measurement behavior.
+
+The engineering synthesis question can therefore be answered with three conclusions. First, physical presentation is part of the measurement architecture rather than an incidental setup detail. Second, estimator development and fixture changes can alter measurement behavior, but neither should be assumed to resolve all error modes. Third, once repeated-presentation variation was reduced in V3, the dominant remaining limitation was disagreement between specimen-level CV means and the manual reference. The completed sequence therefore separates a largely controlled repeatability problem from a residual absolute-agreement problem that requires a different technical explanation.
+
+## 5.3 Repeatability Versus Absolute Accuracy
+
+The distinction between repeated-presentation performance and absolute agreement is the central technical finding of the completed research.
+
+Measurement repeatability concerns agreement among repeated measurements under specified conditions, whereas measurement agreement with a reference concerns the magnitude and structure of the difference between the two measurement processes. These properties are related but not interchangeable (Joint Committee for Guides in Metrology, 2012b). A system can produce closely grouped repeated measurements while remaining offset from a reference, and a system can exhibit small mean bias while still producing comparatively large specimen-specific errors.
+
+The V3 results demonstrate both points. P95 pairwise repositioning difference was 0.000633 in, well inside the 0.0020-in criterion. In contrast, the specimen-level agreement analysis produced an MAE of 0.001517 in, RMSE of 0.001794 in, nearest-rank P95 absolute error of 0.003170 in, and maximum absolute error of 0.003913 in. Mean bias was only -0.000435 in, but the much larger MAE and upper-tail errors show that a small average signed difference did not imply small error for every specimen. Positive and negative specimen-level differences can partially cancel in the mean.
+
+The repositioning and absolute-error statistics should also not be treated as two estimates of the same quantity. Repositioning was calculated from pairwise differences among repeated CV presentations, whereas the primary agreement statistics compared each specimen's mean CV result with its accepted manual-reference mean. Their numerical separation is therefore interpreted structurally rather than as a direct subtraction of like quantities. The important observation is that V3 repeated-presentation behavior was well within its criterion while the upper tail of specimen-level reference disagreement still exceeded its criterion.
+
+This distinction changes the engineering diagnosis. Under V1, repeated physical presentation was a major practical limitation and was therefore an appropriate target for fixture and procedure development. Under V3, repeated-presentation variability was substantially smaller, so further reductions in placement variation alone cannot be assumed to eliminate the remaining specimen-level disagreement. The residual error requires investigation of factors that affect the relationship between the image-derived dimension and the reference process.
+
+Several mechanisms could plausibly contribute to that residual disagreement in a conventional-lens silhouette system, including spatial or directional calibration limitations, field-dependent magnification, optical distortion, measurement-plane geometry, endpoint localization, specimen end-face geometry, or interactions among those factors. The manual reference process can also contribute finite variability through instrument resolution, alignment, contact force, and the physical geometry of the case ends. The formal V3 results demonstrate the existence of residual CV-versus-reference disagreement but do not uniquely identify any one of these mechanisms as its cause.
+
+The reference process must therefore be interpreted appropriately. The manual measurements were obtained using a calibrated instrument and documented session controls, and the reference uncertainty was explicitly characterized rather than assumed to be zero. Nevertheless, the manual reference is a measurement process, not an error-free realization of true OAL. The reported V3 errors quantify agreement with the accepted reference process under the study conditions.
+
+This interpretation avoids two opposite errors. It would be an overstatement to characterize V3 as generally inaccurate merely because one upper-tail criterion was exceeded by 0.000170 in; five of six quantitative criteria were satisfied and repeated-presentation performance improved markedly. It would be equally incorrect to treat V3 as interchangeable with the reference process because mean bias and RMSE met their criteria. The P95 absolute-error result and the observed false pass show why upper-tail agreement and decision behavior remain important even when average performance is favorable.
+
+## 5.4 Industrial Screening Feasibility
+
+The final CaseMetrology configuration is more defensibly interpreted as a candidate dimensional-screening architecture than as a final reference-measurement replacement.
+
+That interpretation follows from the combination of strengths and limitations demonstrated in V3. The system produced valid measurements for all 180 planned acquisition opportunities, and P95 pairwise repositioning was 0.000633 in. Mean bias, RMSE, and maximum absolute specimen error also met their retained quantitative targets. These results show that the final configuration can produce stable, consistently available OAL information under the documented static presentation procedure.
+
+The same evidence also defines the limitation. Nearest-rank P95 absolute specimen error was 0.003170 in, slightly above the 0.0030-in criterion, and the unguarded specification rule produced one false pass. A binary decision process that automatically treats every CV mean within 0.9900-1.0100 in as a final conforming decision would therefore disregard an error mode that was actually observed in the validation cohort.
+
+A screening architecture can handle that limitation differently. Measurements sufficiently far from a specification boundary can be considered candidates for automated disposition, while measurements near a boundary can be routed to an independent or higher-capability secondary measurement process. The value of such an architecture is not that it converts the vision system into reference metrology. Its value is that the decision process can be designed around the demonstrated measurement behavior rather than assuming the measurement error is negligible.
+
+This interpretation is consistent with conformity-assessment principles in which specification limits and acceptance limits need not be identical when measurement uncertainty and decision risk are material (Joint Committee for Guides in Metrology, 2012a; International Organization for Standardization, 2017). For CaseMetrology, however, those principles provide a framework rather than a validated production rule. The thesis demonstrates the feasibility of applying guarded screening logic to the observed V3 measurements; it does not establish the production risk associated with any specific acceptance boundary.
+
+The intentionally stratified cohort is important to this conclusion. The 60 formal specimens were selected to provide representation near and beyond both specification limits, not to reproduce a natural manufacturing distribution. The observed proportions of true conforming, true nonconforming, false-pass, false-fail, automatic-acceptance, or review-zone outcomes therefore cannot be interpreted as production yield or expected production frequencies.
+
+The study also did not evaluate production throughput, automated handling, conveyor motion, long-duration operation, economic benefit, or integration into a manufacturing quality system. The industrial conclusion is therefore deliberately narrow: the final static architecture produced measurement behavior that justifies further evaluation of a two-stage dimensional-screening process, but the present thesis does not demonstrate a production-ready inspection system.
+
+## 5.5 Guarded Decision Logic
+
+The post-validation guard-band analysis explored how the V3 measurement behavior could be incorporated into a three-way screening decision. Because the analysis was performed after the formal V3 results were known, it is retrospective and exploratory. It did not modify the V3 estimator, specimen measurements, primary confusion matrix, or prospective performance criteria.
+
+For a symmetric guard \(g\), the candidate automatic-acceptance interval was
+
+\[
+0.9900+g \leq \bar{C}_i \leq 1.0100-g.
+\]
+
+A specimen mean inside that interval was considered a candidate for automatic acceptance. A mean remaining within the nominal specification interval but outside the guarded interval entered a near-limit review zone for secondary inspection. Measurements outside the nominal specification interval were not automatically accepted.
+
+Within the 60-specimen validation cohort, the smallest observed symmetric margin that eliminated false passes was 0.0006 in. The corresponding candidate automatic-acceptance interval was 0.9906-1.0094 in. This is an empirical property of the observed cohort, not evidence that a 0.0006-in margin is generally safe.
+
+A 0.0010-in symmetric margin provides a simpler engineering example. It narrows the candidate automatic-acceptance interval to 0.9910-1.0090 in. In the formal cohort, 34 of 60 specimens were automatically accepted under that exploratory rule, nine were placed in the near-limit review zone, and zero false passes were observed among the automatically accepted specimens.
+
+The principal result of this analysis is the decision tradeoff rather than the numerical margin itself. Moving the acceptance boundary inward reduced the observed opportunity for false acceptance but also reduced the fraction of specimens eligible for automatic acceptance. A production implementation would therefore need to balance false-acceptance risk, false-rejection or referral burden, measurement uncertainty, the cost and capacity of secondary inspection, and the actual distribution of production OAL values (Joint Committee for Guides in Metrology, 2012a).
+
+Because the same validation cohort was used both to observe V3 performance and to identify candidate margins, the zero-false-pass result is susceptible to cohort-specific selection. The analysis does not estimate a future false-pass probability and cannot demonstrate that the same result would occur in an independent production population. A production guard band would require a prospectively specified risk basis and independent validation.
+
+The exploratory industrial-feasibility question can therefore be answered cautiously. Guarded decision logic provides a technically plausible pathway for using the demonstrated V3 measurement behavior in a screening architecture, and the observed cohort shows the expected tradeoff between automatic acceptance and secondary review. The present data do not establish a validated production margin or a general false-acceptance rate.
+
+## 5.6 Limitations
+
+The conclusions of this study are bounded by the experimental design and by the specific CaseMetrology configuration that was evaluated.
+
+First, one operator performed all formal manual-reference and computer-vision acquisitions. The reference data therefore characterize within-operator behavior, and the controlled V3 presentation procedure has not been shown to be reproducible across operators.
+
+Second, the formal cohort contained 60 specimens selected through an intentionally non-proportional stratified design from the available 235-case population after exclusion of development specimens. This design strengthened evaluation near the specification boundaries but does not represent the natural distribution of a manufacturing population.
+
+Third, the same frozen 60-specimen cohort and reference means were retained across V1, V2, and V3. This paired design is a strength for engineering comparison because specimen composition did not change between iterations, but it is not an independent replication of the final result on a new population.
+
+Fourth, the study evaluated OAL only. No conclusion should be extended to rim diameter, primer-pocket geometry, concentricity, wall thickness, or other cartridge-case characteristics without independent measurand definitions, calibration, reference methods, and validation.
+
+Fifth, all formal computer-vision measurements were static. The study did not validate conveyor motion, robotic loading, automated orientation, vibration, line-speed imaging, or continuous production operation. The V3 controlled-roll and seating procedure should therefore be understood as an experimental presentation control, not as a demonstrated production-handling solution.
+
+Sixth, the results are configuration specific. They apply to the documented Jetson platform, IMX296 camera, 16 mm lens, LED backlight, installed measurement plane, camera controls, calibration model, fixture, estimator, and software configuration. A materially different optical, mechanical, illumination, calibration, or software configuration should be treated as a new measurement configuration requiring appropriate verification or validation.
+
+Seventh, the conventional-lens calibration model was characterized over the tested measurement region and included spatial and directional scale effects. It should not be interpreted as proof of universal sub-thousandth-inch dimensional accuracy at arbitrary image positions, orientations, or measurement-plane offsets.
+
+Eighth, the manual comparator has finite uncertainty. Instrument resolution, calibration uncertainty, within-operator repeatability, alignment, contact behavior, and specimen end geometry can influence the assigned reference result. The study accounted for reference uncertainty but did not establish a complete uncertainty budget for every possible contributor to the final CV-versus-reference difference.
+
+Ninth, the physical cause of the residual V3 absolute disagreement remains unresolved. The experiments show that repeated-presentation behavior improved substantially, but they do not uniquely identify whether the remaining error arose primarily from optics, calibration, feature localization, specimen geometry, the reference process, or an interaction among factors.
+
+Tenth, the V2 Endface-Hybrid results are retrospective. They provide valuable comparative evidence because the frozen estimator was applied to the already acquired V2 images, but they do not have the same prospective status as V1 PCA, V2 PCA, or V3 Endface-Hybrid formal acquisition.
+
+Eleventh, the guard-band analysis is post hoc. The 0.0006-in zero-observed-false-pass margin and the 0.0010-in engineering example were derived and evaluated using the same 60-specimen cohort. Neither margin is a validated production decision rule.
+
+Twelfth, the empirical P95 and maximum-error statistics are finite-sample results. The nearest-rank P95 is an empirical order statistic from the tested cohort, not a universal tolerance bound. The reported maximum is the largest error observed among the tested specimens, not a guarantee that future errors cannot be larger.
+
+Finally, the study did not measure production throughput, economic benefit, comparative labor cost, long-term calibration stability, maintenance requirements, or production-environment robustness. Claims concerning speed, cost advantage, full-rate inspection, or production readiness therefore remain outside the evidence generated by this thesis.
+
+## 5.7 Future Work
+
+Future work should be directed toward the limitations that remained after V3 rather than repeating development that the present study already resolved.
+
+The highest-priority technical question is the source of residual absolute disagreement. A designed diagnostic study could evaluate field position, working height, specimen tilt, roll, calibration location, scale-model behavior, and endpoint localization while maintaining the stable V3 presentation controls. A structured design would be preferable to unrestricted iterative tuning because it could separate competing explanations while preserving inferential clarity.
+
+A second priority is stronger characterization of the reference relationship. Future work could use tighter control of manual contact force and end-face alignment, additional repeated reference measurements, or an independent higher-capability dimensional method. The objective would be to reduce ambiguity regarding how much of the observed CV-versus-manual disagreement arises from the vision system and how much may arise from the comparator or specimen geometry.
+
+If CaseMetrology is developed specifically as a screening system, the next decision study should define the guard-band rule prospectively before evaluating it. The margin should be tied to a stated risk objective and measurement model rather than selected because it removes errors from the validation data. It should then be evaluated on an independent cohort representing the intended operating population, with false-acceptance, false-rejection, automatic-acceptance, and secondary-review rates reported separately.
+
+Operator and handling effects should also be evaluated. A multi-operator study could determine whether the V3 presentation procedure is reproducible across users. Alternatively, a mechanically keyed or automated presentation mechanism could reduce operator dependence, but that mechanism would constitute a new system configuration and would require its own evaluation.
+
+Production-oriented work would require a separate test program addressing computational cycle time, image-acquisition latency, automated part presentation, motion tolerance, throughput, recovery from failed measurements, environmental robustness, calibration maintenance, and integration with a secondary inspection path. These questions are distinct from the static metrology questions answered in this thesis.
+
+Alternative optical configurations may be investigated if future requirements demand tighter absolute agreement. Higher magnification, improved distortion characterization, or telecentric optics could be evaluated prospectively against the present conventional 16 mm architecture. Such work would be a new research phase rather than a modification of the preserved V1-V3 evidence.
+
+Finally, the engineering framework could be extended to other cartridge-case dimensions. Each new characteristic should begin with its own measurand definition, reference method, calibration approach, acceptance criteria, and validation plan rather than assuming that the OAL results transfer automatically.
+
+None of these extensions is required to preserve the conclusion of the present thesis. The completed V1-V3 program provides sufficient evidence to characterize the demonstrated static OAL system, define its current claim boundaries, and identify the specific questions that remain open.
+
+## 5.8 Final Conclusion
+
+This thesis evaluated CaseMetrology as a complete embedded dimensional-vision measurement system for cartridge-case OAL rather than as an image-processing algorithm in isolation. The work preserved the original prospective baseline, investigated the limitations revealed by that baseline, implemented evidence-driven engineering changes, and prospectively evaluated the final frozen configuration.
+
+The answer to the original prospective validation question is that V1 did not satisfy the complete validation requirements. It achieved 100% measurement availability but failed the other five quantitative criteria and produced one false pass under the unguarded specification rule.
+
+The subsequent engineering program materially improved the system. In V3, P95 pairwise repositioning was 0.000633 in compared with 0.004831 in in V1, an overall system-level reduction of approximately 86.9%. Corrected specimen-level V3 agreement results were a mean bias of -0.000435 in, MAE of 0.001517 in, RMSE of 0.001794 in, nearest-rank P95 absolute error of 0.003170 in, and maximum absolute error of 0.003913 in. V3 met five of the six retained quantitative criteria. The remaining quantitative miss was the P95 absolute-error criterion, exceeded by 0.000170 in, and the unguarded decision rule still produced one false pass.
+
+The completed engineering sequence demonstrates that repeated-presentation stability and absolute agreement were distinct system properties. The large improvement in V3 repeatability did not produce a proportional reduction in specimen-level disagreement with the manual reference. The V2 Hybrid-to-V3 comparison, together with the controlled-presentation development evidence, is consistent with physical presentation being a major contributor to the earlier repeatability problem, while the residual absolute-error component remains unresolved.
+
+The industrial-feasibility evidence is therefore bounded but useful. The final configuration demonstrated highly available and stable static OAL measurement behavior, and exploratory guard-band analysis showed a plausible way to separate automatic-acceptance candidates from near-limit measurements requiring secondary review. Because that decision analysis was retrospective and cohort dependent, no production guard band or future false-acceptance probability was validated.
+
+Accordingly, the thesis supports further development of CaseMetrology as a static dimensional-screening architecture under controlled presentation. It does not establish the prototype as interchangeable with precision reference metrology, as a production-ready inline inspection system, or as a validated unconditional final-acceptance device across the full specification interval. The principal contribution is a traceable engineering demonstration of what was improved, what remained unresolved, and how those measured limitations define the appropriate next stage of development.
