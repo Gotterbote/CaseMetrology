@@ -40,9 +40,10 @@ Specimen-level classification uses the mean of the three CV observations and the
 |---|---:|
 | Availability | 180/180 = 100.000% |
 | Bias | -0.000435 in |
-| MAE | 0.001531 in |
-| RMSE | 0.001804 in |
-| P95 absolute error | 0.003267 in |
+| MAE | 0.001517 in |
+| RMSE | 0.001794 in |
+| P95 absolute error | 0.003170 in |
+| Maximum absolute error | 0.003913 in |
 | P95 repositioning | 0.000633 in |
 | False passes | 1 |
 | False fails | 3 |
@@ -73,19 +74,19 @@ V3 P95 repositioning:
 |---|---:|---:|---:|---:|
 | Availability | 100% | 100% | 100% | 100% |
 | Bias (in) | +0.001613 | +0.000277 | -0.000505 | -0.000435 |
-| RMSE (in) | 0.002205 | 0.001538 | 0.001601 | 0.001804 |
-| P95 absolute error (in) | 0.003960 | 0.003065 | 0.003109 | 0.003267 |
+| RMSE (in) | 0.002205 | 0.001538 | 0.001601 | 0.001794 |
+| P95 absolute error (in) | 0.003960 | 0.003065 | 0.003109 | 0.003170 |
 | P95 repositioning (in) | 0.004831 | 0.003994 | 0.003021 | 0.000633 |
 
 The dominant V3 improvement was repositioning performance.
 
 Relative reduction in P95 repositioning:
-- V1 to V3: approximately 87%
+- V1 to V3: approximately 86.9%
 - V2 Endface-Hybrid to V3: approximately 79%
 
-The V3 controlled-presentation fixture therefore substantially reduced placement-dependent measurement variability.
+The V1-to-V3 system progression substantially reduced placement-dependent measurement variability. Controlled presentation was an important V3 design change, but the 86.9% improvement is a system-level result and is not attributed solely to that change.
 
-Absolute accuracy did not improve proportionally. V3 P95 absolute error remained approximately 0.0033 in.
+Absolute accuracy did not improve proportionally. V3 P95 absolute error remained approximately 0.0032 in.
 
 This supports separating two performance characteristics:
 1. repeatability / presentation sensitivity, and
@@ -153,9 +154,9 @@ These counts describe the intentionally stratified 60-specimen validation cohort
 
 ## Thesis-Relevant Finding
 
-V3 demonstrated that controlled part presentation substantially improved repeatability, reducing P95 repositioning to 0.000633 in.
+V3 demonstrated substantially improved system repeatability, with P95 repositioning reduced to 0.000633 in. This improvement is interpreted as a system-level V1-to-V3 result rather than as an effect attributable solely to controlled part presentation.
 
-Residual absolute measurement error remained materially larger than the repositioning error, with P95 absolute error of 0.003267 in.
+Residual absolute measurement error remained materially larger than the repositioning error, with P95 absolute error of 0.003170 in.
 
 Accordingly, the formal results do not support treating the prototype as a direct substitute for precision reference metrology across the full specification interval.
 

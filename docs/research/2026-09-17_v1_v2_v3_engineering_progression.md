@@ -39,8 +39,8 @@ V3 therefore provides the prospective formal validation of the frozen Endface-Hy
 | Validation basis | Formal | Formal | Retrospective | Formal prospective |
 | Availability | 100% | 100% | 100% | 100% |
 | Bias (in) | +0.001613 | +0.000277 | -0.000505 | -0.000435 |
-| RMSE (in) | 0.002205 | 0.001538 | 0.001601 | 0.001804 |
-| P95 absolute error (in) | 0.003960 | 0.003065 | 0.003109 | 0.003267 |
+| RMSE (in) | 0.002205 | 0.001538 | 0.001601 | 0.001794 |
+| P95 absolute error (in) | 0.003960 | 0.003065 | 0.003109 | 0.003170 |
 | P95 repositioning (in) | 0.004831 | 0.003994 | 0.003021 | 0.000633 |
 
 ## Repositioning Improvement
@@ -61,7 +61,7 @@ Relative reduction in P95 repositioning:
 - V1 PCA to V3 Endface-Hybrid: approximately 86.9%
 - V2 Endface-Hybrid to V3 Endface-Hybrid: approximately 79.0%
 
-The reduction from 0.004831 in in V1 to 0.000633 in in V3 is evidence that controlled part presentation substantially reduced the dominant placement-dependent component observed in the original configuration.
+The reduction from 0.004831 in in V1 to 0.000633 in in V3 demonstrates a substantial system-level reduction in the placement-dependent component observed in the original configuration. Controlled presentation was an important V3 change, but the 86.9% V1-to-V3 improvement is not attributed solely to that factor.
 
 ## Absolute Accuracy
 
@@ -72,7 +72,7 @@ P95 absolute error changed as follows:
 - V1 PCA: 0.003960 in
 - V2 PCA: 0.003065 in
 - V2 Endface-Hybrid: 0.003109 in
-- V3 Endface-Hybrid: 0.003267 in
+- V3 Endface-Hybrid: 0.003170 in
 
 V3 therefore achieved a large improvement in repositioning repeatability while retaining an absolute-error magnitude near 0.003 in.
 
@@ -84,7 +84,7 @@ The results demonstrate that repeatability and absolute accuracy were distinct l
 
 Earlier configurations contained a substantial placement-dependent error component.
 
-The controlled-presentation V3 configuration greatly reduced that component, as demonstrated by the decrease in P95 repositioning to 0.000633 in.
+The V3 system configuration greatly reduced that component, as demonstrated by the decrease in P95 repositioning to 0.000633 in. The change is interpreted at the system level because multiple configuration differences existed across V1, V2, and V3.
 
 However, the remaining absolute error did not decrease proportionally.
 
@@ -110,12 +110,13 @@ V3 results relative to the predeclared performance targets were:
 |---|---:|---:|---|
 | Availability | 100% | >= 99% | MET |
 | Absolute bias | 0.000435 in | <= 0.001 in | MET |
-| RMSE | 0.001804 in | <= 0.002 in | MET |
-| P95 absolute error | 0.003267 in | <= 0.003 in | NOT MET |
+| RMSE | 0.001794 in | <= 0.002 in | MET |
+| P95 absolute error | 0.003170 in | <= 0.003 in | NOT MET |
+| Maximum absolute error | 0.003913 in | <= 0.004 in | MET |
 | P95 repositioning | 0.000633 in | <= 0.002 in | MET |
 | False-pass objective | 1 observed | 0 preferred | NOT MET |
 
-V3 therefore met four of the five quantitative measurement-performance thresholds but did not meet the P95 absolute-error threshold.
+V3 therefore met five of the six quantitative measurement-performance thresholds. The only unmet quantitative criterion was the P95 absolute-error threshold.
 
 The zero-false-pass preference was also not met under the unguarded specification decision rule.
 
@@ -143,7 +144,7 @@ The stronger and more defensible conclusion is:
 
 1. V1 revealed that uncontrolled presentation was a major source of measurement variability.
 2. V2 fixture changes reduced some of that variability.
-3. V3 controlled presentation reduced P95 repositioning by approximately 86.9% relative to V1.
+3. The V1-to-V3 system progression reduced P95 repositioning by approximately 86.9%; this improvement is not attributed solely to controlled presentation.
 4. Absolute error did not decrease proportionally.
 5. Therefore, presentation repeatability and absolute metrological accuracy were experimentally shown to be separate engineering limitations.
 6. The resulting system is better characterized as a stable dimensional screening platform than as a replacement for precision contact metrology.
