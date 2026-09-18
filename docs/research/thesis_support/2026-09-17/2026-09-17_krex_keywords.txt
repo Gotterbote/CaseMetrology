@@ -1,0 +1,10 @@
+CaseMetrology
+computer vision
+dimensional metrology
+machine vision
+overall length measurement
+cartridge case inspection
+measurement system validation
+dimensional screening
+guard band
+embedded vision
