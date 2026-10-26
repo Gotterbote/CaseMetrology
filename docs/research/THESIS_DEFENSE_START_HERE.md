@@ -49,3 +49,35 @@ V3 met five of six quantitative criteria. Mean signed bias was −0.000435 in. T
 - The same enriched cohort supported the post hoc guard-band analysis. The observed zero-false-pass margins are not validated production rules.
 - One operator and static presentation were evaluated. Production yield, multiple-operator reproducibility, moving-part measurement, throughput, and long-term robustness were not established.
 - Reference means have finite uncertainty, and the physical source of residual absolute disagreement remains unresolved.
+
+## Offline reproduction
+
+For a smaller download, use `git clone --depth 1 https://github.com/Gotterbote/CaseMetrology.git` and record `git rev-parse HEAD`. A shallow clone omits earlier history; use a full clone when investigating historical commits. Run commands from the repository root.
+
+### Recompute summary statistics without image processing
+
+```bash
+python3 scripts/summarize_v3_formal_results.py
+```
+
+This standard-library-only command reads the preserved V3 observations and accepted manual specimen means, validates cohort/round coverage, and prints JSON to standard output. It does not write files. The output includes input SHA-256 hashes. Optional `--output PATH` creates a new JSON file and refuses to replace an existing file or write inside the research checkout.
+
+Agreement uses 60 specimen means; repositioning uses 180 related within-specimen absolute pairwise differences. P95 uses nearest rank. Compare unrounded calculations to six-decimal published values with an absolute tolerance of 0.0000005 inch; classification counts must match exactly. This recomputes statistics from saved measurements, not measurements from images or an independent validation of the manual reference.
+
+### Reprocess preserved images in a disposable checkout
+
+The recorded environment is Python 3.12.3, OpenCV 4.6.0, and NumPy 1.26.4. Other analysis scripts import SciPy (the July inventory records 1.11.4). The [Jetson environment record](../jetson_software_environment_2026-07-24.txt) and [Python inventory](../python_environment_manifest_2026-07-24.txt) document the original machine. The inventory contains distribution-specific packages and is not a portable pip requirements file. `requirements-dev.txt` lists development tools, not runtime dependencies. A clean installation on another platform has not been verified.
+
+In a disposable checkout with compatible dependencies:
+
+```bash
+sha256sum -c docs/research/v3_formal_validation/V3_MEASUREMENT_SYSTEM_MANIFEST.sha256
+python3 scripts/analyze_v3_formal_images.py
+python3 scripts/summarize_v3_formal_results.py
+```
+
+The image processor reads the 180 formal images, session blanks, and frozen estimator/calibration sources. It **replaces** `data/oal_validation/v3_formal/v3_cv_observations.csv` and writes timestamped JSON under `data/oal_validation/v3_formal/diagnostics/`. Review `git diff` in that disposable checkout; do not commit regenerated evidence over the preserved records. The summarizer then calculates specimen-level statistics from the resulting CSV.
+
+## Retained development backup
+
+`scripts/analyze_fixture_rocking_generalization.py.pre_parser_fix` is retained as a development backup. It is not a formal V3 entry point; use the evidence map above. No research evidence was removed during documentation cleanup.
