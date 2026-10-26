@@ -28,6 +28,8 @@ The 60-specimen cohort was intentionally enriched near the 0.9900–1.0100 in li
 
 The [formal V3 plan](v3_formal_validation/V3_FORMAL_VALIDATION_PLAN.md) identifies the prospective criteria and exclusions. The [freeze record](v3_formal_validation/V3_FINAL_FREEZE_EVIDENCE.md) records the estimator hash and capture-only procedure. The raw directory contains the 180 formal case images and three session blank references.
 
+The estimator source retains its development-era filename and header. The V3 freeze manifest identifies its exact SHA-256, and the post-acquisition analysis driver imports that frozen source. The name does not imply that formal V3 observations were used to tune it.
+
 ## Principal result
 
 | Endpoint | V3 observed | Retained target |
