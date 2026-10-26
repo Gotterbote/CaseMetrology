@@ -1,265 +1,64 @@
 # CaseMetrology
 
-Computer-vision metrology research platform developed on the NVIDIA Jetson Orin Nano Super Developer Kit.
+Research platform for the Kansas State University M.S. thesis **Engineering Evaluation of an Embedded Computer-Vision System for Static Dimensional Screening of Cartridge-Case Overall Length** by Timmy D. Bell.
 
-CaseMetrology integrates controlled illumination, mechanical positioning, global-shutter imaging, edge computing, subpixel measurement, research-grade data acquisition, and manual reference measurements to evaluate dimensional inspection of cartridge cases.
+The formal study evaluates cartridge-case overall length (OAL) under static, single-operator conditions. It combines a backlit IMX296 global-shutter camera and 16 mm lens, a Jetson Orin Nano, calibrated dimensional conversion, controlled specimen presentation, and an independent manual reference process. The October 2026 committee manuscript was distributed separately and is authoritative for the final research narrative. The advisor-review manuscript retained in this repository is an earlier snapshot.
 
-## Project status
+> **Status:** V1–V3 formal evaluation complete. This is a graduate research prototype. The evidence does not validate autonomous production inspection, unconditional final acceptance, moving-part measurement, or production throughput.
 
-**Classification:** Graduate research prototype  
-**Degree program:** M.S. Integrated Systems Design and Dynamics  
-**Institution:** Kansas State University  
-**Researcher:** Timmy Bell  
-**Current phase:** Fixture validation and cartridge-case overall-length measurement development
+## Formal result
 
-> This system has not been validated for autonomous production inspection, automatic rejection, PLC control, or production-release decisions.
-
-## Research objective
+The study used a frozen cohort of 60 cases selected from 235 source cases, with three randomized, independent placements per prospective configuration. Five development specimens were excluded from the formal cohort. Specimen means (n = 60) are the primary unit for agreement with the accepted three-round manual reference. The 180 pooled within-specimen pairwise differences describe repositioning; they are related observations, not 180 independent specimens.
 
-The project evaluates whether a controlled computer-vision metrology system can measure cartridge-case dimensions with acceptable:
+| Measure | Original V1 | Final V3 |
+| --- | ---: | ---: |
+| Valid measurement availability | 180/180 | 180/180 |
+| Mean signed bias | +0.001613 in | −0.000435 in |
+| RMSE | 0.002205 in | 0.001794 in |
+| P95 absolute specimen error | 0.003960 in | 0.003170 in |
+| P95 pairwise repositioning difference | 0.004831 in | 0.000633 in |
+| Quantitative criteria met | 1 of 6 | 5 of 6 |
+| Unguarded false passes / false fails | 1 / 8 | 1 / 3 |
 
-- Repeatability
-- Agreement with manual inspection
-- Stability across controlled sessions
-- Diagnostic traceability
-- Reproducibility of acquisition and analysis
+The V1-to-V3 P95 repositioning difference fell by approximately 86.9% at the **system level**. The full sequence changed both estimation and presentation, so the reduction cannot be assigned entirely to one component. V3 missed the P95 absolute-error target of 0.0030 in by 0.000170 in. Its remaining false pass prevents an unconditional acceptance claim under the nominal 0.9900–1.0100 in interval.
 
-The current thesis implementation uses a static measurement fixture. Conveyor integration, PLC communication, and automated rejection remain future work.
+A post-validation guard-band analysis explored secondary review near the specification limits. Candidate margins were selected and evaluated on the same enriched cohort; they are not validated production rules or estimates of future false-pass probability.
 
-## Integrated system architecture
+## Start with the evidence
 
-CaseMetrology combines several interacting subsystems:
+The [thesis defense evidence guide](docs/research/THESIS_DEFENSE_START_HERE.md) maps the prospective V3 plan, pre-acquisition freeze, calibration and reference records, raw images, formal observations, analysis scripts, results, and interpretation boundaries.
 
-```mermaid
-flowchart LR
-    A[Operator and Fixture] --> B[Backlit Workpiece]
-    B --> C[Global-Shutter Camera]
-    C --> D[Jetson Acquisition]
-    D --> E[Image Validation]
-    E --> F[Subpixel Measurement]
-    F --> G[Dimensional Result]
-    G --> H[Evidence and Analysis]
-    I[Manual Reference Measurement] --> H
-```
+Key records:
 
-| Layer | Current implementation |
-|---|---|
-| Physical measurement | Gauge block, cartridge case, Lexan locator, fixture, and backlight |
-| Imaging | Arducam B0499 USB3 global-shutter camera |
-| Edge computing | NVIDIA Jetson Orin Nano |
-| Acquisition | Locked controls, persistent camera alias, and session metadata |
-| Measurement | Silhouette detection, subpixel edge fitting, and dimensional conversion |
-| Assurance | Preflight, file hashes, Git traceability, and diagnostic review |
-| Human process | Part placement, manual reference measurement, and interpretation |
+- [V3 formal validation plan](docs/research/v3_formal_validation/V3_FORMAL_VALIDATION_PLAN.md)
+- [V3 final freeze evidence](docs/research/v3_formal_validation/V3_FINAL_FREEZE_EVIDENCE.md) and [measurement-system manifest](docs/research/v3_formal_validation/V3_MEASUREMENT_SYSTEM_MANIFEST.sha256)
+- [V3 formal images and observations](data/oal_validation/v3_formal/)
+- [V1–V3 engineering progression](docs/research/2026-09-17_v1_v2_v3_engineering_progression.md)
+- [V3 results and exploratory guard-band record](docs/research/2026-09-17_v3_formal_performance_and_guard_band_analysis.md)
 
-## Current imaging configuration
-
-- Camera: Arducam B0499 USB3 global-shutter camera
-- Persistent device path: `/dev/case-metrology-camera`
-- Resolution: 1456 × 1088 pixels
-- Pixel format: YUYV
-- Reported frame rate: 44 frames per second
-- Warmup frames: 20
-- Brightness: 0
-- Contrast: 10
-- Saturation: 0
-- Automatic white balance: disabled
-- White-balance temperature: 2498
-- Gain: 100
-- Exposure mode: manual
-- Exposure value: 5
+## Measurement architecture
 
-## Current research findings
+The system uses a static backlit side view of the case on a clear measurement plane. The original V1 and V2 formal phases used a PCA silhouette-extrema estimator. V3 used the frozen Endface-Hybrid estimator with controlled seating and roll orientation. Spatial and directional calibration converts accepted pixel endpoint separation to inches. Acquisition controls, blank images, specimen IDs, randomized order, and file integrity records support traceability.
 
-### Preliminary Lexan optical comparison
+The V3 formal capture was **capture-only**: the primary estimator was not run or displayed during acquisition. The frozen estimators were applied after all 180 scheduled images had been collected.
 
-A controlled paired comparison evaluated illumination with and without the clear Lexan locator inside a fixed unobstructed central region of interest.
+## Scope and limitations
 
-| Metric | Result |
-|---|---:|
-| Mean grayscale change | −0.0831 |
-| Percentage change | −0.0369% |
-| Mean absolute pixel difference | 0.8864 |
-| RMSE | 1.2830 |
-| 95th-percentile absolute difference | 3.0000 |
+The work evaluates one operator and one static optical configuration on an intentionally enriched cohort. It does not estimate production yield. The manual comparator has finite uncertainty. The source of residual V3 absolute disagreement was not uniquely identified. The V2 Endface-Hybrid analysis is retrospective, and the guard-band analysis is post hoc.
 
-The Lexan did not produce a practically meaningful change in mean illumination within the selected central ROI.
+Future experiments can compare a suitable telecentric lens under the existing presentation procedure, then test keyed mechanical seating under the same lens. Each configuration needs its own calibration and prospective evaluation. Production handling, multiple operators, motion, throughput, and long-term robustness require separate studies.
 
-This result remains classified as **preliminary central-field evidence**, not complete full-field optical validation.
+## Repository map
 
-### Trial 01 — Exploratory orientation-error dataset
+- `docs/research/`: protocols, freezes, decisions, formal summaries, and thesis support
+- `data/oal_validation/`: cohort, manual reference, formal CV observations, and images
+- `scripts/` and `src/`: acquisition, estimation, calibration, audit, and analysis code
+- `tests/`: software tests for measurement and supporting components
 
-Ten gauge-block removal-and-replacement cycles were captured with valid image integrity and stable camera controls. The gauge block was later found to be rotated approximately 90 degrees from the approved certified orientation.
+Earlier development notes remain in the repository for historical traceability. [README_V3_FORMAL_SUPPORT.md](README_V3_FORMAL_SUPPORT.md) is a historical pre-acquisition setup note.
 
-The dataset was preserved as exploratory evidence and may support evaluation of:
+## Researcher
 
-- Mechanical seating
-- Operator placement
-- Acquisition stability
-- Pixel-level edge behavior
-
-It may not be used as certified dimensional calibration or final fixture-acceptance evidence.
-
-### Trial 02 — Accepted fixture-repositioning result
-
-Trial 02 evaluated ten complete removal-and-replacement cycles with the certified 1.0000024-inch gauge-block dimension oriented vertically.
-
-| Metric | Result |
-|---|---:|
-| Cycles completed | 10 of 10 |
-| Acquisition-integrity verification | PASS |
-| Mean fitted span | 523.056377 px |
-| Between-image standard deviation | 0.031861 px |
-| Peak-to-peak variation | 0.089255 px |
-| Dimensional standard deviation | 0.000060913 in |
-| Dimensional peak-to-peak variation | 0.000170642 in |
-| Project repeatability objective | Less than 0.001 in |
-
-Accepted conclusion:
-
-> Under the documented single-operator, single-session conditions, the Lexan fixture demonstrated acceptable gauge-block removal-and-replacement repeatability for continued computer-vision metrology development.
-
-Trial 02 does not independently establish absolute accuracy, between-day reproducibility, total measurement uncertainty, cartridge-case performance, or production readiness.
-
-## Research evidence
-
-The primary evidence index is:
-
-- [`docs/research_evidence_index.md`](docs/research_evidence_index.md)
-
-Additional research records include:
-
-- [`docs/research_session_summary_2026-07-28.md`](docs/research_session_summary_2026-07-28.md)
-- [`docs/trial_02_orientation_verification_2026-07-28.txt`](docs/trial_02_orientation_verification_2026-07-28.txt)
-- [`docs/trial_02_repositioning_repeatability_results_2026-07-28.txt`](docs/trial_02_repositioning_repeatability_results_2026-07-28.txt)
-- [`docs/repositioning_session_integrity_verification_protocol_2026-07-28.txt`](docs/repositioning_session_integrity_verification_protocol_2026-07-28.txt)
-- [`docs/lexan_optical_test_deviation_2026-07-28.md`](docs/lexan_optical_test_deviation_2026-07-28.md)
-- [`docs/research_data_retention_policy.md`](docs/research_data_retention_policy.md)
-
-## Repository structure
-
-```text
-CaseMetrology/
-├── docs/               Protocols, runbooks, results, and evidence index
-├── scripts/            Research preflight and workflow scripts
-├── src/
-│   ├── acquisition/    Controlled camera acquisition
-│   ├── calibration/    Gauge-block and illumination analysis
-│   └── utils/          Integrity-verification utilities
-├── data/               Selected exploratory and milestone evidence
-├── raw_images/         Raw research images
-├── processed_images/   Diagnostic and annotated images
-├── measurements/       Metadata, CSV files, and analysis reports
-├── logs/               Preflight and session logs
-└── requirements-dev.txt
-```
-
-Large datasets may remain outside normal Git tracking. Accepted milestone evidence may be committed when it materially improves reproducibility.
-
-See:
-
-- [`docs/research_data_retention_policy.md`](docs/research_data_retention_policy.md)
-
-## Research-session startup
-
-On the Jetson:
-
-```bash
-cd ~/Projects/CaseMetrology
-source .venv/bin/activate
-git status -sb
-./scripts/run_research_session_preflight.sh
-```
-
-Official acquisition should not begin unless:
-
-- The preflight passes
-- The repository state is documented
-- Camera controls match the approved configuration
-- The physical configuration is inspected
-- The required orientation or part-placement gate is accepted
-
-## Acquisition traceability
-
-Controlled sessions may record:
-
-- Session identifier
-- Capture timestamps
-- Camera settings
-- Git commit and working-tree state
-- Image dimensions and file sizes
-- SHA-256 hashes
-- Experimental mode
-- Analysis outputs
-- Diagnostic-review disposition
-
-The reusable repositioning verifier is:
-
-`src/utils/verify_repositioning_session.py`
-
-An automated integrity PASS verifies acquisition records and file integrity. It does not independently establish correct orientation, physical seating, dimensional accuracy, or valid edge selection.
-
-## Next milestones
-
-### Trial 03 — Between-day confirmation
-
-Trial 03 will repeat the accepted fixture experiment during an independent later session.
-
-The comparison will evaluate:
-
-- Difference between session means
-- Within-session variation
-- Peak-to-peak variation
-- Edge-angle consistency
-- Diagnostic consistency
-- Environmental observations
-- Physical setup deviations
-
-Runbook:
-
-- [`docs/trial_03_between_day_repositioning_runbook.md`](docs/trial_03_between_day_repositioning_runbook.md)
-
-### Cartridge-case overall-length measurement
-
-After fixture confirmation, the project will:
-
-1. Develop the cartridge-case OAL measurement pipeline
-2. Complete a small development pilot
-3. Lock the fixture, acquisition method, and algorithm
-4. Conduct an official 235-part validation study
-5. Compare computer-vision results with manual reference measurements
-
-## Current limitations
-
-The project has not yet established:
-
-- Absolute dimensional accuracy
-- Traceable calibration uncertainty
-- Total measurement uncertainty
-- Temperature compensation
-- Multiple-operator reproducibility
-- Long-term fixture stability
-- Cartridge-case measurement agreement
-- Production-level classification performance
-- PLC or reject-system integration
-
-## Future development
-
-Potential future work includes:
-
-- Operator-facing measurement dashboard
-- Per-cycle pass/fail reporting
-- Multiple dimensional measurements
-- Data historian integration
-- PLC communication
-- Conveyor-triggered acquisition
-- Automated stopping or rejection
-- Production-scale validation
-
-## Author
-
-**Timmy Bell**  
-M.S. Integrated Systems Design and Dynamics candidate  
-Kansas State University
-
-GitHub: `Gotterbote`
+Timmy Bell  
+M.S. Integrated Systems Design and Dynamics  
+Kansas State University, College of Technology and Aviation, Salina
