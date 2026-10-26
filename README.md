@@ -46,6 +46,8 @@ The V3 formal capture was **capture-only**: the primary estimator was not run or
 
 The work evaluates one operator and one static optical configuration on an intentionally enriched cohort. It does not estimate production yield. The manual comparator has finite uncertainty. The source of residual V3 absolute disagreement was not uniquely identified. The V2 Endface-Hybrid analysis is retrospective, and the guard-band analysis is post hoc.
 
+## Future work
+
 Future experiments can compare a suitable telecentric lens under the existing presentation procedure, then test keyed mechanical seating under the same lens. Each configuration needs its own calibration and prospective evaluation. Production handling, multiple operators, motion, throughput, and long-term robustness require separate studies.
 
 ## Repository map
@@ -55,7 +57,7 @@ Future experiments can compare a suitable telecentric lens under the existing pr
 - `scripts/` and `src/`: acquisition, estimation, calibration, audit, and analysis code
 - `tests/`: software tests for measurement and supporting components
 
-Earlier development notes remain in the repository for historical traceability. [README_V3_FORMAL_SUPPORT.md](README_V3_FORMAL_SUPPORT.md) is a historical pre-acquisition setup note.
+Earlier development notes remain in the repository for historical traceability. The [early research evidence index](docs/research_evidence_index.md) retains pre-formal planning language; use the [thesis defense evidence guide](docs/research/THESIS_DEFENSE_START_HERE.md) for current study status. [README_V3_FORMAL_SUPPORT.md](README_V3_FORMAL_SUPPORT.md) is a historical pre-acquisition setup note.
 
 ## Researcher
 
