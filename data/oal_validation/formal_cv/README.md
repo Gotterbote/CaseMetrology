@@ -1,5 +1,7 @@
 # Formal OAL CV Storage
 
+> Historical storage convention recorded before acquisition. Formal acquisition is complete; V3 records are under [`../v3_formal/`](../v3_formal/). See the [current evidence guide](../../../docs/research/THESIS_DEFENSE_START_HERE.md).
+
 Formal CV sessions use sequential IDs:
 
 `CV-S001`, `CV-S002`, `CV-S003`, ...

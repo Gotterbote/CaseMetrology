@@ -1,5 +1,7 @@
 ﻿# CaseMetrology Research Evidence Index
 
+> **Historical index:** This index preserves early development and planning. V1–V3 formal evaluation is complete. Use the [thesis defense evidence guide](research/THESIS_DEFENSE_START_HERE.md) for current results and interpretation boundaries.
+
 ## Purpose
 
 This index links each material research finding to its status, supporting
@@ -312,7 +314,9 @@ compare:
 
 ## E-009 — Cartridge-case OAL study
 
-**Status:** Planned
+**Status:** Superseded planning
+
+The completed study screened 235 source cases and used a frozen formal cohort of 60 specimens. The original planning text below is retained for traceability; it does not describe the final sample size.
 
 **Planned sequence:**
 

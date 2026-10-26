@@ -1,10 +1,10 @@
 # CaseMetrology Formal OAL Validation Infrastructure
 
-This package contains **pre-measurement infrastructure only**. It does not
-contain formal validation observations and does not generate an official
-validation sample unless the selection script is deliberately executed with
-the finalized screening population, allocation file, and declared selection
-seed.
+This directory contains completed formal OAL validation records and the original preparation templates. The formal cohort contains 60 specimens selected from 235 screened cases. Begin with the [thesis defense evidence guide](../../docs/research/THESIS_DEFENSE_START_HERE.md) for current study status.
+
+## Historical preparation instructions
+
+The instructions below record preparation before formal acquisition. Do not regenerate the frozen cohort or run orders in the preserved research checkout.
 
 ## Included templates
 
